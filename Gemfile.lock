@@ -9,7 +9,13 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    autoprefixer-rails (6.2.1)
+      execjs
+      json
     blankslate (2.1.2.4)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     classifier-reborn (2.0.4)
       fast-stemmer (~> 1.0)
     coffee-script (2.4.1)
@@ -137,6 +143,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.6)
   github-pages
 
 BUNDLED WITH

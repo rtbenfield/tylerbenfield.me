@@ -6,6 +6,8 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://tylerbenfield.me" # the base hostname & protocol for your site
 github_username:  code-maverick
+linkedin:         tylerbenfield
+google_plus:      TylerBenfield0
 profile_image: "//gravatar.com/avatar/50655d95e83ea135dc94bb0f9e707df9?size=200"
 
 # Build settings
