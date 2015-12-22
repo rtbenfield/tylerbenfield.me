@@ -1,13 +1,6 @@
 ---
-layout: page
+layout: about
 title: About
 permalink: /about/
 ---
-
-![]({{ site.profile_image }})
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
-
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+Hi, I'm Tyler Benfield. I'm a solutions engineer at [Standpoint Technologies](http://www.standpointtech.com/). I completed my Bachelor's degree at Wingate University and I'm currently in Georgia Tech's [OMSCS](http://www.omscs.gatech.edu/) program. I started this blog to catalog the things I learn as I continue to discover more concise and efficient ways to structure code. If you're interested in my skillsets, check out my resumé. If you're interested in my projects, check out my Github page.
