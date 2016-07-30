@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/rtbenfield
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://blog.tylerbenfield.me
+  * I am rtbenfield (https://keybase.io/rtbenfield) on keybase.
+  * I have a public key with fingerprint A5FD A2BE 20D8 21ED F53D  C997 5AA1 655F 53DB B9D5
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101e39b4fcb07bb8b0169372ac7c79e51251125424466fdd5f3ddfe5507823c854a0a",
+            "fingerprint": "a5fda2be20d821edf53dc9975aa1655f53dbb9d5",
+            "host": "keybase.io",
+            "key_id": "5aa1655f53dbb9d5",
+            "kid": "0101e39b4fcb07bb8b0169372ac7c79e51251125424466fdd5f3ddfe5507823c854a0a",
+            "uid": "c92772dfa015fe14e2e406c0118c2619",
+            "username": "rtbenfield"
+        },
+        "service": {
+            "hostname": "blog.tylerbenfield.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1469837522,
+    "expire_in": 157680000,
+    "prev": "f6f525d9875ea3e1aea06b200fd1ad2bccf4dd634799538fab9a00c66b4ce928",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMIwAnicrZJJaBRBFIYnahRHBEXF5WC0gxsOQ1V1Vy+DelAJiCtioriNVV3VY5tJ
+96Sns4xJjFFcICi5iKBxiV7UGHEBNxB1XHEgRgmiOUhEBUNURCHgFq0OevNoQVG8
+x/f++t/j3R05OBTOizbU3jramNyXl7vdUhFaffjT0xqJuiwjxWqkUj7w8CTjaT9e
+ajMpJgEIIJcNqlgmBRqlOgVQNWQNEVMzNYNjiDAUV0GKoqoWY9iSGbM4xkDTkWzq
+WCGASBHJsp0E91Ke7fhClmCLEUQ5AkxHkDMLy8w0DA0TAlWMg5BSg2FRuNlNBxXC
+HCVpHrVdkRNBfMDeP/j/7LtiQM40kKYhZhEAscWhwhFXgGoCCHUTqdAIwDT3HFLG
+Be35lDuWLQYp1UUkka+0TR6MNujlD0OTbiLqZ5Lc+8tGRT4ipTzXd003KZDNvp+K
+BQp+JhWUVHEa/yMWp7bDxERFQSX30rbrSDEoSNO3A3WoqIYuaxihiMSrU7bH43ZA
+YE3VgTjBN7xSSFqqhRFmhq5hTmQOCSdApQgAi0HCEDVNS2FMlRXNMLCsW4QaBABT
+ValicgPpUtBeueNKMVnYJAkhmbYTDvErPC7VZW+tHxLKC4eG5g8KNi0UHj7q7/6t
+aB/WX/heO1C99G3V6w35bUrvoT1FdfcSC8Y1N0Xa1V87YM/GR3eqJ1+8/+7Umv2L
+dna3hrsXXj32ZfnBIbXXV7UWzO0olk8+62kt2XJ+W1n74MXlN79e37C1f97U95Oa
++r44E/vamo5fOv4mN+12YWnzmvn99XOOFY+dnZvV2dQwpnN80a7O8symlROU4tFn
+szXLbvz42fJgauRJUeNQM9fbMn13x89Xw7efpouy+76ff/ypfIvRRS4/Xp+9seNE
+fv3eruiV8OfekSU9n9d+b/jQXZ+Z4VUV5Ppmvpz5fP+SM/MPnfvVeCQ7esq3c6dB
+Qd6ItgtF17r87jJnHZ5XqT6srr3Q3FH34kyPUfjxN9SLUNI=
+=JRkp
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rtbenfield
+
+==================================================================
