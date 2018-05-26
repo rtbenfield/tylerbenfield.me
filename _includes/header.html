@@ -1,41 +1,37 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-primary">
-  <h1 class="navbar-brand">
-    <a class="navbar-brand" href="{{ site.baseurl }}/">
-      {{ site.title }}
-    </a>
-  </h1>
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary">
+  <a class="navbar-brand" href="{{ site.baseurl }}/">
+    {{ site.title }}
+  </a>
 
-  <ul class="nav navbar-nav pull-right">
-    {% for page in site.pages %}
-      {% if page.title %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    {% if site.github_username %}
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav pull-right">
+      {% for page in site.pages %} {% if page.title %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      </li>
+      {% endif %} {% endfor %} {% if site.github_username %}
       <li class="nav-item">
         <a class="nav-link" href="https://github.com/{{ site.github_username }}">
-          <i class="fa fa-github"></i>
+          <i class="fab fa-github d-none d-md-inline"></i> <span class="d-md-none">GitHub</span>
         </a>
       </li>
-    {% endif %}
-
-    {% if site.google_plus %}
+      {% endif %} {% if site.google_plus %}
       <li class="nav-item">
         <a class="nav-link" href="https://google.com/+{{ site.google_plus }}">
-          <i class="fa fa-google-plus"></i>
+          <i class="fab fa-google-plus d-none d-md-inline"></i> <span class="d-md-none">Google+</span>
         </a>
       </li>
-    {% endif %}
-
-    {% if site.linkedin %}
+      {% endif %} {% if site.linkedin %}
       <li class="nav-item">
         <a class="nav-link" href="https://www.linkedin.com/in/{{ site.linkedin }}">
-          <i class="fa fa-linkedin"></i>
+          <i class="fab fa-linkedin d-none d-md-inline"></i> <span class="d-md-none">LinkedIn</span>
         </a>
       </li>
-    {% endif %}
-  </ul>
+      {% endif %}
+    </ul>
+  </div>
 </nav>

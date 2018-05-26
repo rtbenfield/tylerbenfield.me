@@ -1,10 +1,10 @@
 # Site settings
-title: Maverick-Coding
-email: tower@tylerbenfield.me
+title: Tyler Benfield
+email: tyler@tylerbenfield.me
 description: > # this means to ignore newlines until "baseurl:"
-  A blog about mostly coding
+  Tyler Benfield's personal site and blog
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://tylerbenfield.me" # the base hostname & protocol for your site
+url: "https://tylerbenfield.me" # the base hostname & protocol for your site
 github_username:  code-maverick
 linkedin:         tylerbenfield
 google_plus:      TylerBenfield0
@@ -12,3 +12,9 @@ profile_image: "//gravatar.com/avatar/50655d95e83ea135dc94bb0f9e707df9?size=200"
 
 # Build settings
 markdown: kramdown
+exclude:
+- Dockerfile
+
+# Plugins
+plugins:
+- jekyll-redirect-from
