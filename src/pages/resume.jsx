@@ -1,16 +1,24 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faExternalLinkAlt,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
+import LinkList from "../components/linkList";
 import SEO from "../components/seo";
+import Typography from "../components/typography";
+import VscodeIcon from "../components/vscodeIcon";
 
 const ResumePage = () => (
   <Layout>
     <SEO title="Resumé" />
-    <h1>Resumé</h1>
+    <Typography variant="h1">Resumé</Typography>
+    <Typography variant="p">Hi, I’m Tyler Benfield.</Typography>
 
-    <h1 id="introduction">Introduction</h1>
-    <p>Hi, I’m Tyler Benfield.</p>
-
-    <p>
+    <Typography variant="p">
       I’m currently a Software Developer at SentryOne in Charlotte, NC. I am
       lucky to be able to work with a team of brilliant individuals that
       challenge me to learn new things and improve every day. Outside of work, I
@@ -18,15 +26,17 @@ const ResumePage = () => (
       stay up-to-date on where the industry is headed and how we can continue to
       progress forward. I also have a few side projects that I work on when I
       can and I enjoy working on cars as well.
-    </p>
+    </Typography>
 
-    <p>
+    <Typography variant="p">
       If you’d like to chat, you can reach me at{" "}
       <a href="mailto:tyler@tylerbenfield.me">tyler@tylerbenfield.me</a>.
-    </p>
+    </Typography>
 
-    <h1 id="interesting-topics">Interesting Topics</h1>
-    <p>
+    <Typography variant="h2" id="interesting-topics">
+      Interesting Topics
+    </Typography>
+    <Typography variant="p">
       Some current topics I find particularly interesting are GraphQL, Web
       Assembly, and CSS-in-JS. I have implemented a GraphQL API in C# and
       continue to find ways in which the schema provides opportunity that
@@ -34,34 +44,40 @@ const ResumePage = () => (
       am following a few and look forward to using it myself once I find the
       right project. The controversial nature of CSS-in-JS is something I also
       follow, although I find both sides tend to misunderstand each other.
-    </p>
+    </Typography>
 
-    <p>
+    <Typography variant="p">
       I closely follow the React community and I am working to increase my
       participation and contribution. Having done React development since 2015,
       I have seen the library mature and the community surrounding it reach an
       impressive size. I’m always impressed by how the maintainers consider
       real-world applications in any decisions they make, particularly by
       focusing on backwards compatibility and opt-in new features.
-    </p>
+    </Typography>
 
-    <p>
+    <Typography variant="p">
       As for languages, my favorite is Go for its performance and
       straightforward syntax, but I rarely have the opportunity to use it
       professionally. I have dove headfirst into TypeScript and really enjoy it.
       The next language I hope to learn is ReasonML, specifically focusing on
       ReasonReact.
-    </p>
+    </Typography>
 
-    <h1 id="technical-skills">Technical Skills</h1>
+    <Typography variant="h2" id="technical-skills">
+      Technical Skills
+    </Typography>
 
-    <h2 id="languages">Languages</h2>
+    <Typography variant="h3" id="languages">
+      Languages
+    </Typography>
     <ul>
       <li>Excellent in C#, JavaScript, TypeScript, SQL, CSS</li>
       <li>Comfortable in Go, Python, Java, Less, Sass</li>
     </ul>
 
-    <h2 id="software--technologies">Software &amp; Technologies</h2>
+    <Typography variant="h3" id="software--technologies">
+      Software &amp; Technologies
+    </Typography>
     <ul>
       <li>Databases: SQL Server, MongoDB</li>
       <li>Libraries/Frameworks: React, Vue.js, RxJS, ASP.NET</li>
@@ -74,55 +90,99 @@ const ResumePage = () => (
       </li>
     </ul>
 
-    <h1 id="projects">Projects</h1>
-    <h2 id="jest-test-adapter-vs-code-extension">
-      Jest Test Adapter VS Code Extension
-    </h2>
-    <ul>
-      <li>
-        <a href="https://github.com/rtbenfield/vscode-jest-test-adapter">
-          GitHub
-        </a>
-      </li>
-      <li>
-        <a href="https://marketplace.visualstudio.com/items?itemName=rtbenfield.vscode-jest-test-adapter">
-          VS Code Marketplace
-        </a>
-      </li>
-    </ul>
+    <Typography variant="h2" id="projects">
+      Projects
+    </Typography>
+    <section>
+      <Typography
+        variant="h3"
+        id="projects-jest-test-adapter-vs-code-extension"
+      >
+        Jest Test Adapter VS Code Extension
+      </Typography>
+      <LinkList>
+        <li>
+          <Link
+            title="Navigate to Jest Test Adapter project page"
+            to="/projects#jest-test-adapter-vs-code-extension"
+          >
+            <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
+          </Link>
+        </li>
+        <li>
+          <a
+            href="https://github.com/rtbenfield/vscode-jest-test-adapter"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Open Jest Test Adapter GitHub page"
+          >
+            <FontAwesomeIcon fixedWidth icon={faGithub} size="2x" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=rtbenfield.vscode-jest-test-adapter"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Open Jest Test Adapter VS Code Marketplace page"
+          >
+            <VscodeIcon />
+          </a>
+        </li>
+      </LinkList>
+    </section>
 
-    <p>
-      After finding a few things I did not like about existing Jest VS Code
-      extensions and discoverin gthat surprisingly few existed, I began a
-      project to scratch my own itch that is now a published VS Code extension.
-      It is not a complete extension on its own, but an adapter to extend the
-      functionality of the{" "}
-      <a href="https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer">
-        Test Explorer UI
-      </a>{" "}
-      extension by Holger Benl. It is still in an early preview, but I have been
-      shocked by the number of installs and amount of feedback.
-    </p>
+    <section>
+      <Typography variant="h3" id="projects-loan-rover">
+        Loan Rover
+      </Typography>
+      <LinkList>
+        <li>
+          <Link
+            title="Navigate to Loan Rover project page"
+            to="/projects#loan-rover"
+          >
+            <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
+          </Link>
+        </li>
+        <li>
+          <a
+            href="https://loan-rover.herokuapp.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Open Loan Rover"
+          >
+            <FontAwesomeIcon fixedWidth icon={faExternalLinkAlt} size="2x" />
+          </a>
+        </li>
+      </LinkList>
+    </section>
 
-    <h1 id="work-history">Work History</h1>
+    <Typography variant="h2" id="work-history">
+      Work History
+    </Typography>
 
-    <h2 id="senior-software-developer">Senior Software Development Engineer</h2>
-    <p>
+    <Typography variant="h3" id="senior-software-developer">
+      Senior Software Development Engineer
+    </Typography>
+    <Typography variant="p">
       <em>SentryOne - Charlotte, NC</em>
       <br />
       September 2018 - Present
-    </p>
+    </Typography>
 
     <ul>
       <li>Currently working on super secret stuff. Stay tuned!</li>
     </ul>
 
-    <h2 id="solutions-engineer">Solutions Engineer</h2>
-    <p>
+    <Typography variant="h3" id="solutions-engineer">
+      Solutions Engineer
+    </Typography>
+    <Typography variant="p">
       <em>Standpoint Technologies - Huntersville, NC</em>
       <br />
       May 2013 - August 2018
-    </p>
+    </Typography>
 
     <ul>
       <li>Lead engineer and architect on one of two SaaS products</li>
@@ -158,8 +218,10 @@ const ResumePage = () => (
       </li>
     </ul>
 
-    <h2 id="software-engineering-intern">Software Engineering Intern</h2>
-    <p>
+    <Typography variant="h3" id="software-engineering-intern">
+      Software Engineering Intern
+    </Typography>
+    <Typography variant="p">
       <em>Penske Racing - Mooresville, NC</em>
       <br />
       May 2011 - August 2011
@@ -169,7 +231,7 @@ const ResumePage = () => (
       May 2012 - August 2012
       <br />
       December 2012 - January 2013
-    </p>
+    </Typography>
 
     <ul>
       <li>
@@ -197,20 +259,24 @@ const ResumePage = () => (
       </li>
     </ul>
 
-    <h1 id="education">Education</h1>
+    <Typography variant="h2" id="education">
+      Education
+    </Typography>
 
-    <h2 id="georgia-institute-of-technology">
+    <Typography variant="h3" id="georgia-institute-of-technology">
       Georgia Institute of Technology
-    </h2>
-    <p>Spring 2014 - Spring 2018</p>
+    </Typography>
+    <Typography variant="p">Spring 2014 - Spring 2018</Typography>
 
     <ul>
       <li>M.S., Computer Science</li>
       <li>Part of inaugural OMSCS cohort</li>
     </ul>
 
-    <h2 id="wingate-university">Wingate University</h2>
-    <p>Fall 2009 - Spring 2013</p>
+    <Typography variant="h3" id="wingate-university">
+      Wingate University
+    </Typography>
+    <Typography variant="p">Fall 2009 - Spring 2013</Typography>
 
     <ul>
       <li>B.S., Mathematics / Computer Science</li>
@@ -225,7 +291,9 @@ const ResumePage = () => (
       </li>
     </ul>
 
-    <h1 id="honors-and-achievements">Honors and Achievements</h1>
+    <Typography variant="h2" id="honors-and-achievements">
+      Honors and Achievements
+    </Typography>
     <ul>
       <li>
         Wingate University Outstanding Student in Mathematics &amp; Computer

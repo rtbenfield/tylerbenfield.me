@@ -1,0 +1,47 @@
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.45rem;
+}
+
+.logo {
+  margin: 20px;
+  max-width: 400px;
+}
+
+.links {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  margin: 0 auto;
+  padding: 1.45rem 1.0875rem;
+}
+
+.links > *:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.button {
+  background-size: 0 100%;
+  border: 0.1rem solid var(--primary-color);
+  border-radius: 0.5rem;
+  color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+  transition: background-size 0.5s, color 0.5s, border-color 0.5s,
+    box-shadow 0.5s;
+}
+
+.button.active {
+  background-color: var(--primary-color);
+  background-size: 100% 100%;
+  color: var(--background-color);
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0 0 0.1rem 0.05rem var(--secondary-color);
+  border-color: var(--secondary-color);
+  outline: none;
+}

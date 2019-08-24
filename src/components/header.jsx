@@ -1,41 +1,29 @@
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+import LogoLarge from "../images/logo-large.svg";
+import styles from "./header.module.css";
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-        <Link
-          to="/resume"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          Resumé
-        </Link>
-      </h1>
+  <header className={styles.root}>
+    <Link to="/">
+      <img alt="Tyler Benfield Logo" className={styles.logo} src={LogoLarge} />
+    </Link>
+    <div className={styles.links}>
+      <Link
+        activeClassName={styles.active}
+        className={styles.button}
+        to="/resume"
+      >
+        Resumé
+      </Link>
+      <Link
+        activeClassName={styles.active}
+        className={styles.button}
+        to="/projects"
+      >
+        Projects
+      </Link>
     </div>
   </header>
 );
