@@ -1,0 +1,9 @@
+.anchor .anchorIcon {
+  display: none;
+  margin-left: 0.5rem;
+}
+
+.root:hover .anchorIcon,
+.anchor:focus .anchorIcon {
+  display: inline;
+}

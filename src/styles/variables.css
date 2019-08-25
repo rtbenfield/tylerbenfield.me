@@ -1,0 +1,11 @@
+@custom-media --breakpoint-xs (width < 600px);
+@custom-media --breakpoint-sm-down (width < 960px);
+@custom-media --breakpoint-sm (600px <= 600px < 960px);
+@custom-media --breakpoint-sm-up (width >= 600px);
+@custom-media --breakpoint-md-down (width < 1280px);
+@custom-media --breakpoint-md (960px <= width < 1280px);
+@custom-media --breakpoint-md-up (width >= 960px);
+@custom-media --breakpoint-lg-down (width < 1920px);
+@custom-media --breakpoint-lg (1280px <= width < 1920px);
+@custom-media --breakpoint-lg-up (width >= 1280px);
+@custom-media --breakpoint-xl (width >= 1920px);

@@ -1,0 +1,141 @@
+@import "../styles/variables.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+:root {
+  --color-background: #303030;
+  --color-foreground: #607d8b;
+  --color-primary: #607d8b;
+  --color-secondary: #60b0f4;
+
+  --max-content-width: 960px;
+  --font-size: 16px;
+
+  @media (--breakpoint-sm-up) {
+    --font-size: 18px;
+  }
+
+  @media print {
+    --font-size: 10px !important;
+    --color-background: #fff;
+    --color-foreground: #000;
+    --color-primary: #000;
+    --color-secondary: #000;
+  }
+}
+
+html {
+  font-family: Roboto, Helvetica, Arial;
+  font-size: var(--font-size);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  margin: 0 auto 0 auto;
+  max-width: var(--max-content-width);
+  padding: 0 1rem 1rem;
+}
+
+/* Text */
+p {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Links */
+:any-link {
+  background-color: transparent;
+  color: var(--color-primary);
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: var(--color-secondary);
+    outline: none;
+  }
+}
+
+/* Buttons */
+a.button {
+  background-size: 0 100%;
+  border: 0.1em solid var(--color-primary);
+  border-radius: 0.5rem;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s,
+    box-shadow 0.5s;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0.1em 0.05rem var(--color-secondary);
+    border-color: var(--color-secondary);
+    outline: none;
+  }
+
+  &[aria-current="page"] {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+  }
+}
+
+/* Tables */
+th {
+  font-weight: bold;
+}
+
+/* Horizontal rules */
+hr {
+  background: hsla(0, 0%, 0%, 0.2);
+  border: none;
+  box-sizing: content-box;
+  height: 0.1rem;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+/* Text selection */
+a::selection,
+footer::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+li::selection,
+p::selection,
+span::selection {
+  /* Add 0.99 opacity otherwise Chrome will apply a default 🙄 */
+  background-color: rgba(96, 125, 139, 0.99);
+  color: var(--color-background);
+  text-shadow: none;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
