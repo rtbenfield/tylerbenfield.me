@@ -3,6 +3,7 @@ module.exports = {
     title: `Tyler Benfield`,
     description: `Personal blog of Tyler Benfield.`,
     author: `Tyler Benfield`,
+    siteUrl: `https://tylerbenfield.me`,
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -34,6 +35,7 @@ module.exports = {
         trackingId: `UA-81673230-3`,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
   ],
 };
