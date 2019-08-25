@@ -1,10 +1,22 @@
+@import "../styles/variables.css";
+
 .root {
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   justify-content: space-between;
+
+  @media (--breakpoint-sm-up) {
+    flex-direction: row;
+  }
 }
 
 .iconLinks > a {
   margin: 0.5rem;
+}
+
+@media (--breakpoint-xs) {
+  .iconLinks {
+    margin-bottom: 0.5rem;
+  }
 }

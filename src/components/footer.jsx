@@ -4,15 +4,19 @@ import {
   faLinkedin,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import styles from "./footer.module.css";
 import VscodeIcon from "./vscodeIcon";
 
-const Footer = () => {
+const Footer = ({ className = "" }) => {
   return (
-    <footer className={styles.root}>
+    <footer className={`${styles.root} ${className}`}>
       <span>© {new Date().getFullYear()} Tyler Benfield</span>
       <span className={styles.iconLinks}>
+        <a href="mailto:tyler@tylerbenfield.me" title="Send email">
+          <FontAwesomeIcon fixedWidth icon={faEnvelope} size="2x" />
+        </a>
         <a
           href="https://github.com/rtbenfield"
           rel="noopener noreferrer"

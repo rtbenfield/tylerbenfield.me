@@ -1,13 +1,39 @@
+@import "../styles/variables.css";
+
 .root {
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 1.45rem;
+
+  @media print {
+    display: none;
+  }
+}
+
+.print {
+  align-items: center;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media print {
+    display: flex;
+  }
+
+  & .logo {
+    max-width: 25%;
+  }
+}
+
+.contact > a {
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 .logo {
-  margin: 20px;
-  max-width: 400px;
+  margin: 1rem;
+  max-width: calc(100% - 2rem);
 }
 
 .links {
@@ -15,33 +41,22 @@
   flex: 1;
   justify-content: flex-end;
   margin: 0 auto;
-  padding: 1.45rem 1.0875rem;
+
+  & > *:not(:first-child) {
+    margin-left: 0.5rem;
+  }
 }
 
-.links > *:not(:first-child) {
-  margin-left: 0.5rem;
-}
+@media (--breakpoint-sm-up) {
+  .root {
+    flex-direction: row;
+  }
 
-.button {
-  background-size: 0 100%;
-  border: 0.1rem solid var(--primary-color);
-  border-radius: 0.5rem;
-  color: var(--primary-color);
-  padding: 0.25rem 0.5rem;
-  text-decoration: none;
-  transition: background-size 0.5s, color 0.5s, border-color 0.5s,
-    box-shadow 0.5s;
-}
+  .logo {
+    max-width: 400px;
+  }
 
-.button.active {
-  background-color: var(--primary-color);
-  background-size: 100% 100%;
-  color: var(--background-color);
-}
-
-.button:hover,
-.button:focus {
-  box-shadow: 0 0 0.1rem 0.05rem var(--secondary-color);
-  border-color: var(--secondary-color);
-  outline: none;
+  .links {
+    padding: 1.45rem 1.0875rem;
+  }
 }

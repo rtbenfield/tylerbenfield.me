@@ -2,9 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Tyler Benfield`,
     description: `Personal blog of Tyler Benfield.`,
-    author: `Tyler Benfield @rtbenfield`,
+    author: `Tyler Benfield`,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -25,6 +26,12 @@ module.exports = {
         theme_color: `#607D8B`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-81673230-3`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
