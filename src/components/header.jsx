@@ -18,6 +18,9 @@ const Header = () => {
           />
         </Link>
         <nav className={styles.links}>
+          <Link className="button" to="/blog">
+            Blog
+          </Link>
           <Link className="button" to="/resume">
             Resumé
           </Link>

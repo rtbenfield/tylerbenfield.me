@@ -1,0 +1,146 @@
+---
+path: "/blog/react-context-performance"
+date: "2019-09-05"
+title: "React Context Performance"
+spoiler: "How to improve, rather than degrade, performance using React Context."
+---
+
+The biggest benefit and curse of React is how flexible it is.
+In most cases, React provides us with primitive tools and leaves it to us to compose them ourselves.
+This is great for large projects that require flexibility, but can be confusing if you are new to React.
+It also doesn't help that there is a lot of misinformation on the web, not from malicious intent of the author but simply from lack of a full undestanding of how React works.
+
+I've heard a lot of people recently saing that React Context can lead to performance issues.
+I'm a big supported of using Context and have not experienced performance problems with using it,
+so I did some searching and read a few articles that discussed the performance problems.
+All of the articles I read were using Context in inefficient ways that would absolutely lead to unnecessary rerenders.
+I thought it would be best to demonstrate how to use Context in efficient ways and hopefully debunk some of the myths spreading on the web.
+
+## What is React Context?
+
+First things first, React Context is a way to provide values from a parent component to its children without directly passing it through props.
+With Context, the parent supplies the value to a "provider" component that wraps any children that will need that value.
+The children can then subscribe to the context using either the "consumer" component or the `useContext` hook that is now available.
+Context is vastly beneficial when you have values that need to be shared across a large component tree and almost a necessity if you have intermediary components that are unaware of the dependency on the context value and therefore could not pass the value as a prop (more on that in a later post).
+It does come with the trade-off of indirection. Once you use Context, you may have to trace up the component tree to find where the "provider" is that supplies the value, rather than following the props chain.
+This article isn't intended to dive into when you should use context, but if you are new to the API I recommend reading the [React Docs](https://reactjs.org/docs/context.html).
+
+## When does React rerender?
+
+In order to be aware of the performance of our React applications, its best to have a basic understanding of when react rerenders components.
+For most cases, React rerenders a component on a state change in that component or one of its ancestors.
+So if all of your state is managed at the root component of your application, every change will rerender all of the components you have.
+That sounds terribly innefficient, but React renders are very performant and a rerender does not necessarily mean the DOM is updated.
+There are also ways to skip rerendering parts of the component tree using `React.memo`, `React.PureComponent`, or `shouldComponentUpdate`, but that's not the focus of this article.
+Instead we are just going to use this as a benchmark for Context.
+We want to ensure that our use of Context causes fewer rerenders and not more.
+
+## How do we track rerenders?
+
+There are a few ways to track rerenders, but the simplest approach that we will use for this article is simply `console.log` in the components we want to track.
+Function components we can simply `console.log` in the function body, while class components can `console.log` in the `render` function.
+
+## Baseline with State
+
+Let's start with a baseline using only React state. We'll use a todo list example to keep things simple.
+The CodeSandbox example below has 3 components:
+
+- `TodoList` is the "root" and holds the state of all todo items.
+- `TodoListItem` displays a single todo item. It has no state of its own, but updates the parent state through callback props.
+- `AddTodo` contains a form for adding a new todo. It owns the state of the form, but communicates the new item to `TodoList` when it is submitted.
+- `Header` is just a simple component that lives outside of `TodoList` to show that it doesn't rerender on state changes in `TodoList`.
+
+Each component and function has `console.log` added to track rerenders.
+Play around with adding and updating items and observe the Console tab below the preview.
+
+<iframe src="https://codesandbox.io/embed/bitter-wave-1yv1g?expanddevtools=1&fontsize=14&module=%2Fsrc%2FTodoList.jsx" title="react-context-performance-example1" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+There are a few things to notice from the logs in this baseline example.
+
+First, any input to the field in `AddTodo` rerenders only that component.
+As mentioned earlier, state updates rerender that component and everything **below**, not above.
+
+Second, when a todo is added, updated, or removed, not only do all `TodoListItem` components rerender, but so does `AddTodo`.
+This may seem weird since nothing in `AddTodo` relies on `todos`, but that is how React works by default.
+Because state updated in `TodoList`, and `AddTodo` is a child of `TodoList`, it gets rerendered on a state update in `TodoList`.
+
+Finally, notice that `Header` only renders once. Because it lives above `TodoList` it is not affected by the state updates.
+
+## Introducing Context
+
+Now let's implement React Context as a replacement for the state in `TodoList`.
+We can copy the same code from `TodoList` into a new component that will act as the Context value provider.
+The new component, which I've called `TodoContextProvider` can then wrap the entire app in `index.js`.
+Once that is done, any component in the app can use the `useTodos` hook to access the context value.
+Notice how fewer props we have being passed around now. Each component instead subscribes itself to the Context value.
+
+> Using Context for something this simple is absolutely overkill, but this is just an example.
+> I'm not suggesting you go switch all of your state to Context.
+
+<iframe src="https://codesandbox.io/embed/react-context-performance-example1-hf9uq?expanddevtools=1&fontsize=14&module=%2Fsrc%2FtodoContext.jsx" title="react-context-performance-example2" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+Notice that this didn't eliminate any component renders. In fact, it added the `TodoContextProvider` render.
+That's because all of our components are subscribing to the context value with `useTodos`.
+Even if they didn't, the "root" `TodoList` component subscribes to it, so the rerender that happens there will cascade to the other components anyway.
+
+`Header` still doesn't rerender though even though it is underneath `TodoContextProvider`.
+Even with the state updates happening, it does not cascade the rerender to `Header`.
+We are even providing a new value object on every rerender of `TodoContextProvider`.
+This shows us that React is smart enough not to rerender _all_ components beneath `TodoContextProvider`, just those that subscribe to the Context value.
+
+So Context hasn't made anything worse (the added `TodoContextProvider` is negligible), but it also hasn't helped our performance.
+In a large app we couldn't benefit from improved maintainability and reduced prop-drilling though, so going this far is not for nothing.
+Let's go a bit deeper though and explore some ways to skip unnecessary rerenders.
+
+## Skipping Rerenders
+
+> Remember how I said this was overkill for our todo list? Well this is extreme overkill.
+> I would only recommend going this far if you have already implemented context and are having **measurable** performance concerns.
+> Also, why are your renders so slow? Try to improve that first and it will have a greater overall benefit on your app.
+
+We can start by improving the referential integrity of the Context value.
+In our previous example, the three update functions we provided were declared as new function references on every render of `TodoContextProvider`.
+That's probably not a big performance issue in itself, but prevents us from relying on referential integrity to skip rerendering.
+We can fix that by wrapping them in `useCallback`, which will only give us a new function reference if one of the dependencies changes.
+In our case we have no dependencies (`setTodos` is guaranteed to remain consistent, and also why we use the callback version), so we will only ever make one copy of each of these functions.
+
+That alone doesn't help us though. It just allows us to take the next step.
+`AddTodo` doesn't actually rely on the todos themselves, just the `addTodo` function.
+Let's first lift `AddTodo` to be rendered in `index.js` instead of by `TodoList` so that it is unaffected by `TodoList` rerenders.
+If `AddTodo` is **expensive** to rerender, we can wrap the component in `React.memo` which will only rerender on a prop, state, or context value change.
+This is only a shallow compare though, which is why immutability is important.
+In the case of `AddTodo`, our context value is changing, but we are only concerned with one function out of it.
+We can take advantage of that by wrapping another component around `AddTodo` that connects to `useTodos` and only passes the `addTodo` function to `AddTodo` as a prop.
+By doing this we remove the `useTodos` dependency from `AddTodo` itself, and `React.memo` will check the referential integrity of our new prop and skip rerendering!
+To be fair, we haven't reduced the _number_ of rerenders, but we did exchange an expensive rerender for an inexpensive one.
+All of this can be done within the internal scope of `AddTodo.jsx` and none of the other components in the tree know the difference.
+
+<iframe src="https://codesandbox.io/embed/react-context-performance-example2-2u1lp?expanddevtools=1&fontsize=14&module=%2Fsrc%2FtodoContext.jsx" title="react-context-performance-example3" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+Let's keep going! What if we don't want to rerender all `TodoListItem` (again, **only if it is expensive**) components for a change to a single item, like changing `isComplete`?
+We can take a similar approach to subscribe to `TodoListItem` to a single todo item.
+By wrapping `TodoListItem` in another component that extracts the values we need from `useTodos` and passes them as props, we can rely on `React.memo` to skip rerendering.
+As long as the `todo` prop's reference is maintained, we skip rerendering `TodoListItem`!
+This **only** works because of our use of immutability in `updateTodo`.
+Otherwise, we would have just introduced a bug because `TodoListItem` would not have rerendered changes made to the item!
+
+<iframe src="https://codesandbox.io/embed/react-context-performance-example3-2fuh0?expanddevtools=1&fontsize=14&module=%2Fsrc%2FTodoListItem.jsx" title="react-context-performance-example4" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+## Redux didn't need this!
+
+Actually, it did. Redux requires you to connect to your global store using selectors and `connect`.
+That `connect` function directly relates to our `AddTodoContainer` and `TodoListItemContainer` components from above.
+In fact, if you look in the React DevTools, you'll see that Redux introduces `Connect(AddTodo)` and `Connect(TodoListItem` components in our tree.
+We could easily write a `connect` utility function that selected from our context and did the same thing, we have just been a bit more explicit.
+Using components instead of `connect` also allows us to take advantage of other React things, like using `React.useMemo` instead of `reselect` to avoid heavy recomputations.
+Additionally, Redux requires you to use immutability for it to prevent unnecessary rerenders of your connected components,
+something we also accomplished with `React.memo` and the same immutability limitations.
+
+## Wrapping Up
+
+What should we take away from all of this?
+The performance of React Context is dependent on how we just it, just like many other things we use.
+I don't recommend replacing all of your state with Context, or going as far as we did with preventing rerenders,
+but having these tools and knowledge gives us the upper hand if we encounted performance problems and need to address them.
+You should always benchmark and exhaust render optimizations first before implementing these more extreme performance tricks.
+If you have any questions about Context, other material here, or have found anything incorrect about what I've said, please drop me an email and let me know!

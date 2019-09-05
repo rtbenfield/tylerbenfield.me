@@ -1,3 +1,5 @@
+const faHashtag = require("@fortawesome/free-solid-svg-icons/faHashtag");
+
 module.exports = {
   siteMetadata: {
     title: `Tyler Benfield`,
@@ -13,6 +15,26 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog-pages`,
+        path: `${__dirname}/src/pages/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: `<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hashtag" class="svg-inline--fa fa-hashtag fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="${faHashtag.svgPathData}" fill="currentColor" /></svg>`,
+            },
+          },
+        ],
       },
     },
     `gatsby-transformer-sharp`,
