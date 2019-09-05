@@ -115,8 +115,16 @@ hr {
   padding: 0;
 }
 
+/* Code */
+pre {
+  border: 0.1rem solid var(--color-primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
 /* Text selection */
 a::selection,
+code::selection,
 footer::selection,
 h1::selection,
 h2::selection,
