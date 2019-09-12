@@ -10,8 +10,8 @@ In most cases, React provides us with primitive tools and leaves it to us to com
 This is great for large projects that require flexibility, but can be confusing if you are new to React.
 It also doesn't help that there is a lot of misinformation on the web, not from malicious intent of the author but simply from lack of a full undestanding of how React works.
 
-I've heard a lot of people recently saing that React Context can lead to performance issues.
-I'm a big supported of using Context and have not experienced performance problems with using it,
+I've heard a lot of people recently saying that React Context can lead to performance issues.
+I'm a big supporter of using Context and have not experienced performance problems with using it,
 so I did some searching and read a few articles that discussed the performance problems.
 All of the articles I read were using Context in inefficient ways that would absolutely lead to unnecessary rerenders.
 I thought it would be best to demonstrate how to use Context in efficient ways and hopefully debunk some of the myths spreading on the web.
