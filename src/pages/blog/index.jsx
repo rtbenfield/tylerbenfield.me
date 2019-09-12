@@ -5,7 +5,7 @@ import SEO from "../../components/seo";
 import Typography from "../../components/typography";
 
 const BlogIndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.path.startsWith("/blog"));
   return (
     <Layout>
       <SEO title="Blog" />
