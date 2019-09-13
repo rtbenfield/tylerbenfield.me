@@ -17,7 +17,7 @@ For some reason, building these large objects in React components just doesn't f
 It feels like going back to the jQuery days of `$(selector).doSomeCoolStuff({ blah blah blah })`.
 After having implemented one of these APIs myself I wanted to find a better way, and Context is a perfect fit.
 
-Context is a very primitive API that is unopinionated about *what* the value is that you are passing down.
+Context is a very primitive API that is unopinionated about _what_ the value is that you are passing down.
 That value can be some state you want to share among that component tree, but it could just as well be an object with various functions attached.
 Those functions can be a way for consumers to reach back up to the parent and provide it with information about what the child would like to do.
 You might say that's bad practice and the child should not be aware of its parent, and in most cases it is,
@@ -91,7 +91,7 @@ If all of the configuration "parts" are components, nothing is stopping us from 
 We might define a reusable `LineChart` configuration like this:
 
 ```js
-const MyLineChart = (props) => {
+const MyLineChart = props => {
   return (
     <LineChart
       color="blue"
@@ -117,7 +117,7 @@ const MyApp = () => {
 We could even tie it into other things, like Context, to use themes or translations:
 
 ```js
-const MyLineChart = (props) => {
+const MyLineChart = props => {
   const { formatValue } = useLocalizationContext();
   const { getChartColor } = useTheme();
   return (
@@ -160,14 +160,14 @@ const chartContext = React.createContext();
 export const ChartContextProvider = ({ children }) => {
   const [charts, setCharts] = React.useState([]);
 
-  const registerChart = React.useCallback((chart) => {
+  const registerChart = React.useCallback(chart => {
     // Make up a random ID for this chart object and return it for unregistering later
     const id = Math.random();
     setCharts(prev => [...prev, { ...chart, id }]);
     return id;
   }, []);
 
-  const unregisterChart = React.useCallback((id) => {
+  const unregisterChart = React.useCallback(id => {
     setCharts(prev => prev.filter(x => x.id !== id));
   }, []);
 
@@ -181,9 +181,7 @@ export const ChartContextProvider = ({ children }) => {
   }, [charts, registerChart, unregisterChart]);
 
   return (
-    <chartContext.Provider value={value}>
-      {children}
-    </chartContext.Provider>
+    <chartContext.Provider value={value}>{children}</chartContext.Provider>
   );
 };
 

@@ -3,7 +3,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "gatsby";
 import React from "react";
-import LogoLarge from "../images/logo-large.svg";
+import Logo from "./logo";
 import styles from "./header.module.css";
 
 const Header = () => {
@@ -11,11 +11,7 @@ const Header = () => {
     <>
       <header className={styles.root}>
         <Link to="/">
-          <img
-            alt="Tyler Benfield Logo"
-            className={styles.logo}
-            src={LogoLarge}
-          />
+          <Logo className={styles.logo} />
         </Link>
         <nav className={styles.links}>
           <Link className="button" to="/blog">
@@ -30,11 +26,7 @@ const Header = () => {
         </nav>
       </header>
       <header className={styles.print}>
-        <img
-          alt="Tyler Benfield Logo"
-          className={styles.logo}
-          src={LogoLarge}
-        />
+        <h1>Tyler Benfield</h1>
         <div className={styles.contact}>
           <a aria-label="Email" href="mailto:tyler@tylerbenfield.me">
             <FontAwesomeIcon fixedWidth icon={faEnvelope} />

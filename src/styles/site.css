@@ -2,16 +2,23 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 :root {
-  --color-background: #303030;
-  --color-foreground: #607d8b;
-  --color-primary: #607d8b;
-  --color-secondary: #60b0f4;
+  --color-background: #2E3440;
+  --color-foreground: #81A1C1;
+  --color-primary: #81A1C1;
+  --color-secondary: #88C0D0;
 
   --max-content-width: 960px;
   --font-size: 16px;
 
   @media (--breakpoint-sm-up) {
     --font-size: 18px;
+  }
+
+  @media (prefers-color-scheme: light) {
+    --color-background: #E5E9F0;
+    --color-foreground: #5E81AC;
+    --color-primary: #5E81AC;
+    --color-secondary: #81A1C1;
   }
 
   @media print {

@@ -6,7 +6,9 @@ import SEO from "../../components/seo";
 import Typography from "../../components/typography";
 
 const ProjectsIndexPage = ({ data }) => {
-  const projects = data.allMarkdownRemark.edges.filter(({ node }) => node.frontmatter.path.startsWith("/projects"));
+  const projects = data.allMarkdownRemark.edges.filter(({ node }) =>
+    node.frontmatter.path.startsWith("/projects"),
+  );
   return (
     <Layout>
       <SEO title="Blog" />
@@ -23,9 +25,16 @@ const ProjectsIndexPage = ({ data }) => {
                     {node.frontmatter.title}
                   </Link>
                 </Typography>
-                <LinkList github={github} link={link} title={title} vscodeMarketplace={vscodeMarketplace} />
+                <LinkList
+                  github={github}
+                  link={link}
+                  title={title}
+                  vscodeMarketplace={vscodeMarketplace}
+                />
               </header>
-              <p dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} />
+              <p
+                dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }}
+              />
             </article>
           </React.Fragment>
         );

@@ -15,7 +15,12 @@ const ProjectTemplate = ({ data }) => {
         <header>
           <h1>{title}</h1>
         </header>
-        <LinkList github={github} link={link} title={title} vscodeMarketplace={vscodeMarketplace} />
+        <LinkList
+          github={github}
+          link={link}
+          title={title}
+          vscodeMarketplace={vscodeMarketplace}
+        />
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </article>
     </Layout>

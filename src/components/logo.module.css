@@ -1,0 +1,12 @@
+.outerRing {
+  stroke: var(--color-primary);
+}
+
+.innerRing {
+  stroke: var(--color-secondary);
+}
+
+.text {
+  fill: var(--color-foreground);
+  stroke: var(--color-foreground);
+}
