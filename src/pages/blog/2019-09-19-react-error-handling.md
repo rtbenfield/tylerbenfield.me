@@ -1,0 +1,122 @@
+---
+path: "/blog/react-error-handling"
+date: "2019-09-19"
+title: "Easy React Error Handling"
+spoiler: "React provides a great way to gracefully deal with errors using error boundaries, but they're limited to errors in render. Let's explore a way to remove that restriction and use error boundaries for all of our errors."
+---
+
+React provides a great way to gracefully handle errors using [error boundaries](https://reactjs.org/docs/error-boundaries.html).
+The drawback of error boundaries, which is noted in a big warning right in the docs, is that they only catch errors in `render`.
+How many of our errors actually occur in `render`? From my experience, I'd say most don't.
+They typically occur in event handlers or asynchronous code, especially when we are thinking of errors that we can't prevent
+like failed network calls.
+With some clever tricks we can expand the power of error boundaries to handle those cases and a lot more!
+
+## Simple Error Boundary
+
+Let's start by writing a simple error boundary for our examples.
+Error boundaries are super easy to create.
+We start with a normal class component (function components are not yet supported as error boundaries),
+and use `componentDidCatch(error, errorInfo)` to catch any errors that occur in `render`.
+`componentDidCatch` is a great place to send our errors to a reporting service or log them ourselves,
+but React has a better method for updating our error boundary component state for displaying a fallback UI.
+By implementing `static getDerivedStateFromError(error)` in our component, we can return a state update based on the error that was thrown.
+Here's a simple example straight from the React docs.
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+```
+
+Now we can wrap any of our components, or even our entire app, in our `ErrorBoundary` component to catch errors within that component tree.
+We can even nest `ErrorBoundary` components to isolate subtrees and stop the error from propagating further.
+
+## Simple Event Handler Error
+
+The React docs on error boundaries show an example of how we can handle event handlers and asynchronous code with a simple `try` / `catch`.
+We can put the error in state and then use it in `render` to show a fallback display.
+No magic, no error boundary, just using simple React primitives.
+
+```jsx
+const MyComponent = () => {
+  const [error, setError] = React.useState(null);
+
+  function handleClick() {
+    try {
+      // Do something that could throw
+    } catch (err) {
+      setError(err);
+    }
+  }
+
+  if (error) {
+    return <h1>Caught an error.</h1>;
+  } else {
+    return <div onClick={handleClick}>Click Me</div>;
+  }
+};
+```
+
+That's great, but what if we don't want all of our components to deal with errors themselves?
+Ideally, the `ErrorBoundary` component we defined above could be reused along with its fallback UI and error reporting.
+We have to use it anyway to handle errors in `render`, so we might as well take full advantage of it.
+So what do we do?
+
+## Mind Blowing Section
+
+Just re-throw the error in `render`. **What?!?** Yup. Check it out.
+
+```jsx
+const MyComponent = () => {
+  const [error, setError] = React.useState(null);
+  if (error) {
+    throw error;
+  }
+
+  function handleClick() {
+    try {
+      // Do something that could throw
+    } catch (err) {
+      setError(err);
+    }
+  }
+
+  return <div onClick={handleClick}>Click Me</div>;
+};
+```
+
+That's all it takes. No magic, no special syntax, no utility functions, just plain JavaScript.
+The error object contains all of the stack trace information from when it was created,
+so we don't even lose or pollute our stack trace by doing this.
+This simple trick will propagate the error up to the closest error boundary to be handled.
+
+We can do it with anything else that gives us an error as well.
+For example, take a theoretical `useFetchedData` hook that does some asynchronous data fetching.
+As long as it returns an error object as part of its results, we can throw it during render.
+
+> Side note: I strongly recommend you **do not** throw event handler or async errors like this in your own custom hooks.
+> Instead, return an object that contains the result of the code and an optional error.
+> Let the component consuming the hook be responsible for throwing. This provides maximum flexibility to hook consumers and keeps the hook unopinionated.
+
+## Conclusion
+
+To sum all of this up, you can make React error boundaries way more powerful by just rethrowing event handler and async errors during `render`.
+With this simple trick it is incredibly easy to make our React application more fault tolerant, making our users happy as a result.
