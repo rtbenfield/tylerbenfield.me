@@ -11,8 +11,8 @@ const ProjectsIndexPage = ({ data }) => {
   );
   return (
     <Layout>
-      <SEO title="Blog" />
-      <Typography variant="h1">Blog</Typography>
+      <SEO title="Projects" />
+      <Typography variant="h1">Projects</Typography>
       {projects.map(({ node }, i) => {
         const { github, link, title, vscodeMarketplace } = node.frontmatter;
         return (
