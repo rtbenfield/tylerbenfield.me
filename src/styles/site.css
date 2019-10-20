@@ -1,11 +1,12 @@
 @import "../styles/variables.css";
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 :root {
-  --color-background: #2E3440;
-  --color-foreground: #81A1C1;
-  --color-primary: #81A1C1;
-  --color-secondary: #88C0D0;
+  --color-background: #2e3440;
+  --color-foreground: #81a1c1;
+  --color-primary: #81a1c1;
+  --color-secondary: #88c0d0;
+  --typography-font-family: Inter, Helvetica, Arial;
+  --code-font-family: Fira Mono;
 
   --max-content-width: 960px;
   --font-size: 16px;
@@ -15,10 +16,10 @@
   }
 
   @media (prefers-color-scheme: light) {
-    --color-background: #E5E9F0;
-    --color-foreground: #5E81AC;
-    --color-primary: #5E81AC;
-    --color-secondary: #81A1C1;
+    --color-background: #e5e9f0;
+    --color-foreground: #5e81ac;
+    --color-primary: #5e81ac;
+    --color-secondary: #81a1c1;
   }
 
   @media print {
@@ -31,7 +32,7 @@
 }
 
 html {
-  font-family: Roboto, Helvetica, Arial;
+  font-family: var(--typography-font-family);
   font-size: var(--font-size);
 }
 
@@ -128,6 +129,10 @@ pre {
   border-radius: 0.5rem;
   padding: 1rem;
   overflow-x: auto;
+}
+
+code {
+  font-family: var(--code-font-family);
 }
 
 /* Text selection */
