@@ -3,6 +3,7 @@ import {
   faGithub,
   faLinkedin,
   faStackOverflow,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
@@ -32,6 +33,14 @@ const Footer = ({ className = "" }) => {
           title="View StackOverflow profile"
         >
           <FontAwesomeIcon fixedWidth icon={faStackOverflow} size="2x" />
+        </a>
+        <a
+          href="https://twitter.com/rtbenfield"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="View Twitter profile"
+        >
+          <FontAwesomeIcon fixedWidth icon={faTwitter} size="2x" />
         </a>
         <a
           href="https://www.linkedin.com/in/tylerbenfield/"
