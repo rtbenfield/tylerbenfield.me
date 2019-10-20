@@ -20,14 +20,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog-pages`,
+        name: `blog`,
         path: `${__dirname}/src/pages/blog`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog-pages`,
+        name: `projects`,
         path: `${__dirname}/src/pages/projects`,
       },
     },
@@ -56,6 +56,63 @@ module.exports = {
         theme_color: `#607D8B`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges
+                .filter(({ node }) => node.frontmatter.path.startsWith("/blog"))
+                .map(edge => {
+                  return Object.assign({}, edge.node.frontmatter, {
+                    custom_elements: [{ "content:encoded": edge.node.html }],
+                    date: edge.node.frontmatter.date,
+                    description: edge.node.frontmatter.spoiler,
+                    guid:
+                      site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                    url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                  });
+                });
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  filter: { fileAbsolutePath: { regex: "/(/pages/blog)/.*.md$/" } }
+                  sort: { fields: [frontmatter___date], order: DESC }
+                ) {
+                  edges {
+                    node {
+                      html
+                      frontmatter {
+                        date
+                        path
+                        title
+                        spoiler
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Tyler Benfield's RSS Feed",
+          },
+        ],
       },
     },
     {

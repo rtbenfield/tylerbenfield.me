@@ -6,9 +6,7 @@ import SEO from "../../components/seo";
 import Typography from "../../components/typography";
 
 const ProjectsIndexPage = ({ data }) => {
-  const projects = data.allMarkdownRemark.edges.filter(({ node }) =>
-    node.frontmatter.path.startsWith("/projects"),
-  );
+  const projects = data.allMarkdownRemark.edges;
   return (
     <Layout>
       <SEO title="Projects" />
@@ -51,7 +49,10 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(/pages/projects)/.*.md$/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           frontmatter {

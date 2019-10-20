@@ -5,9 +5,7 @@ import SEO from "../../components/seo";
 import Typography from "../../components/typography";
 
 const BlogIndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges.filter(({ node }) =>
-    node.frontmatter.path.startsWith("/blog"),
-  );
+  const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
       <SEO title="Blog" />
@@ -42,11 +40,14 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(/pages/blog)/.*.md$/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM D, YYYY")
             path
             title
             spoiler
