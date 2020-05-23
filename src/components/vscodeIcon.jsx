@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const VscodeIcon = props => {
+const VscodeIcon = (props) => {
   return (
     <svg
       aria-hidden

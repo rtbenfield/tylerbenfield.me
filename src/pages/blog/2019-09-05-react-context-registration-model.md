@@ -38,7 +38,7 @@ const MyApp = () => {
           dataKey: "value1",
           plotPoints: "hover",
           tooltip: {
-            formatter: v => formatValue(v),
+            formatter: (v) => formatValue(v),
           },
           type: "line",
         },
@@ -47,7 +47,7 @@ const MyApp = () => {
           dataKey: "value2",
           plotPoints: "hover",
           tooltip: {
-            formatter: v => formatValue(v),
+            formatter: (v) => formatValue(v),
           },
           type: "line",
         },
@@ -70,7 +70,7 @@ const MyApp = () => {
         dataKey="value1"
         plotPoints="hover"
         tooltip={{
-          formatter: v => formatValue(v),
+          formatter: (v) => formatValue(v),
         }}
       />
       <LineChart
@@ -78,7 +78,7 @@ const MyApp = () => {
         dataKey="value2"
         plotPoints="hover"
         tooltip={{
-          formatter: v => formatValue(v),
+          formatter: (v) => formatValue(v),
         }}
       />
     </Chart>
@@ -91,13 +91,13 @@ If all of the configuration "parts" are components, nothing is stopping us from 
 We might define a reusable `LineChart` configuration like this:
 
 ```js
-const MyLineChart = props => {
+const MyLineChart = (props) => {
   return (
     <LineChart
       color="blue"
       plotPoints="hover"
       tooltip={{
-        formatter: v => formatValue(v),
+        formatter: (v) => formatValue(v),
       }}
       {...props}
     />
@@ -117,7 +117,7 @@ const MyApp = () => {
 We could even tie it into other things, like Context, to use themes or translations:
 
 ```js
-const MyLineChart = props => {
+const MyLineChart = (props) => {
   const { formatValue } = useLocalizationContext();
   const { getChartColor } = useTheme();
   return (
@@ -125,7 +125,7 @@ const MyLineChart = props => {
       color={getChartColor(props.dataKey)}
       plotPoints="hover"
       tooltip={{
-        formatter: v => formatValue(v),
+        formatter: (v) => formatValue(v),
       }}
       {...props}
     />
@@ -160,15 +160,15 @@ const chartContext = React.createContext();
 export const ChartContextProvider = ({ children }) => {
   const [charts, setCharts] = React.useState([]);
 
-  const registerChart = React.useCallback(chart => {
+  const registerChart = React.useCallback((chart) => {
     // Make up a random ID for this chart object and return it for unregistering later
     const id = Math.random();
-    setCharts(prev => [...prev, { ...chart, id }]);
+    setCharts((prev) => [...prev, { ...chart, id }]);
     return id;
   }, []);
 
-  const unregisterChart = React.useCallback(id => {
-    setCharts(prev => prev.filter(x => x.id !== id));
+  const unregisterChart = React.useCallback((id) => {
+    setCharts((prev) => prev.filter((x) => x.id !== id));
   }, []);
 
   // Build our actual context value object
