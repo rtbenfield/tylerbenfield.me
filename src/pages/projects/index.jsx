@@ -57,11 +57,11 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             link
-            github
+            # github
             path
             spoiler
             title
-            vscodeMarketplace
+            # vscodeMarketplace
           }
         }
       }

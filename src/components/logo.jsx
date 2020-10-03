@@ -14,23 +14,23 @@ const Logo = ({ className }) => {
         className={styles.outerRing}
         d="M 100 20 A 45 45, 0, 0, 0, 100 180 L 740 180 A 45 45, 0, 0, 0, 740 20 Z"
         fill="none"
-        stroke-width="20"
+        strokeWidth="20"
       />
       <path
         className={styles.innerRing}
         d="M 100 20 A 45 45, 0, 0, 0, 100 180 L 740 180 A 45 45, 0, 0, 0, 740 20 Z"
         fill="none"
-        stroke-width="5"
+        strokeWidth="5"
       />
       <text
         className={styles.text}
         x="420"
         y="140"
         fill="#607D8B"
-        font-family="Roboto, Helvetica, Arial"
-        font-size="120"
-        stroke-width="5"
-        text-anchor="middle"
+        fontFamily="Roboto, Helvetica, Arial"
+        fontSize="120"
+        strokeWidth="5"
+        textAnchor="middle"
       >
         Tyler Benfield
       </text>

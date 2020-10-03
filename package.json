@@ -1,16 +1,16 @@
 {
-  "name": "rtbenfield.github.io",
+  "name": "tylerbenfield.me",
   "version": "0.1.0",
   "description": "The personal website and portfolio of Tyler Benfield",
-  "author": "Tyler Benfield <rtbenfield@gmail.com>",
+  "author": "Tyler Benfield <tyler@tylerbenfield.me>",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/rtbenfield/rtbenfield.github.io"
+    "url": "https://github.com/rtbenfield/tylerbenfield.me"
   },
   "bugs": {
-    "url": "https://github.com/rtbenfield/rtbenfield.github.io/issues"
+    "url": "https://github.com/rtbenfield/tylerbenfield.me/issues"
   },
   "scripts": {
     "build": "gatsby build",
@@ -44,11 +44,11 @@
   },
   "devDependencies": {
     "gatsby-plugin-google-analytics": "^2.1.11",
-    "gatsby-plugin-postcss": "^2.1.5",
+    "gatsby-plugin-postcss": "^3.0.0",
     "gatsby-plugin-sitemap": "^2.2.9",
     "gatsby-remark-autolink-headers": "^2.1.9",
     "gatsby-transformer-remark": "^2.6.21",
-    "postcss": "^7.0.17",
+    "postcss": "^8.1.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5"
   }

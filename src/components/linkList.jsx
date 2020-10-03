@@ -1,6 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faExternalLinkAlt,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "gatsby";
 import React from "react";
 import VscodeIcon from "../components/vscodeIcon";
 import styles from "./linkList.module.css";
@@ -9,12 +13,23 @@ const LinkList = ({
   className = "",
   github,
   link,
+  project,
   title,
   vscodeMarketplace,
   ...props
 }) => {
   return (
     <ul className={`${styles.root} ${className}`} {...props}>
+      {project && (
+        <li>
+          <Link
+            title={`Navigate to ${title} project page`}
+            to={`/projects#${project}`}
+          >
+            <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
+          </Link>
+        </li>
+      )}
       {link && (
         <li>
           <a

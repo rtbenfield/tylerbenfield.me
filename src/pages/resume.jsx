@@ -1,16 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import {
-  faExternalLinkAlt,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
 import LinkList from "../components/linkList";
 import SEO from "../components/seo";
 import Typography from "../components/typography";
-import VscodeIcon from "../components/vscodeIcon";
 
 const ResumePage = () => (
   <Layout>
@@ -93,69 +85,16 @@ const ResumePage = () => (
     <Typography variant="h2" id="projects">
       Projects
     </Typography>
-    <section>
-      <Typography
-        variant="h3"
-        id="projects-jest-test-adapter-vs-code-extension"
-      >
-        Jest Test Adapter VS Code Extension
-      </Typography>
-      <LinkList>
-        <li>
-          <Link
-            title="Navigate to Jest Test Adapter project page"
-            to="/projects#jest-test-adapter-vs-code-extension"
-          >
-            <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
-          </Link>
-        </li>
-        <li>
-          <a
-            href="https://github.com/rtbenfield/vscode-jest-test-adapter"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Open Jest Test Adapter GitHub page"
-          >
-            <FontAwesomeIcon fixedWidth icon={faGithub} size="2x" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://marketplace.visualstudio.com/items?itemName=rtbenfield.vscode-jest-test-adapter"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Open Jest Test Adapter VS Code Marketplace page"
-          >
-            <VscodeIcon />
-          </a>
-        </li>
-      </LinkList>
-    </section>
 
     <section>
-      <Typography variant="h3" id="projects-loan-rover">
-        Loan Rover
+      <Typography variant="h3" id="projects-abundantia">
+        Abundantia
       </Typography>
-      <LinkList>
-        <li>
-          <Link
-            title="Navigate to Loan Rover project page"
-            to="/projects#loan-rover"
-          >
-            <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
-          </Link>
-        </li>
-        <li>
-          <a
-            href="https://loan-rover.herokuapp.com"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Open Loan Rover"
-          >
-            <FontAwesomeIcon fixedWidth icon={faExternalLinkAlt} size="2x" />
-          </a>
-        </li>
-      </LinkList>
+      <LinkList
+        link="https://abundantia-io.web.app/"
+        project="abundantia"
+        title="Abundantia"
+      />
     </section>
 
     <Typography variant="h2" id="work-history">

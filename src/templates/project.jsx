@@ -1,5 +1,5 @@
-import React from "react";
 import { graphql } from "gatsby";
+import React from "react";
 import Layout from "../components/layout";
 import LinkList from "../components/linkList";
 import SEO from "../components/seo";
@@ -33,11 +33,11 @@ export const pageQuery = graphql`
       html
       frontmatter {
         link
-        github
+        # github
         path
         spoiler
         title
-        vscodeMarketplace
+        # vscodeMarketplace
       }
     }
   }
