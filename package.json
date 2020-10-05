@@ -13,41 +13,28 @@
     "url": "https://github.com/rtbenfield/tylerbenfield.me/issues"
   },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "next",
+    "build": "next build",
     "format": "prettier --write src/**/*.{js,jsx,md}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "start": "next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "gatsby": "^2.10.4",
-    "gatsby-image": "^2.2.3",
-    "gatsby-plugin-feed": "^2.3.19",
-    "gatsby-plugin-manifest": "^2.2.0",
-    "gatsby-plugin-offline": "^3.0.16",
-    "gatsby-plugin-react-helmet": "^3.1.0",
-    "gatsby-plugin-sharp": "^2.2.1",
-    "gatsby-source-filesystem": "^2.1.21",
-    "gatsby-transformer-sharp": "^2.2.0",
+    "gray-matter": "^4.0.2",
+    "next": "^9.5.3",
     "postcss-import": "^12.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^6.0.0",
+    "remark": "^12.0.1",
+    "remark-html": "^13.0.1",
     "typeface-fira-mono": "^0.0.72",
     "typeface-inter": "^3.10.0"
   },
   "devDependencies": {
-    "gatsby-plugin-google-analytics": "^2.1.11",
-    "gatsby-plugin-postcss": "^3.0.0",
-    "gatsby-plugin-sitemap": "^2.2.9",
-    "gatsby-remark-autolink-headers": "^2.1.9",
-    "gatsby-transformer-remark": "^2.6.21",
     "postcss": "^8.1.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5"

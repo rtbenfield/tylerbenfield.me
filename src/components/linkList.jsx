@@ -4,7 +4,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
+import Link from "next/link";
 import React from "react";
 import VscodeIcon from "../components/vscodeIcon";
 import styles from "./linkList.module.css";
@@ -22,11 +22,10 @@ const LinkList = ({
     <ul className={`${styles.root} ${className}`} {...props}>
       {project && (
         <li>
-          <Link
-            title={`Navigate to ${title} project page`}
-            to={`/projects#${project}`}
-          >
-            <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
+          <Link as={`/projects/${project}`} href="/projects/[slug]">
+            <a title={`Navigate to ${title} project page`}>
+              <FontAwesomeIcon fixedWidth icon={faInfoCircle} size="2x" />
+            </a>
           </Link>
         </li>
       )}

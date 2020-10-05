@@ -1,24 +1,26 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import React from "react";
-import Logo from "./logo";
 import styles from "./header.module.css";
+import Logo from "./logo";
 
 const Header = () => {
   return (
     <>
       <header className={styles.root}>
-        <Link to="/">
-          <Logo className={styles.logo} />
+        <Link href="/">
+          <a>
+            <Logo className={styles.logo} />
+          </a>
         </Link>
         <nav className={styles.links}>
-          <Link className="button" to="/blog">
-            Blog
+          <Link href="/blog">
+            <a className="button">Blog</a>
           </Link>
-          <Link className="button" to="/projects">
-            Projects
+          <Link href="/projects">
+            <a className="button">Projects</a>
           </Link>
         </nav>
       </header>
