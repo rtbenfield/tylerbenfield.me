@@ -55,7 +55,8 @@ typings/
 .env
 
 # Next.js
-.next
+.next/
+out/
 
 # Mac files
 .DS_Store
