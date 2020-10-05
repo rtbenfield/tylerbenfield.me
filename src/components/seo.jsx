@@ -7,6 +7,7 @@ function SEO({ description, title }) {
     <Head>
       <title>{title} | Tyler Benfield</title>
       <meta name="description" content={description} />
+      <meta name="theme-color" content="#81a1c1" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
