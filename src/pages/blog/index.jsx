@@ -1,62 +1,41 @@
-import { graphql, Link } from "gatsby";
-import React from "react";
+import Link from "next/link";
+import * as React from "react";
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 import Typography from "../../components/typography";
+import { getAllPosts } from "../../lib/posts";
 
-const BlogIndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges;
+export default function Blog({ allPosts }) {
   return (
     <Layout>
       <SEO title="Blog" />
       <Typography variant="h1">Blog</Typography>
-      {posts.map(({ node }, i) => (
-        <React.Fragment key={node.frontmatter.path}>
+      {allPosts.map((post, i) => (
+        <React.Fragment key={post.slug}>
           {i > 0 && <hr />}
           <article>
             <header>
               <Typography variant="h2">
-                <Link to={node.frontmatter.path} rel="bookmark">
-                  {node.frontmatter.title}
+                <Link as={`/blog/${post.slug}`} href="/blog/[slug]">
+                  <a rel="bookmark">{post.data.title}</a>
                 </Link>
               </Typography>
               <small>
-                {node.frontmatter.date} - {node.timeToRead} min read
+                {/* {post.date} - {node.timeToRead} min read */}
+                {post.data.date}
               </small>
             </header>
-            <p dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} />
+            <p dangerouslySetInnerHTML={{ __html: post.data.spoiler }} />
           </article>
         </React.Fragment>
       ))}
     </Layout>
   );
-};
+}
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(/pages/blog)/.*.md$/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "MMMM D, YYYY")
-            path
-            title
-            spoiler
-          }
-          timeToRead
-        }
-      }
-    }
-  }
-`;
-
-export default BlogIndexPage;
+export async function getStaticProps() {
+  const allPosts = await getAllPosts();
+  return {
+    props: { allPosts },
+  };
+}

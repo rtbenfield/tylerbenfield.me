@@ -1,72 +1,44 @@
-import { graphql, Link } from "gatsby";
-import React from "react";
+import Link from "next/link";
+import * as React from "react";
 import Layout from "../../components/layout";
 import LinkList from "../../components/linkList";
 import SEO from "../../components/seo";
 import Typography from "../../components/typography";
+import { getAllProjects } from "../../lib/projects";
 
-const ProjectsIndexPage = ({ data }) => {
-  const projects = data.allMarkdownRemark.edges;
+export default function Projects({ allProjects }) {
   return (
     <Layout>
       <SEO title="Projects" />
       <Typography variant="h1">Projects</Typography>
-      {projects.map(({ node }, i) => {
-        const { github, link, title, vscodeMarketplace } = node.frontmatter;
-        return (
-          <React.Fragment key={node.frontmatter.path}>
-            {i > 0 && <hr />}
-            <article>
-              <header>
-                <Typography variant="h2">
-                  <Link to={node.frontmatter.path} rel="bookmark">
-                    {node.frontmatter.title}
-                  </Link>
-                </Typography>
-                <LinkList
-                  github={github}
-                  link={link}
-                  title={title}
-                  vscodeMarketplace={vscodeMarketplace}
-                />
-              </header>
-              <p
-                dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }}
+      {allProjects.map((project, i) => (
+        <React.Fragment key={project.slug}>
+          {i > 0 && <hr />}
+          <article>
+            <header>
+              <Typography variant="h2">
+                <Link as={`/projects/${project.slug}`} href="/projects/[slug]">
+                  <a rel="bookmark">{project.data.title}</a>
+                </Link>
+              </Typography>
+              <LinkList
+                github={project.data.github}
+                link={project.data.link}
+                title={project.data.title}
+                vscodeMarketplace={project.data.vscodeMarketplace}
               />
-            </article>
-          </React.Fragment>
-        );
-      })}
+            </header>
+            <p dangerouslySetInnerHTML={{ __html: project.data.spoiler }} />
+          </article>
+        </React.Fragment>
+      ))}
     </Layout>
   );
-};
+}
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(/pages/projects)/.*.md$/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            link
-            # github
-            path
-            spoiler
-            title
-            # vscodeMarketplace
-          }
-        }
-      }
-    }
-  }
-`;
-
-export default ProjectsIndexPage;
+export async function getStaticProps() {
+  const allProjects = await getAllProjects();
+  return {
+    props: { allProjects },
+  };
+}
