@@ -6,6 +6,11 @@ import Typography from "../../components/typography";
 import { getAllPosts } from "../../lib/posts";
 
 export default function Blog({ allPosts }) {
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
   return (
     <Layout>
       <SEO title="Blog" />
@@ -22,7 +27,7 @@ export default function Blog({ allPosts }) {
               </Typography>
               <small>
                 {/* {post.date} - {node.timeToRead} min read */}
-                {post.data.date}
+                {formatter.format(new Date(post.data.date))}
               </small>
             </header>
             <p dangerouslySetInnerHTML={{ __html: post.data.spoiler }} />

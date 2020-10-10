@@ -11,7 +11,9 @@ export async function getAllPosts() {
   const slugs = await getPostSlugs();
   const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
   // sort posts by date in descending order
-  return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
+  return posts.sort((a, b) =>
+    new Date(a.data.date) > new Date(b.data.date) ? -1 : 1,
+  );
 }
 
 export async function getPostBySlug(slug) {

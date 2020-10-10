@@ -11,13 +11,18 @@ export default function Post({ content, post }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
   return (
     <Layout>
       <SEO description={post.data.spoiler} title={post.data.title} />
       <article>
         <header>
           <h1>{post.data.title}</h1>
-          <p>{post.data.date}</p>
+          <small>{formatter.format(new Date(post.data.date))}</small>
         </header>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </article>
