@@ -4,7 +4,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="manifest" href="/manifest.webmanifest" />
+          <meta name="theme-color" content="#81a1c1" />
+        </Head>
         <body>
           <Main />
           <NextScript />

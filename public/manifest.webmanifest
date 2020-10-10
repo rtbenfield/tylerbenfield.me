@@ -1,0 +1,12 @@
+{
+  "short_name": "TB.dev",
+  "name": "tylerbenfield.dev",
+  "description": "Tyler Benfield's personal site and blog",
+  "scope": "/",
+  "start_url": "/",
+  "display": "browser",
+  "orientation": "any",
+  "background_color": "#81a1c1",
+  "theme_color": "#81a1c1",
+  "icons": []
+}
