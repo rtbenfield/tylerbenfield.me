@@ -9,6 +9,7 @@ export default function Blog({ allPosts }) {
   const formatter = new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "long",
+    timeZone: "UTC",
     year: "numeric"
   });
   return (

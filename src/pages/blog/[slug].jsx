@@ -14,6 +14,7 @@ export default function Post({ content, post }) {
   const formatter = new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "long",
+    timeZone: "UTC",
     year: "numeric"
   });
   return (
