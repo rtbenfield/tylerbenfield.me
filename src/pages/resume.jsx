@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/layout";
-import LinkList from "../components/linkList";
 import SEO from "../components/seo";
 import Typography from "../components/typography";
 
@@ -12,7 +11,7 @@ export default function ResumePage() {
       <Typography variant="p">Hi, I’m Tyler Benfield.</Typography>
 
       <Typography variant="p">
-        I’m currently a Software Developer at SentryOne in Charlotte, NC. I am
+        I’m currently a Software Engineer at SentryOne in Charlotte, NC. I am
         lucky to be able to work with a team of brilliant individuals that
         challenge me to learn new things and improve every day. Outside of work,
         I enjoy experimenting with and learning new technologies and frameworks
@@ -23,244 +22,224 @@ export default function ResumePage() {
 
       <Typography variant="p">
         If you’d like to chat, you can reach me at{" "}
-        <a href="mailto:tyler@tylerbenfield.me">tyler@tylerbenfield.me</a>.
-      </Typography>
-
-      <Typography variant="h2" id="interesting-topics">
-        Interesting Topics
-      </Typography>
-      <Typography variant="p">
-        Some current topics I find particularly interesting are GraphQL, Web
-        Assembly, and CSS-in-JS. I have implemented a GraphQL API in C# and
-        continue to find ways in which the schema provides opportunity that
-        REST-like could not. I have yet to build a product with WebAssembly, but
-        I am following a few and look forward to using it myself once I find the
-        right project. The controversial nature of CSS-in-JS is something I also
-        follow, although I find both sides tend to misunderstand each other.
-      </Typography>
-
-      <Typography variant="p">
-        I closely follow the React community and I am working to increase my
-        participation and contribution. Having done React development since
-        2015, I have seen the library mature and the community surrounding it
-        reach an impressive size. I’m always impressed by how the maintainers
-        consider real-world applications in any decisions they make,
-        particularly by focusing on backwards compatibility and opt-in new
-        features.
-      </Typography>
-
-      <Typography variant="p">
-        As for languages, my favorite is Go for its performance and
-        straightforward syntax, but I rarely have the opportunity to use it
-        professionally. I have dove headfirst into TypeScript and really enjoy
-        it. The next language I hope to learn is ReasonML, specifically focusing
-        on ReasonReact.
-      </Typography>
-
-      <Typography variant="h2" id="technical-skills">
-        Technical Skills
-      </Typography>
-
-      <Typography variant="h3" id="languages">
-        Languages
-      </Typography>
-      <ul>
-        <li>Excellent in C#, JavaScript, TypeScript, SQL, CSS</li>
-        <li>Comfortable in Go, Python, Java, Less, Sass</li>
-      </ul>
-
-      <Typography variant="h3" id="software--technologies">
-        Software &amp; Technologies
-      </Typography>
-      <ul>
-        <li>Databases: SQL Server, MongoDB</li>
-        <li>Libraries/Frameworks: React, Vue.js, RxJS, ASP.NET</li>
-        <li>Development tools: VS Code, Visual Studio, Docker</li>
-        <li>Build tools: Webpack, Parcel, Grunt, Gulp</li>
-        <li>Testing libraries: Jest, react-testing-library, MSTest</li>
-        <li>
-          Concepts &amp; patterns: GraphQL, REST, Flux/Redux, and an abundance
-          of acronyms
-        </li>
-      </ul>
-
-      <Typography variant="h2" id="projects">
-        Projects
+        <a
+          href="mailto:tyler@tylerbenfield.me"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          tyler@tylerbenfield.me
+        </a>
+        .
       </Typography>
 
       <section>
-        <Typography variant="h3" id="projects-abundantia">
-          Abundantia
+        <Typography variant="h2" id="interesting-topics">
+          Areas of Interest
         </Typography>
-        <LinkList
-          link="https://abundantia-io.web.app/"
-          project="abundantia"
-          title="Abundantia"
-        />
+        <Typography variant="p">
+          Some current topics I find particularly interesting are GraphQL and
+          Web Assembly. I have implemented several GraphQL APIs and have found
+          that schema and introspection provide for some amazing tooling and
+          workflows. I have yet to build a product with WebAssembly, but I am
+          following a few projects and look forward to using it myself once I
+          find the right project.
+        </Typography>
+
+        <Typography variant="p">
+          I closely follow the React community and I am working to increase my
+          participation and contribution. Having done React development since
+          2015, I have seen the library mature and the community surrounding it
+          reach an monumental size. I’m always impressed by how the maintainers
+          consider real-world applications in any decisions they make,
+          particularly by focusing on backwards compatibility and opt-in new
+          features.
+        </Typography>
+
+        <Typography variant="p">
+          As for languages, my favorite is Go for its performance and
+          straightforward syntax, but I rarely have the opportunity to use it
+          professionally. I have spent the last few years deep in TypeScript and
+          have found it to be the most powerful type system I have personally
+          worked with. I've recently started learning Rust and look forward to
+          diving further into it.
+        </Typography>
       </section>
 
-      <Typography variant="h2" id="work-history">
-        Work History
-      </Typography>
+      <section>
+        <Typography variant="h2" id="technical-skills">
+          Technical Skills
+        </Typography>
 
-      <Typography variant="h3" id="senior-software-developer">
-        Senior Software Development Engineer
-      </Typography>
-      <Typography variant="p">
-        <em>SentryOne - Charlotte, NC</em>
-        <br />
-        September 2018 - Present
-      </Typography>
-
-      <ul>
-        <li>Currently working on super secret stuff. Stay tuned!</li>
-      </ul>
-
-      <Typography variant="h3" id="solutions-engineer">
-        Solutions Engineer
-      </Typography>
-      <Typography variant="p">
-        <em>Standpoint Technologies - Huntersville, NC</em>
-        <br />
-        May 2013 - August 2018
-      </Typography>
-
-      <ul>
-        <li>Lead engineer and architect on one of two SaaS products</li>
-        <li>
-          Architected, developed, and deployed SaaS web applications and
-          companion mobile apps
-        </li>
-        <li>
-          Met with customers to perform requirements gathering and provided
-          estimates to team
-        </li>
-        <li>
-          Designed REST API capable of selective expansion at the database query
-          level
-        </li>
-        <li>Implemented OAuth2 for authentication of API requests</li>
-        <li>
-          Utilized Microsoft SQL Server and involved with database architecture
-          and management
-        </li>
-        <li>
-          Used SQL CLR to maximize performance of complex data aggregation
-          within SQL Server
-        </li>
-        <li>
-          Developed integrations to several other systems, both desktop and
-          web-based
-        </li>
-        <li>Designed cross-browser, responsive user interfaces</li>
-        <li>
-          Assisted in maintenance of existing applications in both .NET and
-          classic ASP/VBScript
-        </li>
-      </ul>
-
-      <Typography variant="h3" id="software-engineering-intern">
-        Software Engineering Intern
-      </Typography>
-      <Typography variant="p">
-        <em>Penske Racing - Mooresville, NC</em>
-        <br />
-        May 2011 - August 2011
-        <br />
-        December 2011 - January 2012
-        <br />
-        May 2012 - August 2012
-        <br />
-        December 2012 - January 2013
-      </Typography>
-
-      <ul>
-        <li>
-          Developed desktop applications for in-house use using C# and Visual
-          Studio
-        </li>
-        <li>
-          Developed mobile applications for the Android operating system using
-          Java and Eclipse
-        </li>
-        <li>
-          Developed mobile applications for Windows Mobile 6.5 using C# and
-          Visual Studio
-        </li>
-        <li>
-          Developed .NET libraries used by other developers within the
-          department
-        </li>
-        <li>
-          Used experience in mathematics to create and modify various
-          algorithms, including those used to manipulate and compare
-          three-dimensional objects
-        </li>
-        <li>
-          Applications utilized SQL databases, Bluetooth, web requests, JSON,
-          XML, and a variety of other technologies
-        </li>
-      </ul>
-
-      <Typography variant="h2" id="education">
-        Education
-      </Typography>
-
-      <Typography variant="h3" id="georgia-institute-of-technology">
-        Georgia Institute of Technology
-      </Typography>
-      <Typography variant="p">Spring 2014 - Spring 2018</Typography>
-
-      <ul>
-        <li>M.S., Computer Science</li>
-        <li>Part of inaugural OMSCS cohort</li>
-      </ul>
-
-      <Typography variant="h3" id="wingate-university">
-        Wingate University
-      </Typography>
-      <Typography variant="p">Fall 2009 - Spring 2013</Typography>
-
-      <ul>
-        <li>B.S., Mathematics / Computer Science</li>
-        <li>
-          Four-time President’s List recipient and consistent Dean’s List
-          recipient
-        </li>
-        <li>Volunteered as Peer Mentor to guide incoming freshman</li>
-        <li>
-          Chapter President of the Theta Epsilon Chapter of Delta Sigma Phi
-          Fraternity
-        </li>
-      </ul>
-
-      <Typography variant="h2" id="honors-and-achievements">
-        Honors and Achievements
-      </Typography>
-      <ul>
-        <li>
-          Wingate University Outstanding Student in Mathematics &amp; Computer
-          Science (2013)
-        </li>
-        <li>
-          Wingate University President’s Student Advisory Council member (Fall
-          2012 - Spring 2013)
-        </li>
-        <li>
-          President of the Theta Epsilon Chapter of Delta Sigma Phi Fraternity
-          (Fall 2011 - Fall 2012)
+        <section>
+          <Typography variant="h3" id="languages">
+            Languages
+          </Typography>
+          <Typography variant="p">
+            I've worked with a number of languages and have studied many more.
+            Of course, I wouldn't stay I'm an expert in all of them, but I'll
+            mention a few.
+          </Typography>
           <ul>
-            <li>Wingate University Chapter of the Year 2011-2012</li>
+            <li>Expert in JavaScript, TypeScript, C#, SQL, CSS</li>
+            <li>Interested in Go, Rust, and Reason</li>
+            <li>Not interested in working with PHP, Java, Ruby, or Swift</li>
           </ul>
-        </li>
-        <li>
-          Vice President of the Theta Epsilon Chapter of Delta Sigma Phi
-          Fraternity (Fall 2010 - Fall 2011)
+        </section>
+
+        <section>
+          <Typography variant="h3" id="software-technologies">
+            Software &amp; Technologies
+          </Typography>
+          <Typography variant="p">
+            Being a full-stack developer, I've also worked with a variety of
+            technologies. I'll name-drop a few in particular.
+          </Typography>
           <ul>
-            <li>Wingate University Chapter of the Year 2010-2011</li>
+            <li>Databases: SQL Server and Dgraph</li>
+            <li>Frontend libraries: React and Vue.js</li>
+            <li>Backend frameworks: ASP.NET, Express, and GraphQL</li>
+            <li>Testing libraries: Jest, react-testing-library, and MSTest</li>
+            <li>Build tools: Webpack, Parcel, and Snowpack</li>
+            <li>Hosting: Docker, Azure, Google Cloud, Firebase, and Netlify</li>
           </ul>
-        </li>
-      </ul>
+        </section>
+      </section>
+
+      <section>
+        <Typography variant="h2" id="projects">
+          Projects
+        </Typography>
+
+        <section>
+          <Typography variant="h3" id="projects-abundantia">
+            Abundantia
+          </Typography>
+          <Typography variant="p">
+            Abundantia is an app I built for visualizing different loan payment
+            scenarios and planning my mortgage. I found it valuable and thought
+            others could benefit from it as well. Abundantia tends to be my
+            go-to app for trying new technologies, but it is currently written
+            in TypeScript with React and hosted in Firebase.
+          </Typography>
+          <a
+            href="https://abundantia-io.web.app/"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            https://abundantia-io.web.app/
+          </a>
+        </section>
+      </section>
+
+      <section>
+        <Typography variant="h2" id="work-history">
+          Work History
+        </Typography>
+
+        <section>
+          <Typography variant="h3" id="senior-software-developer">
+            Senior Software Development Engineer
+          </Typography>
+          <Typography variant="p">
+            <em>SentryOne - Charlotte, NC</em>
+            <br />
+            September 2018 - Present
+          </Typography>
+          <Typography variant="p">
+            At SentryOne I have been migrating the flagship SQL Sentry product
+            into the web with SentryOne Portal (self-hosted) and SentryOne
+            Monitor (SaaS). It has been a very exciting environment, full of
+            difficult technical challenges and brilliant engineers. Outside of
+            normal coding responsibilities, I have hosted a series of talks on
+            React, TypeScript, and general web development for the engineering
+            department.
+          </Typography>
+        </section>
+
+        <section>
+          <Typography variant="h3" id="solutions-engineer">
+            Solutions Engineer
+          </Typography>
+          <Typography variant="p">
+            <em>Standpoint Technologies - Huntersville, NC</em>
+            <br />
+            May 2013 - August 2018
+          </Typography>
+          <Typography variant="p">
+            Standpoint Technologies was the launching point of my career out of
+            college. It was a small, fast-paced environment where I was able to
+            gain experience in all roles of software development including
+            requirements gathering, working with legacy systems, adopting new
+            technologies, and monitoring production systems. I grew fast there,
+            and I was fortunate to become the lead engineer and architect for
+            JobPro, a SaaS business management product tailored to
+            subconstractors.
+          </Typography>
+        </section>
+
+        <section>
+          <Typography variant="h3" id="software-engineering-intern">
+            Software Engineering Intern
+          </Typography>
+          <Typography variant="p">
+            <em>Penske Racing - Mooresville, NC</em>
+            <br />
+            May 2011 - August 2011
+            <br />
+            December 2011 - January 2012
+            <br />
+            May 2012 - August 2012
+            <br />
+            December 2012 - January 2013
+          </Typography>
+          <Typography variant="p">
+            Penske Racing was my first chance to write code professionally. It
+            perfectly combined two of my passions: software engineering and
+            mechanical engineering. I was given the opportunity to build several
+            in-house utilities including mobile apps for trackside data
+            collection, desktop apps for comparing 3D scans, and various utility
+            libraries.
+          </Typography>
+        </section>
+      </section>
+
+      <section>
+        <Typography variant="h2" id="education">
+          Education
+        </Typography>
+
+        <section>
+          <Typography variant="h3" id="georgia-institute-of-technology">
+            Georgia Institute of Technology
+          </Typography>
+          <Typography variant="p">Spring 2014 - Spring 2018</Typography>
+
+          <ul>
+            <li>M.S., Computer Science</li>
+            <li>Part of inaugural OMSCS cohort</li>
+          </ul>
+        </section>
+
+        <section>
+          <Typography variant="h3" id="wingate-university">
+            Wingate University
+          </Typography>
+          <Typography variant="p">Fall 2009 - Spring 2013</Typography>
+
+          <ul>
+            <li>B.S., Mathematics / Computer Science</li>
+            <li>
+              Four-time President’s List recipient and consistent Dean’s List
+              recipient
+            </li>
+            <li>Volunteered as Peer Mentor to guide incoming freshman</li>
+            <li>
+              Chapter President of the Theta Epsilon Chapter of Delta Sigma Phi
+              Fraternity
+            </li>
+          </ul>
+        </section>
+      </section>
     </Layout>
   );
 }
