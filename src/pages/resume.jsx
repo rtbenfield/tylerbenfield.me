@@ -6,8 +6,8 @@ import Typography from "../components/typography";
 export default function ResumePage() {
   return (
     <Layout>
-      <SEO title="Resumé" />
-      <Typography variant="h1">Resumé</Typography>
+      <SEO title="Resume" />
+      <Typography variant="h1">Resume</Typography>
       <Typography variant="p">Hi, I’m Tyler Benfield.</Typography>
 
       <Typography variant="p">
