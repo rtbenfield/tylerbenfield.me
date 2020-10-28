@@ -76,7 +76,7 @@ export default function ResumePage() {
           </Typography>
           <Typography variant="p">
             I've worked with a number of languages and have studied many more.
-            Of course, I wouldn't stay I'm an expert in all of them, but I'll
+            Of course, I wouldn't say I'm an expert in all of them, but I'll
             mention a few.
           </Typography>
           <ul>
