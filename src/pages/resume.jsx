@@ -122,11 +122,31 @@ export default function ResumePage() {
             in TypeScript with React and hosted in Firebase.
           </Typography>
           <a
-            href="https://abundantia-io.web.app/"
+            href="https://tylerbenfield.me/projects/abundantia"
             rel="noreferrer noopener"
             target="_blank"
           >
-            https://abundantia-io.web.app/
+            https://tylerbenfield.me/projects/abundantia
+          </a>
+        </section>
+
+        <section>
+          <Typography variant="h3" id="projects-khepri">
+            Khepri
+          </Typography>
+          <Typography variant="p">
+            Khepri is an experiment in next-gen JavaScript build tooling that
+            runs on the Web Platform. Khepri isn't a single project, but a suite
+            of experiments that share the philosophy of encouraging modern web
+            development with a local-first approach, yet all capable of running
+            in any spec-compliant browser or runtime.
+          </Typography>
+          <a
+            href="https://tylerbenfield.me/projects/khepri"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            https://tylerbenfield.me/projects/khepri
           </a>
         </section>
       </section>

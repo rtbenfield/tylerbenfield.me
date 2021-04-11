@@ -2,6 +2,7 @@
 path: "/projects/abundantia"
 title: "Abundantia"
 link: "https://abundantia-io.web.app/"
+github: "https://github.com/rtbenfield/abundantia"
 spoiler: "Abundantia is an app I built for visualizing different loan payment scenarios and planning my mortgage. I found it valuable and thought others could benefit from it as well."
 ---
 

@@ -1,0 +1,25 @@
+---
+path: "/projects/khepri"
+title: "Khepri"
+# link: "https://khepri.tylerbenfield.dev/"
+github: "https://github.com/rtbenfield/khepri"
+spoiler: "Khepri is an experiment in next-gen JavaScript build tooling that runs
+on the Web Platform. Khepri isn't a single project, but a suite of experiments
+that share the philosophy of encouraging modern web development with a
+local-first approach, yet all capable of running in any spec-compliant browser
+or runtime."
+---
+
+People that have known me longer know that I can come up with some lofty project ideas. It goes way back too. As a teenager learning to code I thought I could build J.A.R.V.I.S. Some of my wild ideas became reality, like Axe.NET, an API design I developed at Standpoint Technologies that provided similar benefits to GraphQL but before it was a public project. Other ideas weren't so lucky, like Zero Document Format (ZDF), an idea to replace PDFs by packaging HTML, CSS, JS and other resources into a compressed format for delivery using public key cryptography for signing and verifying authenticity. The latest of these wild thought experiments is codename _Khepri_, and it may be my most ambitious yet.
+
+**_Khepri_ isn't a single project.** It's a suite of experiments that attempt to bring modern web development into the browser.
+
+**What does it mean to bring web development into the browser?** There are several code editors available that run within the browser, some even capable enough to be called IDEs. So isn't it already possible write code within the browser? The answer is a bit more complicated. The browser editors I am familiar with, while being able to add packages from NPM, compile TypeScript, and perform numerous other incredible tasks, are all locked into the configurations they support. They leave no room for custom build processes or extending functionality. Those that do provide customization seem to address it by launching the user into a shell connecting to a virtual machine on a server somewhere and saying "run whatever you want". This is still amazing and I still can't believe it is possible, but it has limitations. Once the user needs to connect to a server, they obviously lose the ability to work offline. It becomes more of a browser-based remote terminal than a browser-based coding environment.
+
+**_Khepri_ addresses this problem with a core component called _Scarab_.** _Scarab_ is a Web Platform compatible build pipeline that aligns closely with modern, local build tools. The current focus is on providing a development server and production build command, but in the future _Scarab_ may extend to running tests, formatting code, or performing other tasks against source code. _Scarab_ is heavily influenced by [Snowpack](https://www.snowpack.dev/) and shows clear similarities.
+
+**_Scarab_ is the core of _Khepri_, but it is less than useful by itself.** _Scarab_ relies on plugins for compiling code, with some of the initial examples being [esbuild](https://esbuild.github.io/) and [Svelte](https://svelte.dev/). It's also just a set of classes and functions that don't execute on their own. This is where _Khepri:Deno_, _Khepri:CLI_ and the web interfaces come in. Since [Deno](https://deno.land/) is a JavaScript runtime that focuses on spec-compliance, _Scarab_ runs on Deno almost by default. _Khepri:CLI_ is just the compiled version of _Khepri:Deno_ for those wanting to run _Khepri_ locally. Web interfaces are also being developed, with the expectation that there will be some form of playground and possibly even a code editor. There are currently no plans for a [Node.js](https://nodejs.org/) wrapper for _Scarab_ though there are no expected technical limitations preventing it.
+
+**_Khepri_ provides security and privacy by default.** Since all components of _Khepri_ run locally in the browser, your code will never need to leave your machine. In fact, _Khepri_ official projects are designed to be offline-first. In practice this means that your code will stay with you, on your machine, until you make the decision to share it. Additionally, running _Khepri_ in the browser provides natural sandboxing with the security and privacy rules already built into broswers. _Scarab_ even uses the interfaces provided by the experimental [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API), which will eventually allow executing build tasks against local files while restricting access to the directory that was explicitly granted. No more concern over post install scripts, compromised build tools, or other forms of malicious code executing in your local development environment.
+
+**_So what will *Khepri* become?_** To be honest, I don't know. I'm taking a similar model to [Pika](https://www.pika.dev/) that eventually became [Snowpack](https://www.snowpack.dev/) and [Skypack](https://www.skypack.dev/) by exploring several paths that are rooted in a central idea. Some may succeed, many will fail. Regardless of the outcome, it is the most fun I've had on a project in a very long time.
