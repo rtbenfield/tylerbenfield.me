@@ -10,7 +10,7 @@ export default function Blog({ allPosts }) {
     day: "numeric",
     month: "long",
     timeZone: "UTC",
-    year: "numeric"
+    year: "numeric",
   });
   return (
     <Layout>
