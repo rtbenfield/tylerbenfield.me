@@ -1,29 +1,36 @@
-import * as fs from "fs";
+import * as fs from "fs/promises";
 import matter from "gray-matter";
+import { serialize } from "next-mdx-remote/serialize";
 import * as path from "path";
-import { promisify } from "util";
 
 const postsDirectory = path.join(process.cwd(), "blog");
-const readdir = promisify(fs.readdir);
-const readFile = promisify(fs.readFile);
 
 export async function getAllPosts() {
   const slugs = await getPostSlugs();
   const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
-  // sort posts by date in descending order
-  return posts.sort((a, b) =>
-    new Date(a.data.date) > new Date(b.data.date) ? -1 : 1,
+  return (
+    posts
+      // limit result to post without mdxSource
+      .map(({ post }) => post)
+      // sort posts by date in descending order
+      .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
   );
 }
 
+/**
+ *
+ * @param {string} slug
+ * @returns {Promise<{ mdxSource: import("next-mdx-remote").MDXRemoteSerializeResult, post: any, slug: string }>}
+ */
 export async function getPostBySlug(slug) {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = await readFile(fullPath, "utf8");
-  const { content, data } = matter(fileContents);
-  return { content, data, slug };
+  const postPath = path.join(postsDirectory, `${slug}.mdx`);
+  const source = await fs.readFile(postPath, "utf8");
+  const { content, data } = matter(source);
+  const mdxSource = await serialize(content, { scope: data });
+  return { mdxSource, post: { ...data, slug }, slug };
 }
 
 export async function getPostSlugs() {
-  const files = await readdir(postsDirectory);
-  return files.map((x) => x.replace(/\.md$/, ""));
+  const files = await fs.readdir(postsDirectory);
+  return files.map((x) => x.replace(/\.mdx$/, ""));
 }

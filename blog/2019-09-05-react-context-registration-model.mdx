@@ -28,7 +28,7 @@ I usually like to start by thinking about what the API surface (props) of my com
 Maybe we have a component that displays charts like this:
 
 ```js
-const MyApp = () => {
+function MyApp() {
   return (
     <Chart
       data={data}
@@ -54,7 +54,7 @@ const MyApp = () => {
       ]}
     />
   );
-};
+}
 ```
 
 This is a pretty small example, but you can imagine how much more complex it gets as the number of options increases.
@@ -62,7 +62,7 @@ What would this API look like if were more component-based?
 We might have something more like this:
 
 ```js
-const MyApp = () => {
+function MyApp() {
   return (
     <Chart data={data}>
       <LineChart
@@ -83,7 +83,7 @@ const MyApp = () => {
       />
     </Chart>
   );
-};
+}
 ```
 
 Doesn't that read better? Well, maybe that's a matter of preference, but it does open the door for some pretty powerful reusability.
@@ -91,7 +91,7 @@ If all of the configuration "parts" are components, nothing is stopping us from 
 We might define a reusable `LineChart` configuration like this:
 
 ```js
-const MyLineChart = (props) => {
+function MyLineChart(props) {
   return (
     <LineChart
       color="blue"
@@ -102,22 +102,22 @@ const MyLineChart = (props) => {
       {...props}
     />
   );
-};
+}
 
-const MyApp = () => {
+function MyApp() {
   return (
     <Chart data={data}>
       <MyLineChart dataKey="value1" />
       <MyLineChart color="red" dataKey="value2" />
     </Chart>
   );
-};
+}
 ```
 
 We could even tie it into other things, like Context, to use themes or translations:
 
 ```js
-const MyLineChart = (props) => {
+function MyLineChart(props) {
   const { formatValue } = useLocalizationContext();
   const { getChartColor } = useTheme();
   return (
@@ -130,16 +130,16 @@ const MyLineChart = (props) => {
       {...props}
     />
   );
-};
+}
 
-const MyApp = () => {
+function MyApp() {
   return (
     <Chart data={data}>
       <MyLineChart dataKey="value1" />
       <MyLineChart dataKey="value2" />
     </Chart>
   );
-};
+}
 ```
 
 This is only scratching the surface!
@@ -157,7 +157,7 @@ What state do we have? Take a look:
 ```js
 const chartContext = React.createContext();
 
-export const ChartContextProvider = ({ children }) => {
+export function ChartContextProvider({ children }) {
   const [charts, setCharts] = React.useState([]);
 
   const registerChart = React.useCallback((chart) => {
@@ -183,7 +183,7 @@ export const ChartContextProvider = ({ children }) => {
   return (
     <chartContext.Provider value={value}>{children}</chartContext.Provider>
   );
-};
+}
 
 // Convenience hook so that chartContext is not exposed outside this module
 export function useChartContext() {
@@ -199,7 +199,7 @@ export function useChartContext() {
 What good does this give us? Let's start using it in `Chart` and `LineChart`.
 
 ```js
-export const Chart = ({ children, data }) => {
+export function Chart({ children, data }) {
   return (
     <ChartContextProvider>
       {/* children will contain the LineChart instances */}
@@ -207,9 +207,9 @@ export const Chart = ({ children, data }) => {
       <ChartDisplay data={data} />
     </ChartContextProvider>
   );
-};
+}
 
-export const LineChart = ({ color, dataKey, plotPoints, tooltip }) => {
+export function LineChart({ color, dataKey, plotPoints, tooltip }) {
   const { registerChart, unregisterChart } = useChartContext();
 
   // Any time one of the props changes, re-register the chart object definition
@@ -225,13 +225,13 @@ export const LineChart = ({ color, dataKey, plotPoints, tooltip }) => {
 
   // LineChart doesn't actually render anything!
   return null;
-};
+}
 
-const ChartDisplay = ({ data }) => {
+function ChartDisplay({ data }) {
   const { charts } = useChartContext();
 
   // TODO: Draw the actual chart using the `charts` object and `data`
-};
+}
 ```
 
 That's all there is to it!
@@ -253,7 +253,7 @@ Say we want to build a component that displays a tab strip, manages the selected
 Just like above, let's start with what we want the API surface to look like:
 
 ```js
-const MyApp = () => {
+function MyApp() {
   const [selectedTab, setSelectedTab] = React.useState(1);
   return (
     <Tabs onChange={setSelectedTab} selectedTab={selectedTab}>
@@ -268,7 +268,7 @@ const MyApp = () => {
       </Tab>
     </Tabs>
   );
-};
+}
 ```
 
 That seems simple, but how does the `Tabs` component know when our `Tab` is clicked?
@@ -279,7 +279,7 @@ This feels like the right API, so let's use Context to make it happen!
 ```js
 const tabContext = React.createContext();
 
-const TabContextProvider = ({ children, onChange, selectedTab }) => {
+function TabContextProvider({ children, onChange, selectedTab }) {
   const [tabs, setTabs] = React.useState([]);
 
   const registerTab = React.useCallback((tab) => {
@@ -306,7 +306,8 @@ const TabContextProvider = ({ children, onChange, selectedTab }) => {
       {children}
     </tabContext.Provider>
   )
-};
+}
+
 // Convenience hook so that chartContext is not exposed outside this module
 export function useTabContext() {
   const value = React.useContext(tabContext);
@@ -317,16 +318,16 @@ export function useTabContext() {
   return value;
 }
 
-const Tabs = ({ children, onChange, selectedTab }) => {
+function Tabs({ children, onChange, selectedTab }) {
   return (
     <TabContextProvider onChange={onChange} selectedTab={selectedTab}>
       <TabDisplay />
       {children}
     <TabContextProvider>
   );
-};
+}
 
-const Tab = ({ children, label, tabKey }) => {
+function Tab({ children, label, tabKey }) {
   const { registerTab, unregisterTab, selectedTab } = useTabContext();
 
   React.useEffect(() => {
@@ -343,13 +344,13 @@ const Tab = ({ children, label, tabKey }) => {
   } else {
     return null;
   }
-};
+}
 
-const TabDisplay = () => {
+function TabDisplay() {
   const { tabs, selectedTab, setSelectedTab } = useTabContext();
 
   // TODO: Display tab strip using `tabs`
-};
+}
 ```
 
 Notice how similar this was to the chart example.

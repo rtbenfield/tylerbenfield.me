@@ -23,15 +23,15 @@ export default function Blog({ allPosts }) {
             <header>
               <Typography variant="h2">
                 <Link as={`/blog/${post.slug}`} href="/blog/[slug]">
-                  <a rel="bookmark">{post.data.title}</a>
+                  <a rel="bookmark">{post.title}</a>
                 </Link>
               </Typography>
               <small>
                 {/* {post.date} - {node.timeToRead} min read */}
-                {formatter.format(new Date(post.data.date))}
+                {formatter.format(new Date(post.date))}
               </small>
             </header>
-            <p dangerouslySetInnerHTML={{ __html: post.data.spoiler }} />
+            <p dangerouslySetInnerHTML={{ __html: post.spoiler }} />
           </article>
         </React.Fragment>
       ))}
