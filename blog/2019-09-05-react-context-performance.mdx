@@ -53,8 +53,6 @@ The CodeSandbox example below has 3 components:
 Each component and function has `console.log` added to track rerenders.
 Play around with adding and updating items and observe the Console tab below the preview.
 
-<iframe src="https://codesandbox.io/embed/bitter-wave-1yv1g?expanddevtools=1&fontsize=14&module=%2Fsrc%2FTodoList.jsx" title="react-context-performance-example1" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
-
 There are a few things to notice from the logs in this baseline example.
 
 First, any input to the field in `AddTodo` rerenders only that component.
@@ -76,8 +74,6 @@ Notice how fewer props we have being passed around now. Each component instead s
 
 > Using Context for something this simple is absolutely overkill, but this is just an example.
 > I'm not suggesting you go switch all of your state to Context.
-
-<iframe src="https://codesandbox.io/embed/react-context-performance-example1-hf9uq?expanddevtools=1&fontsize=14&module=%2Fsrc%2FtodoContext.jsx" title="react-context-performance-example2" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 Notice that this didn't eliminate any component renders. In fact, it added the `TodoContextProvider` render.
 That's because all of our components are subscribing to the context value with `useTodos`.
@@ -115,16 +111,12 @@ By doing this we remove the `useTodos` dependency from `AddTodo` itself, and `Re
 To be fair, we haven't reduced the _number_ of rerenders, but we did exchange an expensive rerender for an inexpensive one.
 All of this can be done within the internal scope of `AddTodo.jsx` and none of the other components in the tree know the difference.
 
-<iframe src="https://codesandbox.io/embed/react-context-performance-example2-2u1lp?expanddevtools=1&fontsize=14&module=%2Fsrc%2FtodoContext.jsx" title="react-context-performance-example3" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
-
 Let's keep going! What if we don't want to rerender all `TodoListItem` (again, **only if it is expensive**) components for a change to a single item, like changing `isComplete`?
 We can take a similar approach to subscribe to `TodoListItem` to a single todo item.
 By wrapping `TodoListItem` in another component that extracts the values we need from `useTodos` and passes them as props, we can rely on `React.memo` to skip rerendering.
 As long as the `todo` prop's reference is maintained, we skip rerendering `TodoListItem`!
 This **only** works because of our use of immutability in `updateTodo`.
 Otherwise, we would have just introduced a bug because `TodoListItem` would not have rerendered changes made to the item!
-
-<iframe src="https://codesandbox.io/embed/react-context-performance-example3-2fuh0?expanddevtools=1&fontsize=14&module=%2Fsrc%2FTodoListItem.jsx" title="react-context-performance-example4" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 ## Redux didn't need this!
 

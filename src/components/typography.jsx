@@ -1,17 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styles from "./typography.module.css";
 
 const Typography = ({
-  component,
   children,
   className = "",
-  id,
+  id = undefined,
   variant,
+  component: Component = variant,
   ...props
 }) => {
-  const Component = component || variant;
   return (
     <Component className={`${styles.root} ${className}`} id={id} {...props}>
       {children}

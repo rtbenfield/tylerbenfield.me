@@ -39,9 +39,9 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return <h1>Something went wrong.</h1>;
+    } else {
+      return this.props.children;
     }
-
-    return this.props.children;
   }
 }
 ```
@@ -55,24 +55,27 @@ The React docs on error boundaries show an example of how we can handle event ha
 We can put the error in state and then use it in `render` to show a fallback display.
 No magic, no error boundary, just using simple React primitives.
 
-```jsx
-const MyComponent = () => {
+```jsx live=true
+function MyComponent() {
   const [error, setError] = React.useState(null);
 
   function handleClick() {
     try {
       // Do something that could throw
+      throw Error("oops!");
     } catch (err) {
       setError(err);
     }
   }
 
   if (error) {
-    return <h1>Caught an error.</h1>;
+    return <button onClick={() => setError(null)}>Error! Reset</button>;
   } else {
-    return <div onClick={handleClick}>Click Me</div>;
+    return <button onClick={handleClick}>Click Me</button>;
   }
-};
+}
+
+render(<MyComponent />);
 ```
 
 That's great, but what if we don't want all of our components to deal with errors themselves?
@@ -84,8 +87,33 @@ So what do we do?
 
 Just re-throw the error in `render`. **What?!?** Yup. Check it out.
 
-```jsx
-const MyComponent = () => {
+```jsx live=true
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return (
+        <button onClick={() => this.setState({ hasError: false })}>
+          Error! Reset
+        </button>
+      );
+    } else {
+      return this.props.children;
+    }
+  }
+}
+
+function MyComponent() {
   const [error, setError] = React.useState(null);
   if (error) {
     throw error;
@@ -94,13 +122,20 @@ const MyComponent = () => {
   function handleClick() {
     try {
       // Do something that could throw
+      throw new Error("oops!");
     } catch (err) {
       setError(err);
     }
   }
 
-  return <div onClick={handleClick}>Click Me</div>;
-};
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+render(
+  <ErrorBoundary>
+    <MyComponent />
+  </ErrorBoundary>,
+);
 ```
 
 That's all it takes. No magic, no special syntax, no utility functions, just plain JavaScript.
