@@ -1,0 +1,206 @@
+---
+path: "/blog/async-ui"
+date: "2021-05-31"
+title: "Async UI"
+spoiler: "Interfaces for user feedback are inherently asynchronous. Connecting the response to the original request through state can be cumbersome. In this article I'll show an alternative in React that utilizes common Promise patterns."
+---
+
+Interfaces for user feedback are inherently asynchronous. Connecting the response to the original request through state can be cumbersome. In this article I'll show an alternative in React that utilizes common Promise patterns.
+
+## UI is Asynchronous
+
+Let's start by analyzing what makes a user interfaces asynchronous. Some interface APIs provided by the browser behave synchronously, like `window.alert`, `window.prompt`, or `window.confirm`. These functions stop code execution and prevent all other user interaction until the user completes the feedback loop. This creates a simple and direct API for us as developers, but a less than ideal interface for users. It's also limited in the type of feedback we can request. Instead, we'd prefer to display something embedded, styled, and fully within our control. For example, maybe we'd use a modal for user input or a toast notification for updates. With any UI library we use (even vanilla JavaScript), we update the DOM with the interface and **wait** for the user to supply input. We can't tell the browser to stop executing our current code block and the browser doesn't know that we are waiting for feedback to proceed. While we wait, we can also handle other user events, execute other scripts, or even continue to update the UI to assist the user. This form of feedback is therefore asynchronous. That's great for the user, but how do we keep track of contextual information like why the feedback was requested to start with? We could put that information in state somewhere, but I've found that to be difficult and prone to bugs. Issues like forgetting to reset that state, nested feedback, or the need to expose values that should be scoped all arise.
+
+## Promises
+
+[Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) are the modern way to handle all kinds of asynchronous workflows. Pretty much everything except [Async Iterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) are excellent candidates for Promises. A Promise can be in one of three states: pending, error, or complete. Note that there is no cancel, but the web does provide us with [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to assist with that. If you haven't worked with Promises before, you may want to read up and try some examples before continuing. Let's try out a Promise-based flow for feedback UI.
+
+## Promise-based UI
+
+For the following examples, let's work through creating a generic user confirmation prompt that will perform some additional action if confirmed, or cancel otherwise. We'll build the examples in React, but the principals here should apply to any other UI library.
+
+Let's start with our confirm component. We'll give it a simple, unstyled UI. Note that I am not focusing on accessibility here, but a real-world implementation should use something like [react-modal](https://github.com/reactjs/react-modal) or otherwise follow accessibility best practices.
+
+```jsx
+function Confirm({ children, onCancel, onConfirm }) {
+  return (
+    <div>
+      <div>{children}</div>
+      <button onClick={onCancel}>Cancel</button>
+      <button onClick={onConfirm}>Confirm</button>
+    </div>
+  );
+}
+```
+
+That is a typical React API that [lifts state](https://reactjs.org/docs/lifting-state-up.html) and allows a parent to manage the asynchronous flow. Let's try something more Promise-based. We'll use a hook that returns some UI to render and a function for initiating the confirmation prompt imperatively. The function will have a similar API to `window.confirm`, except it will return a Promise that resolves with true/false rather than true/false immediately.
+
+```jsx live=true
+function Confirm({ children, onCancel, onConfirm }) {
+  return (
+    <div>
+      <div>{children}</div>
+      <button onClick={onCancel}>Cancel</button>
+      <button onClick={onConfirm}>Confirm</button>
+    </div>
+  );
+}
+
+function useConfirm() {
+  // confirm will hold the resolve function for the Promise backing the UI
+  // it will also hold the display value
+  const [confirm, setConfirm] = React.useState(null);
+
+  return {
+    /**
+     * Called to display the confirmation prompt with the specified content.
+     * Returns a Promise that resolves with true if confirmed, false otherwise.
+     */
+    confirm(content) {
+      return new Promise((resolve) => {
+        // Note that we don't call resolve here
+        // Instead, we put it in state to use later
+        setConfirm({ content, resolve });
+      });
+    },
+    /**
+     * React component to render to display the confirmation prompt.
+     * Always render this component, which will automatically show/hide.
+     */
+    ConfirmUI(/* props here can be used for styling or display other stuff */) {
+      return confirm ? (
+        <Confirm
+          onCancel={() => {
+            confirm.resolve(false);
+            setConfirm(null);
+          }}
+          onConfirm={() => {
+            confirm.resolve(true);
+            setConfirm(null);
+          }}
+        >
+          {confirm.content}
+        </Confirm>
+      ) : null;
+    },
+  };
+}
+
+/**
+ * This component is just an example of how to use the useConfirm hook.
+ */
+function ExampleComponent() {
+  const { confirm, ConfirmUI } = useConfirm();
+  const [counter, setCounter] = React.useState(0);
+
+  async function handleClick() {
+    const result = await confirm("Increment counter?");
+    if (result) {
+      setCounter((prev) => prev + 1);
+    }
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>Click Me</button>
+      <div>Counter: {counter}</div>
+      <ConfirmUI />
+    </>
+  );
+}
+
+render(<ExampleComponent />);
+```
+
+That's it! We can throw our `useConfirm` hook into any component to gain an asynchronous confirmation UI. This was a trivial example, but it can be extended to other use cases than render more complex UI or return more than just true/false. The key is that the new Promise is returned from the initiating function with the resolve/reject functions put into state for use later in the feedback cycle.
+
+Before wrapping this up, lets look at one more example that uses React Context to avoid rendering confirmation prompts all over the component tree. This is my preferred approach and has added benefits like making a queue of prompts/alerts/etc.
+
+```jsx live=true
+function Confirm({ children, onCancel, onConfirm }) {
+  return (
+    <div>
+      <div>{children}</div>
+      <button onClick={onCancel}>Cancel</button>
+      <button onClick={onConfirm}>Confirm</button>
+    </div>
+  );
+}
+
+const context = React.createContext(null);
+context.displayName = "ConfirmContext";
+
+function useConfirm() {
+  const value = React.useContext(context);
+  if (!value) {
+    throw new Error(`useConfirm must be used as a child of ConfirmProvider`);
+  } else {
+    return value;
+  }
+}
+
+function ConfirmProvider({ children }) {
+  const [state, setState] = React.useState(null);
+
+  const confirm = React.useCallback((content) => {
+    return new Promise((resolve) => {
+      setState({ content, resolve });
+    });
+  });
+
+  return (
+    <context.Provider value={{ confirm }}>
+      {children}
+      {state && (
+        <Confirm
+          onCancel={() => {
+            state.resolve(false);
+            setState(null);
+          }}
+          onConfirm={() => {
+            state.resolve(true);
+            setState(null);
+          }}
+        >
+          {state.content}
+        </Confirm>
+      )}
+    </context.Provider>
+  );
+}
+
+/**
+ * This component is just an example of how to use the useConfirm hook.
+ */
+function ExampleComponent() {
+  const { confirm } = useConfirm();
+  const [counter, setCounter] = React.useState(0);
+
+  async function handleClick() {
+    const result = await confirm("Increment counter?");
+    if (result) {
+      setCounter((prev) => prev + 1);
+    }
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>Click Me</button>
+      <div>Counter: {counter}</div>
+    </>
+  );
+}
+
+/**
+ * This component shows how to wrap the app in ConfirmProvider.
+ */
+function ExampleApp() {
+  return (
+    <ConfirmProvider>
+      <ExampleComponent />
+    </ConfirmProvider>
+  );
+}
+
+render(<ExampleApp />);
+```
