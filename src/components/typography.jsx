@@ -7,12 +7,17 @@ const Typography = ({
   children,
   className = "",
   id = undefined,
+  srOnly = false,
   variant,
   component: Component = variant,
   ...props
 }) => {
   return (
-    <Component className={`${styles.root} ${className}`} id={id} {...props}>
+    <Component
+      className={`${styles.root} ${srOnly ? styles.srOnly : ""} ${className}`}
+      id={id}
+      {...props}
+    >
       {children}
       {id && (
         <a aria-hidden className={styles.anchor} href={`#${id}`}>

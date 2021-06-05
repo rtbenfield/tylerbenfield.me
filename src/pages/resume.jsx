@@ -3,21 +3,26 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Typography from "../components/typography";
 
+/** @type{React.HTMLAttributes<HTMLElement>["style"]} */
+const avoidPageBreak = { pageBreakInside: "avoid" };
+
 export default function ResumePage() {
   return (
     <Layout>
       <SEO title="Resume" />
-      <Typography variant="h1">Resume</Typography>
+      <Typography srOnly variant="h1">
+        Resume
+      </Typography>
       <Typography variant="p">Hi, I’m Tyler Benfield.</Typography>
 
       <Typography variant="p">
-        I’m currently a Software Engineer at SentryOne in Charlotte, NC. I am
+        I’m currently a software engineer at SentryOne in Charlotte, NC. I am
         lucky to be able to work with a team of brilliant individuals that
         challenge me to learn new things and improve every day. Outside of work,
         I enjoy experimenting with and learning new technologies and frameworks
         to stay up-to-date on where the industry is headed and how we can
-        continue to progress forward. I also have a few side projects that I
-        work on when I can and I enjoy working on cars as well.
+        continue to progress forward. I also hike, work on cars, and play a few
+        instruments.
       </Typography>
 
       <Typography variant="p">
@@ -32,7 +37,7 @@ export default function ResumePage() {
         .
       </Typography>
 
-      <section>
+      <section style={{}}>
         <Typography variant="h2" id="interesting-topics">
           Areas of Interest
         </Typography>
@@ -57,7 +62,7 @@ export default function ResumePage() {
 
         <Typography variant="p">
           As for languages, my favorite is Go for its performance and
-          straightforward syntax, but I rarely have the opportunity to use it
+          straightforward syntax, but I haven't had much opportunity to use it
           professionally. I have spent the last few years deep in TypeScript and
           have found it to be the most powerful type system I have personally
           worked with. I've recently started learning Rust and look forward to
@@ -82,7 +87,6 @@ export default function ResumePage() {
           <ul>
             <li>Expert in JavaScript, TypeScript, C#, SQL, CSS</li>
             <li>Interested in Go, Rust, and Reason</li>
-            <li>Not interested in working with PHP, Java, Ruby, or Swift</li>
           </ul>
         </section>
 
@@ -95,10 +99,10 @@ export default function ResumePage() {
             technologies. I'll name-drop a few in particular.
           </Typography>
           <ul>
-            <li>Databases: SQL Server and Dgraph</li>
+            <li>Databases: SQL Server and Firestore</li>
             <li>Frontend libraries: React and Vue.js</li>
-            <li>Backend frameworks: ASP.NET, Express, and GraphQL</li>
-            <li>Testing libraries: Jest, react-testing-library, and MSTest</li>
+            <li>Backend frameworks: ASP.NET, Express, Next.js, and GraphQL</li>
+            <li>Testing libraries: Jest, React Testing Library, and MSTest</li>
             <li>Build tools: Webpack, Parcel, and Snowpack</li>
             <li>Hosting: Docker, Azure, Google Cloud, Firebase, and Netlify</li>
           </ul>
@@ -110,7 +114,7 @@ export default function ResumePage() {
           Projects
         </Typography>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="projects-abundantia">
             Abundantia
           </Typography>
@@ -130,7 +134,7 @@ export default function ResumePage() {
           </a>
         </section>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="projects-khepri">
             Khepri
           </Typography>
@@ -156,7 +160,7 @@ export default function ResumePage() {
           Work History
         </Typography>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="senior-software-developer">
             Senior Software Development Engineer
           </Typography>
@@ -172,11 +176,12 @@ export default function ResumePage() {
             difficult technical challenges and brilliant engineers. Outside of
             normal coding responsibilities, I have hosted a series of talks on
             React, TypeScript, and general web development for the engineering
-            department.
+            department, participated in on-call rotation, and designed CI/CD
+            pipelines.
           </Typography>
         </section>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="solutions-engineer">
             Solutions Engineer
           </Typography>
@@ -197,7 +202,7 @@ export default function ResumePage() {
           </Typography>
         </section>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="software-engineering-intern">
             Software Engineering Intern
           </Typography>
@@ -228,36 +233,26 @@ export default function ResumePage() {
           Education
         </Typography>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="georgia-institute-of-technology">
-            Georgia Institute of Technology
+            M.S., Computer Science
           </Typography>
-          <Typography variant="p">Spring 2014 - Spring 2018</Typography>
-
-          <ul>
-            <li>M.S., Computer Science</li>
-            <li>Part of inaugural OMSCS cohort</li>
-          </ul>
+          <Typography variant="p">
+            <em>Georgia Institute of Technology</em>
+            <br />
+            Spring 2014 - Spring 2018
+          </Typography>
         </section>
 
-        <section>
+        <section style={avoidPageBreak}>
           <Typography variant="h3" id="wingate-university">
-            Wingate University
+            B.S., Mathematics / Computer Science
           </Typography>
-          <Typography variant="p">Fall 2009 - Spring 2013</Typography>
-
-          <ul>
-            <li>B.S., Mathematics / Computer Science</li>
-            <li>
-              Four-time President’s List recipient and consistent Dean’s List
-              recipient
-            </li>
-            <li>Volunteered as Peer Mentor to guide incoming freshman</li>
-            <li>
-              Chapter President of the Theta Epsilon Chapter of Delta Sigma Phi
-              Fraternity
-            </li>
-          </ul>
+          <Typography variant="p">
+            <em>Wingate University</em>
+            <br />
+            Fall 2009 - Spring 2013
+          </Typography>
         </section>
       </section>
     </Layout>

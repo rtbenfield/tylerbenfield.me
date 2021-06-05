@@ -9,6 +9,10 @@
   @media (--breakpoint-sm-up) {
     flex-direction: row;
   }
+
+  @media print {
+    display: none;
+  }
 }
 
 .iconLinks > a {
