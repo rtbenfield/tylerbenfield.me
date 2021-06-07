@@ -198,7 +198,7 @@ export default function ResumePage() {
             technologies, and monitoring production systems. I grew fast there,
             and I was fortunate to become the lead engineer and architect for
             JobPro, a SaaS business management product tailored to
-            subconstractors.
+            subcontractors.
           </Typography>
         </section>
 
