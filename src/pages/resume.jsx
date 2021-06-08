@@ -2,13 +2,14 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Typography from "../components/typography";
+import styles from "./resume.module.css";
 
 /** @type{React.HTMLAttributes<HTMLElement>["style"]} */
 const avoidPageBreak = { pageBreakInside: "avoid" };
 
 export default function ResumePage() {
   return (
-    <Layout>
+    <Layout className={styles.root}>
       <SEO title="Resume" />
       <Typography srOnly variant="h1">
         Resume
@@ -123,11 +124,12 @@ export default function ResumePage() {
           <Typography variant="p">
             At SentryOne I have been migrating the flagship SQL Sentry product
             into the web with SentryOne Portal (self-hosted) and SentryOne
-            Monitor (SaaS). It has been a very exciting environment, full of
-            difficult technical challenges and motivated engineers. Outside of
-            coding responsibilities, I have hosted a series of talks on React,
-            TypeScript, and web development for the engineering department,
-            participated in on-call rotation, and designed CI/CD pipelines.
+            Monitor (SaaS). Outside of coding responsibilities, I have hosted a
+            series of talks on React, TypeScript, and web development for the
+            engineering department, participated in on-call rotation, and
+            designed CI/CD pipelines. I also act as team lead with
+            responsibilities including mentoring, assisting in roadmap planning,
+            removing roadblocks, and improving communication.
           </Typography>
         </section>
 
