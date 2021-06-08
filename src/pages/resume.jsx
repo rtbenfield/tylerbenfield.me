@@ -13,66 +13,33 @@ export default function ResumePage() {
       <Typography srOnly variant="h1">
         Resume
       </Typography>
-      <Typography variant="p">Hi, I’m Tyler Benfield.</Typography>
+      <Typography variant="p">
+        Hi, I’m Tyler Benfield. My goal is to amplify my impact on the world by
+        empowering engineers to do their best work.
+      </Typography>
 
       <Typography variant="p">
         I’m currently a software engineer at SentryOne in Charlotte, NC. I am
-        lucky to be able to work with a team of brilliant individuals that
-        challenge me to learn new things and improve every day. Outside of work,
-        I enjoy experimenting with and learning new technologies and frameworks
-        to stay up-to-date on where the industry is headed and how we can
-        continue to progress forward. I also hike, work on cars, and play a few
+        lucky to work with a team of brilliant individuals that challenge me to
+        learn new things and improve every day. Outside of work, I have a few
+        personal projects that experiment with new ideas and solve some
+        challenges I've encountered. I also hike, work on cars, and play a few
         instruments.
       </Typography>
 
       <Typography variant="p">
-        If you’d like to chat, you can reach me at{" "}
-        <a
-          href="mailto:tyler@tylerbenfield.me"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          tyler@tylerbenfield.me
-        </a>
-        .
+        I have a breadth of experience designing, building, hosting, and
+        supporting SaaS products. My knowledge is deepest in the web platform
+        and I stay aware of new standards as they are proposed. I also enjoy
+        mentoring, improving processes, and ensuring everyone is recognized for
+        good work. I once heard that 10x engineers aren't those that deliver 10x
+        more code, but those that multiply their impact by supporting others. I
+        strive for that and encourage others to do the same.
       </Typography>
-
-      <section style={{}}>
-        <Typography variant="h2" id="interesting-topics">
-          Areas of Interest
-        </Typography>
-        <Typography variant="p">
-          Some current topics I find particularly interesting are GraphQL and
-          Web Assembly. I have implemented several GraphQL APIs and have found
-          that schema and introspection provide for some amazing tooling and
-          workflows. I have yet to build a product with WebAssembly, but I am
-          following a few projects and look forward to using it myself once I
-          find the right project.
-        </Typography>
-
-        <Typography variant="p">
-          I closely follow the React community and I am working to increase my
-          participation and contribution. Having done React development since
-          2015, I have seen the library mature and the community surrounding it
-          reach an monumental size. I’m always impressed by how the maintainers
-          consider real-world applications in any decisions they make,
-          particularly by focusing on backwards compatibility and opt-in new
-          features.
-        </Typography>
-
-        <Typography variant="p">
-          As for languages, my favorite is Go for its performance and
-          straightforward syntax, but I haven't had much opportunity to use it
-          professionally. I have spent the last few years deep in TypeScript and
-          have found it to be the most powerful type system I have personally
-          worked with. I've recently started learning Rust and look forward to
-          diving further into it.
-        </Typography>
-      </section>
 
       <section>
         <Typography variant="h2" id="technical-skills">
-          Technical Skills
+          Professional Skills
         </Typography>
 
         <section>
@@ -80,36 +47,160 @@ export default function ResumePage() {
             Languages
           </Typography>
           <Typography variant="p">
-            I've worked with a number of languages and have studied many more.
-            Of course, I wouldn't say I'm an expert in all of them, but I'll
-            mention a few.
+            As a a polyglot and language enthusiast, I've become familar with a
+            number of languages. I believe familiarizing with a variety of
+            languages across different domains also deepen our understanding of
+            those we are most comfortable in.
           </Typography>
           <ul>
-            <li>Expert in JavaScript, TypeScript, C#, SQL, CSS</li>
-            <li>Interested in Go, Rust, and Reason</li>
+            <li>Expert in JavaScript, TypeScript, CSS, C#, and SQL</li>
+            <li>Familiarity in Go, Python, and Rust</li>
+            <li>Watching Rescript and AssemblyScript</li>
           </ul>
         </section>
 
         <section>
           <Typography variant="h3" id="software-technologies">
-            Software &amp; Technologies
+            Software and Technologies
           </Typography>
           <Typography variant="p">
-            Being a full-stack developer, I've also worked with a variety of
-            technologies. I'll name-drop a few in particular.
+            I've had the privilege of working with a range of technologies
+            throughout the stack. The list is too long to mention and I'm
+            certainly not an expert at them all, but I am confident when
+            discussing any of the below.
           </Typography>
           <ul>
             <li>Databases: SQL Server and Firestore</li>
             <li>Frontend libraries: React and Vue.js</li>
-            <li>Backend frameworks: ASP.NET, Express, Next.js, and GraphQL</li>
-            <li>Testing libraries: Jest, React Testing Library, and MSTest</li>
+            <li>Backend frameworks: ASP.NET, Deno, Next.js, and GraphQL</li>
+            <li>Testing: Jest, React Testing Library, and MSTest</li>
             <li>Build tools: Webpack, Parcel, and Snowpack</li>
             <li>Hosting: Docker, Azure, Google Cloud, Firebase, and Netlify</li>
+          </ul>
+        </section>
+
+        <section>
+          <Typography variant="h3" id="leadership">
+            Collaboration, Product, and Leadership
+          </Typography>
+          <Typography variant="p">
+            I believe that cross-functional, highly collaborative teams produce
+            the highest quality software. Amazing things can happen when the
+            team is unified and understands the value of the work they do.
+          </Typography>
+          <ul>
+            <li>
+              Comfortable organizing and leading meetings across departments to
+              ensure a cooperative culture.
+            </li>
+            <li>
+              Experience working through product designs and business
+              requirements to conduct estimates, ROI discussions, and roadmap
+              planning.
+            </li>
+            <li>
+              Passion for supporting my team in their career journey through
+              mentorship and tasks that prioritize technical growth.
+            </li>
           </ul>
         </section>
       </section>
 
       <section>
+        <Typography variant="h2" id="work-history">
+          Work Experience
+        </Typography>
+
+        <section style={avoidPageBreak}>
+          <Typography variant="h3" id="senior-software-developer">
+            Senior Software Development Engineer
+          </Typography>
+          <Typography variant="p">
+            <em>SentryOne - Charlotte, NC</em>
+            <br />
+            September 2018 - Present
+          </Typography>
+          <Typography variant="p">
+            At SentryOne I have been migrating the flagship SQL Sentry product
+            into the web with SentryOne Portal (self-hosted) and SentryOne
+            Monitor (SaaS). It has been a very exciting environment, full of
+            difficult technical challenges and motivated engineers. Outside of
+            coding responsibilities, I have hosted a series of talks on React,
+            TypeScript, and web development for the engineering department,
+            participated in on-call rotation, and designed CI/CD pipelines.
+          </Typography>
+        </section>
+
+        <section style={avoidPageBreak}>
+          <Typography variant="h3" id="solutions-engineer">
+            Solutions Engineer
+          </Typography>
+          <Typography variant="p">
+            <em>Standpoint Technologies - Huntersville, NC</em>
+            <br />
+            May 2013 - August 2018
+          </Typography>
+          <Typography variant="p">
+            Standpoint Technologies was the launching point of my career out of
+            college. It was a small, fast-paced environment where I was able to
+            gain experience in all roles of software development including
+            requirements gathering, working with legacy systems, adopting new
+            technologies, and monitoring production systems. I grew fast there,
+            and I was fortunate to become the lead engineer and architect for
+            JobPro, a SaaS business management product tailored to
+            subcontractors.
+          </Typography>
+        </section>
+
+        <section style={avoidPageBreak}>
+          <Typography variant="h3" id="software-engineering-intern">
+            Software Engineering Intern
+          </Typography>
+          <Typography variant="p">
+            <em>Penske Racing - Mooresville, NC</em>
+            <br />
+            May 2011 - January 2013
+          </Typography>
+          <Typography variant="p">
+            Penske Racing was my first chance to write code professionally. It
+            perfectly combined two of my passions: software engineering and
+            mechanical engineering. I was given the opportunity to build several
+            in-house utilities including mobile apps for trackside data
+            collection, desktop apps for comparing 3D scans, and various utility
+            libraries.
+          </Typography>
+        </section>
+      </section>
+
+      <section style={avoidPageBreak}>
+        <Typography variant="h2" id="education">
+          Education
+        </Typography>
+
+        <section style={avoidPageBreak}>
+          <Typography variant="h3" id="georgia-institute-of-technology">
+            M.S., Computer Science
+          </Typography>
+          <Typography variant="p">
+            <em>Georgia Institute of Technology</em>
+            <br />
+            Spring 2014 - Spring 2018
+          </Typography>
+        </section>
+
+        <section style={avoidPageBreak}>
+          <Typography variant="h3" id="wingate-university">
+            B.S., Mathematics / Computer Science
+          </Typography>
+          <Typography variant="p">
+            <em>Wingate University</em>
+            <br />
+            Fall 2009 - Spring 2013
+          </Typography>
+        </section>
+      </section>
+
+      <section style={avoidPageBreak}>
         <Typography variant="h2" id="projects">
           Projects
         </Typography>
@@ -152,107 +243,6 @@ export default function ResumePage() {
           >
             https://tylerbenfield.me/projects/khepri
           </a>
-        </section>
-      </section>
-
-      <section>
-        <Typography variant="h2" id="work-history">
-          Work History
-        </Typography>
-
-        <section style={avoidPageBreak}>
-          <Typography variant="h3" id="senior-software-developer">
-            Senior Software Development Engineer
-          </Typography>
-          <Typography variant="p">
-            <em>SentryOne - Charlotte, NC</em>
-            <br />
-            September 2018 - Present
-          </Typography>
-          <Typography variant="p">
-            At SentryOne I have been migrating the flagship SQL Sentry product
-            into the web with SentryOne Portal (self-hosted) and SentryOne
-            Monitor (SaaS). It has been a very exciting environment, full of
-            difficult technical challenges and brilliant engineers. Outside of
-            normal coding responsibilities, I have hosted a series of talks on
-            React, TypeScript, and general web development for the engineering
-            department, participated in on-call rotation, and designed CI/CD
-            pipelines.
-          </Typography>
-        </section>
-
-        <section style={avoidPageBreak}>
-          <Typography variant="h3" id="solutions-engineer">
-            Solutions Engineer
-          </Typography>
-          <Typography variant="p">
-            <em>Standpoint Technologies - Huntersville, NC</em>
-            <br />
-            May 2013 - August 2018
-          </Typography>
-          <Typography variant="p">
-            Standpoint Technologies was the launching point of my career out of
-            college. It was a small, fast-paced environment where I was able to
-            gain experience in all roles of software development including
-            requirements gathering, working with legacy systems, adopting new
-            technologies, and monitoring production systems. I grew fast there,
-            and I was fortunate to become the lead engineer and architect for
-            JobPro, a SaaS business management product tailored to
-            subcontractors.
-          </Typography>
-        </section>
-
-        <section style={avoidPageBreak}>
-          <Typography variant="h3" id="software-engineering-intern">
-            Software Engineering Intern
-          </Typography>
-          <Typography variant="p">
-            <em>Penske Racing - Mooresville, NC</em>
-            <br />
-            May 2011 - August 2011
-            <br />
-            December 2011 - January 2012
-            <br />
-            May 2012 - August 2012
-            <br />
-            December 2012 - January 2013
-          </Typography>
-          <Typography variant="p">
-            Penske Racing was my first chance to write code professionally. It
-            perfectly combined two of my passions: software engineering and
-            mechanical engineering. I was given the opportunity to build several
-            in-house utilities including mobile apps for trackside data
-            collection, desktop apps for comparing 3D scans, and various utility
-            libraries.
-          </Typography>
-        </section>
-      </section>
-
-      <section>
-        <Typography variant="h2" id="education">
-          Education
-        </Typography>
-
-        <section style={avoidPageBreak}>
-          <Typography variant="h3" id="georgia-institute-of-technology">
-            M.S., Computer Science
-          </Typography>
-          <Typography variant="p">
-            <em>Georgia Institute of Technology</em>
-            <br />
-            Spring 2014 - Spring 2018
-          </Typography>
-        </section>
-
-        <section style={avoidPageBreak}>
-          <Typography variant="h3" id="wingate-university">
-            B.S., Mathematics / Computer Science
-          </Typography>
-          <Typography variant="p">
-            <em>Wingate University</em>
-            <br />
-            Fall 2009 - Spring 2013
-          </Typography>
         </section>
       </section>
     </Layout>

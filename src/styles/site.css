@@ -72,12 +72,14 @@ body {
   margin: 0 auto 0 auto;
   max-width: var(--max-content-width);
   padding: 0 1rem 1rem;
+  text-underline-position: under;
 }
 
 /* Text */
 p {
   font-size: 1rem;
   line-height: 1.5;
+  margin: 0.5em 0;
 }
 
 blockquote {
@@ -89,16 +91,19 @@ blockquote {
 h1 {
   font-size: 2rem;
   font-weight: bold;
+  margin: 0.5em 0 0.25em;
 }
 
 h2 {
   font-size: 1.5rem;
   font-weight: bold;
+  margin: 0.5em 0 0.25em;
 }
 
 h3 {
   font-size: 1.25rem;
   font-weight: bold;
+  margin: 0.5em 0 0.25em;
 }
 
 /* Links */
