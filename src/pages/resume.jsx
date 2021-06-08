@@ -221,7 +221,7 @@ export default function ResumePage() {
             rel="noreferrer noopener"
             target="_blank"
           >
-            https://tylerbenfield.me/projects/abundantia
+            tylerbenfield.me/projects/abundantia
           </a>
         </section>
 
@@ -241,7 +241,7 @@ export default function ResumePage() {
             rel="noreferrer noopener"
             target="_blank"
           >
-            https://tylerbenfield.me/projects/khepri
+            tylerbenfield.me/projects/khepri
           </a>
         </section>
       </section>
