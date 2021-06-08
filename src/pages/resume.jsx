@@ -32,10 +32,11 @@ export default function ResumePage() {
         I have a breadth of experience designing, building, hosting, and
         supporting SaaS products. My knowledge is deepest in the web platform
         and I stay aware of new standards as they are proposed. I also enjoy
-        mentoring, improving processes, and ensuring everyone is recognized for
-        good work. I once heard that 10x engineers aren't those that deliver 10x
-        more code, but those that multiply their impact by supporting others. I
-        strive for that and encourage others to do the same.
+        mentoring, improving processes, and ensuring ever contributor receives
+        recognition for good work. I once heard that 10x engineers aren't those
+        that deliver 10x more code, but those that multiply their impact by
+        supporting others. I strive for that and encourage others to do the
+        same.
       </Typography>
 
       <section>
@@ -48,10 +49,10 @@ export default function ResumePage() {
             Languages
           </Typography>
           <Typography variant="p">
-            As a a polyglot and language enthusiast, I've become familar with a
-            number of languages. I believe familiarizing with a variety of
-            languages across different domains also deepen our understanding of
-            those we are most comfortable in.
+            As a polyglot and language enthusiast, I've become familiar with
+            many languages. I believe familiarizing with a variety of languages
+            across different domains also deepens our understanding of those we
+            are most comfortable in.
           </Typography>
           <ul>
             <li>Expert in JavaScript, TypeScript, CSS, C#, and SQL</li>
@@ -122,14 +123,14 @@ export default function ResumePage() {
             September 2018 - Present
           </Typography>
           <Typography variant="p">
-            At SentryOne I have been migrating the flagship SQL Sentry product
-            into the web with SentryOne Portal (self-hosted) and SentryOne
-            Monitor (SaaS). Outside of coding responsibilities, I have hosted a
-            series of talks on React, TypeScript, and web development for the
-            engineering department, participated in on-call rotation, and
-            designed CI/CD pipelines. I also act as team lead with
-            responsibilities including mentoring, assisting in roadmap planning,
-            removing roadblocks, and improving communication.
+            At SentryOne, I am migrating the flagship SQL Sentry product into
+            the web with SentryOne Portal (self-hosted) and SentryOne Monitor
+            (SaaS). Outside of coding responsibilities, I have designed CI/CD
+            pipelines, participated in on-call rotation, and hosted a series of
+            talks on React, TypeScript, and web development for the engineering
+            department. I also act as team lead with responsibilities including
+            mentoring, assisting with roadmap planning, removing roadblocks, and
+            improving communication.
           </Typography>
         </section>
 
@@ -145,7 +146,7 @@ export default function ResumePage() {
           <Typography variant="p">
             Standpoint Technologies was the launching point of my career out of
             college. It was a small, fast-paced environment where I was able to
-            gain experience in all roles of software development including
+            gain experience in all roles of software development, including
             requirements gathering, working with legacy systems, adopting new
             technologies, and monitoring production systems. I grew fast there,
             and I was fortunate to become the lead engineer and architect for
@@ -166,10 +167,9 @@ export default function ResumePage() {
           <Typography variant="p">
             Penske Racing was my first chance to write code professionally. It
             perfectly combined two of my passions: software engineering and
-            mechanical engineering. I was given the opportunity to build several
-            in-house utilities including mobile apps for trackside data
-            collection, desktop apps for comparing 3D scans, and various utility
-            libraries.
+            mechanical engineering. I built several in-house utilities,
+            including mobile apps for trackside data collection, desktop apps
+            for comparing 3D scans, and various utility libraries.
           </Typography>
         </section>
       </section>
