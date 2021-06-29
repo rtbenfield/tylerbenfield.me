@@ -40,6 +40,41 @@ export default function ResumePage() {
       </Typography>
 
       <section>
+        <Typography variant="h2" id="core-values">
+          Core Values
+        </Typography>
+        <div className={styles.panel}>
+          <section>
+            <Typography variant="h3">Empower Others</Typography>
+            <Typography variant="p">
+              Empowering others takes many forms. It can be mentoring others,
+              providing equipment, or removing blockers. Most importantly, it is
+              about knowing when to let go and trust your team. Incredible
+              accomplishments come from empowered people.
+            </Typography>
+          </section>
+          <section>
+            <Typography variant="h3">Humble Confidence</Typography>
+            <Typography variant="p">
+              Be proud of what you know, but never lose sight of what you have
+              yet to learn. Mentorship is not a one-way street. Encourage others
+              to ask questions and challenge your opinions. Having the answer is
+              good; <em>empowering</em> others to take the win is better.
+            </Typography>
+          </section>
+          <section>
+            <Typography variant="h3">Chart New Paths</Typography>
+            <Typography variant="p">
+              Explore new ideas. Ask why. Don't settle for the status quo if you
+              think a better way exists. Try it compare it, and, good or bad,
+              learn from the results. Failure on one path may be the success of
+              another.
+            </Typography>
+          </section>
+        </div>
+      </section>
+
+      <section>
         <Typography variant="h2" id="technical-skills">
           Professional Skills
         </Typography>
