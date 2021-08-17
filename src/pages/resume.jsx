@@ -20,12 +20,10 @@ export default function ResumePage() {
       </Typography>
 
       <Typography variant="p">
-        I’m currently a software engineer at SentryOne in Charlotte, NC. I am
-        lucky to work with a team of brilliant individuals that challenge me to
-        learn new things and improve every day. Outside of work, I have a few
-        personal projects that experiment with new ideas and solve some
-        challenges I've encountered. I also hike, work on cars, and play a few
-        instruments.
+        I’m currently a software engineer at Truepill where I'm working to
+        modernize healthcare. Outside of work, I have a few personal projects
+        that experiment with new ideas and solve some challenges I've
+        encountered. I also hike, work on cars, and play a few instruments.
       </Typography>
 
       <Typography variant="p">
@@ -149,23 +147,35 @@ export default function ResumePage() {
         </Typography>
 
         <section style={avoidPageBreak}>
-          <Typography variant="h3" id="senior-software-developer">
-            Senior Software Development Engineer
+          <Typography variant="h3" id="staff-software-engineer">
+            Staff Software Engineer
           </Typography>
           <Typography variant="p">
-            <em>SentryOne - Charlotte, NC</em>
+            <em>Truepill - Remote</em>
             <br />
-            September 2018 - Present
+            August 2021 - Present
+          </Typography>
+          <Typography variant="p">More to come!</Typography>
+        </section>
+
+        <section style={avoidPageBreak}>
+          <Typography variant="h3" id="senior-software-engineer">
+            Senior Software Engineer
           </Typography>
           <Typography variant="p">
-            At SentryOne, I am migrating the flagship SQL Sentry product into
-            the web with SentryOne Portal (self-hosted) and SentryOne Monitor
-            (SaaS). Outside of coding responsibilities, I have designed CI/CD
+            <em>SentryOne (acquired by SolarWinds) - Charlotte, NC</em>
+            <br />
+            September 2018 - August 2021
+          </Typography>
+          <Typography variant="p">
+            At SentryOne, I migrated the flagship SQL Sentry product into the
+            web with SentryOne Portal (self-hosted) and SentryOne Monitor
+            (SaaS). Outside of coding responsibilities, I designed CI/CD
             pipelines, participated in on-call rotation, and hosted a series of
             talks on React, TypeScript, and web development for the engineering
-            department. I also act as team lead with responsibilities including
-            mentoring, assisting with roadmap planning, removing roadblocks, and
-            improving communication.
+            department. I also served as team lead with responsibilities
+            including mentoring, assisting with roadmap planning, removing
+            roadblocks, and improving communication.
           </Typography>
         </section>
 
