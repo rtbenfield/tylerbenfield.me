@@ -130,7 +130,7 @@ const theme = {
   ],
 };
 
-function Code({ children, className, live }) {
+function Code({ children, className = "", live }) {
   const language = className.replace(/language-/, "");
   if (live) {
     return (
@@ -140,9 +140,14 @@ function Code({ children, className, live }) {
         <LivePreview />
       </LiveProvider>
     );
-  } else {
+  } else if (language in Prism.languages) {
     return (
-      <Highlight code={children} language={language} Prism={Prism}>
+      <Highlight
+        code={children}
+        // @ts-ignore
+        language={language}
+        Prism={Prism}
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <code className={className} style={style}>
             {tokens.map((line, i) => (
@@ -156,6 +161,8 @@ function Code({ children, className, live }) {
         )}
       </Highlight>
     );
+  } else {
+    return <code className={className}>{children}</code>;
   }
 }
 
