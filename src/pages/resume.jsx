@@ -30,7 +30,7 @@ export default function ResumePage() {
         I have a breadth of experience designing, building, hosting, and
         supporting SaaS products. My knowledge is deepest in the web platform
         and I stay aware of new standards as they are proposed. I also enjoy
-        mentoring, improving processes, and ensuring ever contributor receives
+        mentoring, improving processes, and ensuring every contributor receives
         recognition for good work. I once heard that 10x engineers aren't those
         that deliver 10x more code, but those that multiply their impact by
         supporting others. I strive for that and encourage others to do the
@@ -90,7 +90,6 @@ export default function ResumePage() {
           <ul>
             <li>Expert in JavaScript, TypeScript, CSS, C#, and SQL</li>
             <li>Familiarity in Go, Python, and Rust</li>
-            <li>Watching Rescript and AssemblyScript</li>
           </ul>
         </section>
 
@@ -105,12 +104,11 @@ export default function ResumePage() {
             discussing any of the below.
           </Typography>
           <ul>
-            <li>Databases: SQL Server and Firestore</li>
+            <li>Databases: SQL Server, PostgreSQL, and Firestore</li>
             <li>Frontend libraries: React and Vue.js</li>
-            <li>Backend frameworks: ASP.NET, Deno, Next.js, and GraphQL</li>
+            <li>Backend frameworks: Next.js, Remix, ASP.NET, and GraphQL</li>
             <li>Testing: Jest, React Testing Library, and MSTest</li>
-            <li>Build tools: Webpack, Parcel, and Snowpack</li>
-            <li>Hosting: Docker, Azure, Google Cloud, Firebase, and Netlify</li>
+            <li>Hosting: Google Cloud Platform, Docker, Azure, Deno, and Netlify</li>
           </ul>
         </section>
 
@@ -130,8 +128,8 @@ export default function ResumePage() {
             </li>
             <li>
               Experience working through product designs and business
-              requirements to conduct estimates, ROI discussions, and roadmap
-              planning.
+              requirements to conduct estimates, ROI discussions, resourcing,
+              and roadmap planning.
             </li>
             <li>
               Passion for supporting my team in their career journey through
@@ -155,7 +153,18 @@ export default function ResumePage() {
             <br />
             August 2021 - Present
           </Typography>
-          <Typography variant="p">More to come!</Typography>
+          <Typography variant="p">
+            Truepill allowed me to extend my technical leadership role to a new
+            level. I concurrently provided oversight to four teams across
+            multiple products totaling 40+ engineers. I architected greenfield
+            systems, improved developer efficiency, and ensured our delivery
+            teams met the timelines committed to our business. I was influential
+            in designing a new, serverless cloud architecture that improved
+            sustainability, monitoring, and observability. To support our hosted
+            solutions, I implemented an SLO-based on-call approach that resulted
+            in fewer than one incident per weekly rotation while maintaining our
+            SLAs.
+          </Typography>
         </section>
 
         <section style={avoidPageBreak}>
@@ -169,13 +178,11 @@ export default function ResumePage() {
           </Typography>
           <Typography variant="p">
             At SentryOne, I migrated the flagship SQL Sentry product into the
-            web with SentryOne Portal (self-hosted) and SentryOne Monitor
-            (SaaS). Outside of coding responsibilities, I designed CI/CD
-            pipelines, participated in on-call rotation, and hosted a series of
-            talks on React, TypeScript, and web development for the engineering
-            department. I also served as team lead with responsibilities
-            including mentoring, assisting with roadmap planning, removing
-            roadblocks, and improving communication.
+            web with SentryOne Portal (self-hosted) and SentryOne Monitor (SaaS).
+            It was an exciting environment, full of complex technical challenges
+            and brilliant engineers. Outside of typical coding responsibilities,
+            I hosted a series of talks on React, TypeScript, and general web
+            development for the engineering department.
           </Typography>
         </section>
 
