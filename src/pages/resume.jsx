@@ -27,14 +27,11 @@ export default function ResumePage() {
       </Typography>
 
       <Typography variant="p">
-        I have a breadth of experience designing, building, hosting, and
-        supporting SaaS products. My knowledge is deepest in the web platform
-        and I stay aware of new standards as they are proposed. I also enjoy
-        mentoring, improving processes, and ensuring every contributor receives
-        recognition for good work. I once heard that 10x engineers aren't those
-        that deliver 10x more code, but those that multiply their impact by
-        supporting others. I strive for that and encourage others to do the
-        same.
+        I have a breadth of experience delivering web-based products from
+        initial discovery to long-term maintenance. I'm passionate about helping
+        teams achieve a mature software development lifecycle that encourages
+        conscious iteration, low development friction, and no-nonsense
+        troubleshooting.
       </Typography>
 
       <section>
@@ -74,7 +71,7 @@ export default function ResumePage() {
 
       <section>
         <Typography variant="h2" id="technical-skills">
-          Professional Skills
+          Professional
         </Typography>
 
         <section>
@@ -104,11 +101,13 @@ export default function ResumePage() {
             discussing any of the below.
           </Typography>
           <ul>
-            <li>Databases: SQL Server, PostgreSQL, and Firestore</li>
-            <li>Frontend libraries: React and Vue.js</li>
+            <li>Databases: SQL Server and PostgreSQL</li>
+            <li>Frontend libraries: React</li>
             <li>Backend frameworks: Next.js, Remix, ASP.NET, and GraphQL</li>
             <li>Testing: Jest, React Testing Library, and MSTest</li>
-            <li>Hosting: Google Cloud Platform, Docker, Azure, Deno, and Netlify</li>
+            <li>
+              Hosting: Google Cloud Platform, Docker, Azure, Deno, and Netlify
+            </li>
           </ul>
         </section>
 
@@ -178,11 +177,11 @@ export default function ResumePage() {
           </Typography>
           <Typography variant="p">
             At SentryOne, I migrated the flagship SQL Sentry product into the
-            web with SentryOne Portal (self-hosted) and SentryOne Monitor (SaaS).
-            It was an exciting environment, full of complex technical challenges
-            and brilliant engineers. Outside of typical coding responsibilities,
-            I hosted a series of talks on React, TypeScript, and general web
-            development for the engineering department.
+            web with SentryOne Portal (self-hosted) and SentryOne Monitor
+            (SaaS). It was an exciting environment, full of complex technical
+            challenges and brilliant engineers. Outside of typical coding
+            responsibilities, I hosted a series of talks on React, TypeScript,
+            and general web development for the engineering department.
           </Typography>
         </section>
 
@@ -276,26 +275,6 @@ export default function ResumePage() {
             target="_blank"
           >
             tylerbenfield.me/projects/abundantia
-          </a>
-        </section>
-
-        <section style={avoidPageBreak}>
-          <Typography variant="h3" id="projects-khepri">
-            Khepri
-          </Typography>
-          <Typography variant="p">
-            Khepri is an experiment in next-gen JavaScript build tooling that
-            runs on the Web Platform. Khepri isn't a single project, but a suite
-            of experiments that share the philosophy of encouraging modern web
-            development with a local-first approach, yet all capable of running
-            in any spec-compliant browser or runtime.
-          </Typography>
-          <a
-            href="https://tylerbenfield.me/projects/khepri"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            tylerbenfield.me/projects/khepri
           </a>
         </section>
       </section>
