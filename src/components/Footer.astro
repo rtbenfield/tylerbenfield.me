@@ -1,0 +1,80 @@
+---
+import {
+  faGithub,
+  faLinkedin,
+  faStackOverflow,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+---
+
+<footer>
+  <span>© Tyler Benfield 2024</span>
+  <ul>
+    <li>
+      <a
+        href="https://twitter.com/rtbenfield"
+        target="_blank"
+        title="Find me on X (Twitter)"
+      >
+        <FontAwesomeIcon icon={faXTwitter} />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/rtbenfield"
+        target="_blank"
+        title="Find me on GitHub"
+      >
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/tylerbenfield/"
+        target="_blank"
+        title="Find me on LinkedIn"
+      >
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://stackoverflow.com/users/9867662/tyler"
+        target="_blank"
+        title="Find me on StackOverflow"
+      >
+        <FontAwesomeIcon icon={faStackOverflow} />
+      </a>
+    </li>
+    <li>
+      <a href="mailto:tyler@tylerbenfield.me" target="_blank" title="Email me">
+        <FontAwesomeIcon icon={faEnvelope} />
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+  }
+
+  footer ul {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 2rem;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  footer ul li {
+    list-style: none;
+  }
+</style>

@@ -1,0 +1,161 @@
+---
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Events | Tyler Benfield">
+  <main>
+    <section class="upcoming">
+      <h2>Upcoming Events</h2>
+
+      <section class="event">
+        <FontAwesomeIcon class="icon" icon={faComment} />
+        <h3>
+          <a
+            href="https://devignition.com/"
+            target="_blank">Write Once, Stream Everywhere: Transforming Your Data into Events</a>
+        </h3>
+        <div class="event-name">
+          <a href="https://devignition.com/" target="_blank">DevIgnition</a>
+        </div>
+        <span class="date">Nov 7, 2024 in Alexandria, Virginia</span>
+        <div class="content">
+          <p>On this episode of "things you didn't know your database could do", we're going to power live updates, real-time notifications, change history, and more from data you already capture.</p>
+          <p>We'll explore the power of change data capture for turning you database into an event hub for your app. We'll take a look how different databases approach the problem, then dive into PostgreSQL to see it in action. Spoiler: we're going to trick the database into replicating itself to code that we control, making every change in the database available to our app. As crazy as that sounds, it's actually a proven, reliable solution with several tools available to implement it for us. We'll take a look at those too so you can start building database event driven apps today.</p>
+          <p>By the end of this talk, you'll understand the benefits of change data capture, learn how to implement it through logical replication, and see how to put it into practice in your app to power all your event-driven workflows.</p>
+          <div class="links">
+            <a
+              class="button"
+              href="https://devignition.ticketleap.com/devignition2024/"
+              target="_blank"
+            >
+              Get a Ticket
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- <section class="event">
+        <FontAwesomeIcon class="icon" icon={faComment} />
+        <h3>
+          <a
+            href="https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/"
+            target="_blank">Write Once, Stream Everywhere: Transforming Your Data into Events</a>
+        </h3>
+        <div class="event-name">
+          <a href="https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/" target="_blank">rvatech/ Code & Cloud</a>
+        </div>
+        <span class="date">Nov 21, 2024 in Richmond, Virginia</span>
+        <div class="content">
+          <p>On this episode of "things you didn't know your database could do", we're going to power live updates, real-time notifications, change history, and more from data you already capture.</p>
+          <p>We'll explore the power of change data capture for turning you database into an event hub for your app. We'll take a look how different databases approach the problem, then dive into PostgreSQL to see it in action. Spoiler: we're going to trick the database into replicating itself to code that we control, making every change in the database available to our app. As crazy as that sounds, it's actually a proven, reliable solution with several tools available to implement it for us. We'll take a look at those too so you can start building database event driven apps today.</p>
+          <p>By the end of this talk, you'll understand the benefits of change data capture, learn how to implement it through logical replication, and see how to put it into practice in your app to power all your event-driven workflows.</p>
+          <div class="links">
+            <a
+              class="button"
+              href="https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/"
+              target="_blank"
+            >
+              Get a Ticket
+            </a>
+          </div>
+        </div>
+      </section> -->
+    </section>
+
+    <section class="past">
+      <h2>Past Events</h2>
+      <section class="event">
+        <FontAwesomeIcon class="icon" icon={faComment} />
+        <h3>
+          <a
+            href="https://www.epicweb.dev/talks/epic-app-performance-starts-with-the-database"
+            target="_blank">Epic App Performance Starts with the Database</a>
+        </h3>
+        <div class="event-name">
+          <a href="https://www.epicweb.dev/conf/2024" target="_blank">Epic Web Conf</a>
+        </div>
+        <span class="date">April 11, 2024 in Park City, Utah</span>
+        <div class="content">
+          <p>Your app is only as fast as its slowest query.</p>
+          <p>
+            In this session, we'll explore the vital role database tuning plays
+            in your app's user experience. You'll gain a pragmatic understanding
+            of database indexing and hear real stories from using these tips in
+            the wild. Get ready to level-up your database skills. When we're
+            done, you'll be equipped to make your app performance epic.
+          </p>
+          <div class="links">
+            <a
+              class="button"
+              href="https://www.epicweb.dev/talks/epic-app-performance-starts-with-the-database"
+              target="_blank"
+            >
+              Watch the Talk
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .past, .upcoming {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .event {
+    display: grid;
+    gap: var(--spacing-xs) var(--spacing-md);
+    grid-template-columns: min-content 1fr;
+    grid-template-areas: "icon title" "icon event-name" "icon date" "icon content";
+  }
+
+  .event .icon {
+    grid-area: icon;
+    font-size: 3rem;
+  }
+  .event h3 {
+    grid-area: title;
+  }
+  .event .event-name {
+    grid-area: event-name;
+  }
+  .event .event-name a {
+    text-decoration: none;
+  }
+  .event .date {
+    font-size: 0.8rem;
+    grid-area: date;
+  }
+  .event .content {
+    display: grid;
+    gap: var(--spacing-xs);
+    grid-area: content;
+  }
+  .event .links {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .button {
+    background-color: var(--nord8);
+    border-radius: var(--radius-sm);
+    color: var(--nord1);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    text-decoration: none;
+  }
+
+  h3 > a {
+    text-decoration: none;
+  }
+</style>

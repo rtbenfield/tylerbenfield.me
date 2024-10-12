@@ -1,10 +1,8 @@
 ---
-import Announcement from "../components/Announcement.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Tyler Benfield">
-  <Announcement />
   <main>
     <section class="headline">
       <img class="avatar" src="/me.webp" />
@@ -20,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
         Tyler is a software engineer with a focus on making databases and
         data-driven applications more approachable through education and
         tooling. With over 10 years of experience developing software in
-        consulting, startups, and large organizations, he’s gathered a wealth of
+        consulting, startups, and large organizations, he's gathered a wealth of
         knowledge that he enjoys sharing with others. In his free time, he
         enjoys playing beach volleyball, hiking, and repairing arcade cabinets.
       </p>
@@ -30,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   .avatar {
-    border-radius: 25%;
+    border-radius: var(--radius-xl);
     height: auto;
     width: 100%;
   }
@@ -44,10 +42,11 @@ import Layout from "../layouts/Layout.astro";
 
   .headline h1 {
     font-size: 2rem;
+    margin-bottom: var(--spacing-md);
   }
 
   .tagline {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .bio {

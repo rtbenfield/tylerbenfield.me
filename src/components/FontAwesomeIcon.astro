@@ -1,0 +1,16 @@
+---
+import {
+  icon as renderIcon,
+  type IconDefinition,
+} from "@fortawesome/fontawesome-svg-core";
+
+interface Props {
+  class?: string;
+  icon: IconDefinition;
+}
+
+const { icon, ...rest } = Astro.props;
+const z = renderIcon(icon, { attributes: { height: "1em" } });
+---
+
+<span set:html={z.html} {...rest} />
