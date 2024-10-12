@@ -1,8 +1,14 @@
 name = "tylerbenfield-me"
 compatibility_date = "2024-03-20"
+account_id = "33ce7504e02dce37341ca9f6ac8b1174"
+pages_build_output_dir = "./dist"
 
 ##### production
 
-[[env.production.routes]]
-custom_domain = true
-pattern = "tylerbenfield.me"
+# [[env.production.routes]]
+# custom_domain = true
+# pattern = "tylerbenfield.me"
+
+# [[env.production.routes]]
+# custom_domain = true
+# pattern = "tylerbenfield.dev"
