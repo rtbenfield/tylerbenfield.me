@@ -1,5 +1,5 @@
 name = "tylerbenfield-me"
-compatibility_date = "2024-03-20"
+compatibility_date = "2024-09-02"
 pages_build_output_dir = "./dist"
 
 # [[routes]]
