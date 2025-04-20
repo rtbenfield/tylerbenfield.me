@@ -13,17 +13,17 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/cloudflare": "^11.2.0",
+    "@astrojs/cloudflare": "^12.5.0",
     "@fontsource/inter": "^5.2.5",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "astro": "4.16.0",
+    "astro": "5.7.4",
     "nord": "^0.2.1",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250420.0",
-    "wrangler": "^3.114.6"
+    "wrangler": "^4.12.0"
   }
 }
