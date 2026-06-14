@@ -3,7 +3,6 @@ import {
   faBluesky,
   faGithub,
   faLinkedin,
-  faStackOverflow,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -26,11 +25,6 @@ const socials = [
     href: "https://www.linkedin.com/in/tylerbenfield/",
     label: "LinkedIn",
   },
-  {
-    icon: faStackOverflow,
-    href: "https://stackoverflow.com/users/9867662/tyler",
-    label: "StackOverflow",
-  },
   { icon: faEnvelope, href: "mailto:tyler@tylerbenfield.me", label: "Email" },
 ];
 ---
@@ -38,7 +32,7 @@ const socials = [
 <footer
   class="mx-auto mt-12 flex w-full max-w-5xl flex-col items-center justify-between gap-6 border-t border-tokyo-fg-dim/10 px-4 py-10 text-sm text-tokyo-fg-muted sm:flex-row sm:px-6 lg:px-8"
 >
-  <span class="font-medium">© Tyler Benfield 2025</span>
+  <span class="font-medium">© Tyler Benfield {new Date().getFullYear()}</span>
   <ul class="flex gap-2">
     {
       socials.map(({ icon, href, label }) => (

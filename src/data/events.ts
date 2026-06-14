@@ -13,17 +13,20 @@ export interface Event {
 
 export const upcomingEvents: Event[] = [
   {
-    title: "Leveraging Web APIs for Portable JavaScript Libraries",
-    titleHref: "https://github.com/rtbenfield/talks-utahjs-2025",
-    eventName: "UtahJS",
-    eventHref: "https://utahjs.com/conference/",
-    date: "September 12, 2025 in Sandy, Utah",
+    title: "Micro VMs and Unikernels: The Cloud's Next Infrastructure Evolution",
+    titleHref: "https://blog.carolina.codes/i/198567929/tyler-benfield-charlotte-nc",
+    eventName: "Carolina Codes",
+    eventHref: "https://blog.carolina.codes/i/198567929/tyler-benfield-charlotte-nc",
+    date: "August 14-15, 2026 in Greenville, South Carolina",
     description: [
-      "Just how far can today's web APIs take us? JavaScript now offers APIs that handle data streams, manipulate buffers, and model state machines, yet they're often overlooked. These powerful tools might not show up in everyday development, but they lay the groundwork for building faster, more versatile libraries.",
-      "In this session, we'll dive into what I've learned by creating a Postgres client that runs entirely on native web APIs. We'll discuss the challenges and trade-offs, and how it compares to traditional approaches. We'll also explore portability across environments like Node.js, Deno, Bun, and even browsers. Come see how far web capabilities can go and what this means for the future of the JavaScript ecosystem.",
-      "This talk is designed for intermediate JavaScript developers, but developers of any experience level will learn something new. You'll discover powerful APIs built into JavaScript runtimes, learn tips for authoring more flexible libraries, and, as a bonus, see how database wire protocols work.",
+      "The cloud is always evolving. While some technologies dominate today, new innovations are shaping the next generation of cloud infrastructure. One breakthrough we'll explore is unikernel-backed micro VMs, enabling stateful serverless workloads without cold starts.",
+      "In this session, we'll take a step back to examine how cloud infrastructure has transformed application development and where it's headed next. With unikernels driving secure, serverless environments that scale to zero, even traditionally complex workloads like databases and networking are going serverless. Join us to prepare for this next wave of computing and unlock its potential when it arrives.",
+      "This session is designed for an audience familiar with deploying to traditional cloud environments. While focused on infrastructure, there is valuable knowledge for application developers who desire to be on the forefront of new technology. You'll see examples of this new model deployed in the real-world and learn about the shortcomings it addresses with current norms.",
     ],
   },
+];
+
+export const pastEvents: Event[] = [
   {
     title: "Epic App Performance Starts with the Database",
     titleHref: "https://2025.allthingsopen.org/",
@@ -36,9 +39,22 @@ export const upcomingEvents: Event[] = [
       "This talk is designed for software engineers looking to improve their knowledge of database performance fundamentals. You'll learn how to optimize databases with indexes and good query patterns backed by real-world examples. With these takeaways, you'll be empowered to improve your app's user experience while reducing the need to scale your database.",
     ],
   },
-];
-
-export const pastEvents: Event[] = [
+  {
+    title: "Leveraging Web APIs for Portable JavaScript Libraries",
+    titleHref: "https://github.com/rtbenfield/talks-utahjs-2025",
+    eventName: "UtahJS",
+    eventHref: "https://utahjs.com/conference/",
+    date: "September 12, 2025 in Sandy, Utah",
+    description: [
+      "Just how far can today's web APIs take us? JavaScript now offers APIs that handle data streams, manipulate buffers, and model state machines, yet they're often overlooked. These powerful tools might not show up in everyday development, but they lay the groundwork for building faster, more versatile libraries.",
+      "In this session, we'll dive into what I've learned by creating a Postgres client that runs entirely on native web APIs. We'll discuss the challenges and trade-offs, and how it compares to traditional approaches. We'll also explore portability across environments like Node.js, Deno, Bun, and even browsers. Come see how far web capabilities can go and what this means for the future of the JavaScript ecosystem.",
+      "This talk is designed for intermediate JavaScript developers, but developers of any experience level will learn something new. You'll discover powerful APIs built into JavaScript runtimes, learn tips for authoring more flexible libraries, and, as a bonus, see how database wire protocols work.",
+    ],
+    link: {
+      text: "Watch the Talk",
+      href: "https://www.youtube.com/watch?v=5yjtsUhHXiA&themeRefresh=1",
+    },
+  },
   {
     title: "Epic App Performance Starts with the Database",
     titleHref: "https://github.com/rtbenfield/talks-kcdc-2025-epic-app-performance",
@@ -57,7 +73,7 @@ export const pastEvents: Event[] = [
     eventHref: "https://www.kcdc.info/",
     date: "August 14-15, 2025 in Kansas City, Missouri",
     description: [
-      "On this episode of \"things you didn't know your database could do”, we're going to power live updates, real-time notifications, change history, and more from data you already capture.",
+      "On this episode of \"things you didn't know your database could do\", we're going to power live updates, real-time notifications, change history, and more from data you already capture.",
       "We'll explore the power of change data capture for turning you database into an event hub for your app. We'll take a look how different databases approach the problem, then dive into PostgreSQL to see it in action. Spoiler: we're going to trick the database into replicating itself to code that we control, making every change in the database available to our app. As crazy as that sounds, it's actually a proven, reliable solution with several tools available to implement it for us. We'll take a look at those too so you can start building database event driven apps today.",
       "By the end of this talk, you'll understand the benefits of change data capture, learn how to implement it through logical replication, and put it into practice in your app to power all your event-driven workflows.",
     ],
