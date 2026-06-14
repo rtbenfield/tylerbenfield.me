@@ -8,72 +8,51 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+
+const socials = [
+  {
+    icon: faBluesky,
+    href: "https://bsky.app/profile/rtbenfield.dev",
+    label: "Bluesky",
+  },
+  {
+    icon: faXTwitter,
+    href: "https://twitter.com/rtbenfield",
+    label: "X (Twitter)",
+  },
+  { icon: faGithub, href: "https://github.com/rtbenfield", label: "GitHub" },
+  {
+    icon: faLinkedin,
+    href: "https://www.linkedin.com/in/tylerbenfield/",
+    label: "LinkedIn",
+  },
+  {
+    icon: faStackOverflow,
+    href: "https://stackoverflow.com/users/9867662/tyler",
+    label: "StackOverflow",
+  },
+  { icon: faEnvelope, href: "mailto:tyler@tylerbenfield.me", label: "Email" },
+];
 ---
 
 <footer
-  class="mx-auto flex w-full max-w-4xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-tokyo-fg-muted sm:flex-row sm:px-6 lg:px-8"
+  class="mx-auto mt-12 flex w-full max-w-5xl flex-col items-center justify-between gap-6 border-t border-tokyo-fg-dim/10 px-4 py-10 text-sm text-tokyo-fg-muted sm:flex-row sm:px-6 lg:px-8"
 >
-  <span>© Tyler Benfield 2025</span>
-  <ul class="flex gap-4 text-xl">
-    <li>
-      <a
-        href="https://bsky.app/profile/rtbenfield.dev"
-        target="_blank"
-        title="Find me on Bluesky"
-        class="hover:text-tokyo-blue"
-      >
-        <FontAwesomeIcon icon={faBluesky} />
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://twitter.com/rtbenfield"
-        target="_blank"
-        title="Find me on X (Twitter)"
-        class="hover:text-tokyo-blue"
-      >
-        <FontAwesomeIcon icon={faXTwitter} />
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://github.com/rtbenfield"
-        target="_blank"
-        title="Find me on GitHub"
-        class="hover:text-tokyo-blue"
-      >
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://www.linkedin.com/in/tylerbenfield/"
-        target="_blank"
-        title="Find me on LinkedIn"
-        class="hover:text-tokyo-blue"
-      >
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://stackoverflow.com/users/9867662/tyler"
-        target="_blank"
-        title="Find me on StackOverflow"
-        class="hover:text-tokyo-blue"
-      >
-        <FontAwesomeIcon icon={faStackOverflow} />
-      </a>
-    </li>
-    <li>
-      <a
-        href="mailto:tyler@tylerbenfield.me"
-        target="_blank"
-        title="Email me"
-        class="hover:text-tokyo-blue"
-      >
-        <FontAwesomeIcon icon={faEnvelope} />
-      </a>
-    </li>
+  <span class="font-medium">© Tyler Benfield 2025</span>
+  <ul class="flex gap-2">
+    {
+      socials.map(({ icon, href, label }) => (
+        <li>
+          <a
+            href={href}
+            target="_blank"
+            title={`Find me on ${label}`}
+            class="flex h-10 w-10 items-center justify-center rounded-full text-lg text-tokyo-fg-muted no-underline transition-all hover:bg-tokyo-fg/5 hover:text-tokyo-cyan hover:shadow-[0_0_20px_-5px_var(--tokyo-cyan)]"
+          >
+            <FontAwesomeIcon icon={icon} />
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </footer>

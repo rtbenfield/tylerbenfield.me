@@ -2,21 +2,28 @@
 
 ---
 
-<header
-  class="mx-auto flex w-full max-w-4xl items-center justify-between px-4 py-4 text-tokyo-fg sm:px-6 lg:px-8"
->
-  <a href="/" class="text-xl font-bold text-tokyo-fg no-underline">Tyler Benfield</a>
-  <nav>
-    <ul class="flex gap-4">
+<header class="sticky top-4 z-50 mx-auto mt-6 w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+  <nav
+    class="glass gradient-border flex items-center justify-between rounded-full px-5 py-3 shadow-2xl shadow-tokyo-bg/50"
+  >
+    <a
+      href="/"
+      class="text-lg font-bold tracking-tight text-tokyo-fg no-underline transition-colors hover:text-tokyo-cyan"
+    >
+      Tyler Benfield
+    </a>
+    <ul class="flex items-center gap-1 sm:gap-2">
       <li>
-        <a href="/" class="text-tokyo-fg-muted hover:text-tokyo-blue no-underline transition-colors"
-          >About Me</a
+        <a
+          href="/"
+          class="rounded-full px-3 py-1.5 text-sm font-medium text-tokyo-fg-muted no-underline transition-all hover:bg-tokyo-fg/5 hover:text-tokyo-cyan"
+          >About</a
         >
       </li>
       <li>
         <a
           href="/events"
-          class="text-tokyo-fg-muted hover:text-tokyo-blue no-underline transition-colors"
+          class="rounded-full px-3 py-1.5 text-sm font-medium text-tokyo-fg-muted no-underline transition-all hover:bg-tokyo-fg/5 hover:text-tokyo-cyan"
           >Events</a
         >
       </li>

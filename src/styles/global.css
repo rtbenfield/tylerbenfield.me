@@ -18,6 +18,81 @@
   --color-tokyo-blue: #7aa2f7;
   --color-tokyo-light-blue: #7dcfff;
   --color-tokyo-purple: #bb9af7;
+
+  --animate-orb-1: orb-1 18s ease-in-out infinite alternate;
+  --animate-orb-2: orb-2 22s ease-in-out infinite alternate;
+  --animate-orb-3: orb-3 26s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 8s linear infinite;
+  --animate-morph: morph 12s ease-in-out infinite alternate;
+
+  @keyframes orb-1 {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      transform: translate(8vw, 12vh) scale(1.15);
+    }
+  }
+
+  @keyframes orb-2 {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      transform: translate(-10vw, -8vh) scale(1.2);
+    }
+  }
+
+  @keyframes orb-3 {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      transform: translate(6vw, -14vh) scale(1.1);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-0.75rem);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes morph {
+    0% {
+      border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+      transform: rotate(0deg) scale(1);
+    }
+    100% {
+      border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%;
+      transform: rotate(4deg) scale(1.08);
+    }
+  }
 }
 
 @layer base {
@@ -25,9 +100,73 @@
     background-color: var(--tokyo-bg);
     color: var(--tokyo-fg);
     font-family: Inter, system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: var(--tokyo-purple);
+    color: var(--tokyo-bg);
   }
 
   a {
-    color: var(--tokyo-blue);
+    color: var(--tokyo-cyan);
+    transition: color 150ms ease;
+  }
+
+  a:hover {
+    color: var(--tokyo-light-blue);
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background-image: linear-gradient(
+      135deg,
+      var(--tokyo-cyan) 0%,
+      var(--tokyo-blue) 50%,
+      var(--tokyo-purple) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--tokyo-cyan), var(--tokyo-purple), var(--tokyo-blue));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .glass {
+    background-color: color-mix(in srgb, var(--tokyo-bg-soft) 70%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 40px -10px color-mix(in srgb, var(--tokyo-cyan) 40%, transparent);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px -10px color-mix(in srgb, var(--tokyo-purple) 40%, transparent);
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 20px color-mix(in srgb, var(--tokyo-cyan) 50%, transparent),
+      0 0 40px color-mix(in srgb, var(--tokyo-purple) 30%, transparent);
   }
 }

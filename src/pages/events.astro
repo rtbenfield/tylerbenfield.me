@@ -5,16 +5,45 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Events | Tyler Benfield">
-  <section class="flex flex-col gap-6">
-    <h2 class="text-2xl font-bold">Upcoming Events</h2>
-    <div class="flex flex-col gap-8">
+  <header class="mb-12 text-center lg:mb-16">
+    <p
+      class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-tokyo-cyan"
+    >
+      Speaking
+    </p>
+    <h1
+      class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+    >
+      <span class="gradient-text text-glow">Events</span>
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-tokyo-fg-muted">
+      Talks, workshops, and conferences where I've shared what I've learned about
+      databases, JavaScript, and building fast apps.
+    </p>
+  </header>
+
+  <section class="flex flex-col gap-8">
+    <div class="flex items-center gap-4">
+      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
+      <h2 class="text-sm font-bold uppercase tracking-widest text-tokyo-purple">
+        Upcoming Events
+      </h2>
+      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
+    </div>
+    <div class="flex flex-col gap-6">
       {upcomingEvents.map((event) => <EventCard {...event} />)}
     </div>
   </section>
 
-  <section class="mt-10 flex flex-col gap-6">
-    <h2 class="text-2xl font-bold">Past Events</h2>
-    <div class="flex flex-col gap-8">
+  <section class="mt-16 flex flex-col gap-8 lg:mt-20">
+    <div class="flex items-center gap-4">
+      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
+      <h2 class="text-sm font-bold uppercase tracking-widest text-tokyo-fg-dim">
+        Past Events
+      </h2>
+      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
+    </div>
+    <div class="flex flex-col gap-6">
       {pastEvents.map((event) => <EventCard {...event} />)}
     </div>
   </section>

@@ -22,14 +22,32 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="flex min-h-screen flex-col">
+  <body class="relative flex min-h-screen flex-col overflow-x-hidden">
+    <div class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+      <div
+        class="absolute left-[-10vw] top-[-5vh] h-[65vh] w-[65vw] rounded-full bg-tokyo-purple/30 blur-[120px] animate-orb-1"
+      >
+      </div>
+      <div
+        class="absolute right-[-10vw] top-[15vh] h-[55vh] w-[55vw] rounded-full bg-tokyo-cyan/25 blur-[100px] animate-orb-2"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-[15vw] h-[50vh] w-[50vw] rounded-full bg-tokyo-blue/25 blur-[110px] animate-orb-3"
+      >
+      </div>
+      <div
+        class="absolute inset-0 opacity-[0.03]"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"
+      >
+      </div>
+    </div>
+
     <Announcement />
     <Navbar />
 
-    <main class="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-tokyo-bg-soft p-6 shadow-lg sm:p-8">
-        <slot />
-      </div>
+    <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <slot />
     </main>
 
     <Footer />

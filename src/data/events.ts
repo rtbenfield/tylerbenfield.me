@@ -41,8 +41,7 @@ export const upcomingEvents: Event[] = [
 export const pastEvents: Event[] = [
   {
     title: "Epic App Performance Starts with the Database",
-    titleHref:
-      "https://github.com/rtbenfield/talks-kcdc-2025-epic-app-performance",
+    titleHref: "https://github.com/rtbenfield/talks-kcdc-2025-epic-app-performance",
     eventName: "KCDC",
     eventHref: "https://www.kcdc.info/",
     date: "August 14-15, 2025 in Kansas City, Missouri",
@@ -53,8 +52,7 @@ export const pastEvents: Event[] = [
   },
   {
     title: "Write Once, Stream Everywhere: Transforming Your Data into Events",
-    titleHref:
-      "https://github.com/rtbenfield/talks-kcdc-2025-write-once-stream-everywhere",
+    titleHref: "https://github.com/rtbenfield/talks-kcdc-2025-write-once-stream-everywhere",
     eventName: "KCDC",
     eventHref: "https://www.kcdc.info/",
     date: "August 14-15, 2025 in Kansas City, Missouri",
@@ -66,11 +64,9 @@ export const pastEvents: Event[] = [
   },
   {
     title: "Write Once, Stream Everywhere: Transforming Your Data into Events",
-    titleHref:
-      "https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/",
+    titleHref: "https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/",
     eventName: "rvatech/ Code & Cloud",
-    eventHref:
-      "https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/",
+    eventHref: "https://rvatech.com/rvatech-events/2024-rvatech-code-cloud-conference/",
     date: "Nov 21, 2024 in Richmond, Virginia",
     description: [
       "On this episode of \"things you didn't know your database could do\", we're going to power live updates, real-time notifications, change history, and more from data you already capture.",
@@ -92,8 +88,7 @@ export const pastEvents: Event[] = [
   },
   {
     title: "Epic App Performance Starts with the Database",
-    titleHref:
-      "https://www.epicweb.dev/talks/epic-app-performance-starts-with-the-database",
+    titleHref: "https://www.epicweb.dev/talks/epic-app-performance-starts-with-the-database",
     eventName: "Epic Web Conf",
     eventHref: "https://www.epicweb.dev/conf/2024",
     date: "April 11, 2024 in Park City, Utah",

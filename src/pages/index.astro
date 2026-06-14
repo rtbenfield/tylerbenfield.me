@@ -3,27 +3,73 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Tyler Benfield">
-  <section class="grid items-center gap-6 sm:grid-cols-[1fr_3fr]">
-    <img
-      class="aspect-square w-full rounded-3xl object-cover"
-      src="/me.webp"
-      alt="Tyler Benfield"
-    />
-    <div>
-      <h1 class="mb-2 text-2xl font-bold sm:text-3xl">Hi, I'm Tyler.</h1>
-      <p class="text-xl text-tokyo-fg-muted sm:text-2xl">
-        I'm a software engineer with a knack for databases.
+  <section class="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
+    <div class="order-2 lg:order-1">
+      <p
+        class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-tokyo-cyan"
+      >
+        Software Engineer
       </p>
+      <h1
+        class="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
+      >
+        Hi, I'm <span class="gradient-text">Tyler</span>.
+      </h1>
+      <p class="mb-8 text-xl leading-relaxed text-tokyo-fg-muted sm:text-2xl">
+        I make databases and data-driven applications more approachable through
+        education, tooling, and a little bit of curiosity.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/events"
+          class="inline-flex items-center rounded-full bg-tokyo-cyan px-6 py-3 font-semibold text-tokyo-bg no-underline shadow-[0_0_30px_-8px_var(--tokyo-cyan)] transition-all hover:-translate-y-0.5 hover:bg-tokyo-light-cyan hover:shadow-[0_0_40px_-6px_var(--tokyo-cyan)]"
+        >
+          See my talks
+        </a>
+        <a
+          href="https://github.com/rtbenfield"
+          target="_blank"
+          class="inline-flex items-center rounded-full border border-tokyo-fg-dim/30 bg-tokyo-bg-soft/50 px-6 py-3 font-semibold text-tokyo-fg no-underline backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-tokyo-cyan/50 hover:text-tokyo-cyan"
+        >
+          View my work
+        </a>
+      </div>
+    </div>
+
+    <div class="order-1 flex justify-center lg:order-2 lg:justify-end">
+      <div class="relative aspect-square w-64 sm:w-80">
+        <div
+          class="absolute -inset-5 bg-gradient-to-br from-tokyo-cyan/40 via-tokyo-blue/25 to-tokyo-purple/40 animate-morph"
+        >
+        </div>
+        <div class="animate-morph overflow-hidden">
+          <img
+            class="h-full w-full object-cover"
+            src="/me.webp"
+            alt="Tyler Benfield"
+          />
+        </div>
+      </div>
     </div>
   </section>
-  <section class="mt-6">
-    <p class="text-lg leading-relaxed">
-      Tyler is a software engineer with a focus on making databases and
-      data-driven applications more approachable through education and tooling.
-      With over 10 years of experience developing software in consulting,
-      startups, and large organizations, he's gathered a wealth of knowledge
-      that he enjoys sharing with others. In his free time, he enjoys playing
-      beach volleyball, hiking, and repairing arcade cabinets.
-    </p>
+
+  <section class="mt-20 lg:mt-28">
+    <div class="glass gradient-border relative rounded-3xl p-6 sm:p-10 lg:p-12">
+      <div class="absolute -top-3 left-8 rounded-full bg-tokyo-bg px-3">
+        <span
+          class="text-xs font-bold uppercase tracking-widest text-tokyo-purple"
+        >
+          About Me
+        </span>
+      </div>
+      <p class="text-lg leading-relaxed text-tokyo-fg-muted sm:text-xl">
+        Tyler is a software engineer with a focus on making databases and
+        data-driven applications more approachable through education and
+        tooling. With over 10 years of experience developing software in
+        consulting, startups, and large organizations, he's gathered a wealth of
+        knowledge that he enjoys sharing with others. In his free time, he
+        enjoys playing beach volleyball, hiking, and repairing arcade cabinets.
+      </p>
+    </div>
   </section>
 </Layout>

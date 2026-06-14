@@ -19,36 +19,58 @@ const { title, titleHref, eventName, eventHref, date, description, link } =
   Astro.props;
 ---
 
-<section class="grid grid-cols-[min-content_1fr] gap-x-4 gap-y-1">
-  <FontAwesomeIcon class="text-3xl text-tokyo-blue" icon={faComment} />
-  <h3 class="text-lg font-semibold leading-tight">
-    <a
-      href={titleHref}
-      target="_blank"
-      class="text-tokyo-fg no-underline hover:text-tokyo-blue"
-    >
-      {title}
-    </a>
-  </h3>
-  <div class="col-start-2">
-    <a
-      href={eventHref}
-      target="_blank"
-      class="text-tokyo-fg-muted no-underline hover:text-tokyo-blue"
-    >
-      {eventName}
-    </a>
+<article
+  class="group glass gradient-border relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:glow-cyan"
+>
+  <div
+    class="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-tokyo-cyan via-tokyo-blue to-tokyo-purple"
+  >
   </div>
-  <span class="col-start-2 text-sm text-tokyo-fg-dim">{date}</span>
-  <div class="col-start-2 mt-1 space-y-2">
-    {description.map((paragraph) => <p>{paragraph}</p>)}
+
+  <div class="p-6 sm:p-8">
+    <div class="mb-4 flex flex-wrap items-center gap-3 text-sm">
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full bg-tokyo-cyan/10 px-3 py-1 font-medium text-tokyo-cyan"
+      >
+        <FontAwesomeIcon icon={faComment} class="text-xs" />
+        Talk
+      </span>
+      <a
+        href={eventHref}
+        target="_blank"
+        class="font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-blue"
+      >
+        {eventName}
+      </a>
+      <span class="text-tokyo-fg-dim">•</span>
+      <span class="text-tokyo-fg-dim">{date}</span>
+    </div>
+
+    <h3 class="mb-4 text-xl font-bold leading-tight sm:text-2xl">
+      <a
+        href={titleHref}
+        target="_blank"
+        class="text-tokyo-fg no-underline transition-colors group-hover:text-tokyo-cyan"
+      >
+        {title}
+      </a>
+    </h3>
+
+    <div class="space-y-3 text-tokyo-fg-muted">
+      {
+        description.map((paragraph) => (
+          <p class="leading-relaxed">{paragraph}</p>
+        ))
+      }
+    </div>
+
     {
       link && (
-        <div class="pt-2">
+        <div class="mt-6">
           <a
             href={link.href}
             target="_blank"
-            class="inline-block rounded-lg bg-tokyo-blue px-4 py-2 font-medium text-tokyo-bg no-underline hover:bg-tokyo-light-blue"
+            class="inline-flex items-center rounded-full bg-tokyo-blue px-5 py-2.5 font-semibold text-tokyo-bg no-underline shadow-[0_0_25px_-8px_var(--tokyo-blue)] transition-all hover:-translate-y-0.5 hover:bg-tokyo-light-blue hover:shadow-[0_0_35px_-6px_var(--tokyo-blue)]"
           >
             {link.text}
           </a>
@@ -56,4 +78,4 @@ const { title, titleHref, eventName, eventHref, date, description, link } =
       )
     }
   </div>
-</section>
+</article>

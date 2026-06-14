@@ -1,8 +1,7 @@
 {
   "name": "@rtbenfield/website",
-  "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@11.6.0",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,6 +10,8 @@
     "astro": "astro",
     "deploy": "astro build && wrangler pages deploy ./dist",
     "build-cf-types": "wrangler types",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix"
   },
@@ -28,7 +29,9 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260613.1",
+    "oxfmt": "^0.54.0",
     "oxlint": "^1.69.0",
     "wrangler": "^4.100.0"
-  }
+  },
+  "packageManager": "pnpm@11.6.0"
 }
