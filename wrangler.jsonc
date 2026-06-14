@@ -1,0 +1,17 @@
+{
+  "name": "tylerbenfield-dev",
+  "compatibility_date": "2026-06-13",
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+    },
+    "traces": {
+      "enabled": false,
+    },
+  },
+  "routes": [
+    { "pattern": "tylerbenfield.me", "custom_domain": true },
+    { "pattern": "tylerbenfield.dev", "custom_domain": true },
+  ],
+}

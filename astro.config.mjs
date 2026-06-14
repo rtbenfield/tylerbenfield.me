@@ -6,11 +6,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   output: "server",
 
-  adapter: cloudflare({
-    runtime: {
-      mode: "local",
-    },
-  }),
+  adapter: cloudflare(),
 
   vite: {
     plugins: [tailwindcss()],

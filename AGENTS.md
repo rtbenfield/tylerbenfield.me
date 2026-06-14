@@ -9,7 +9,7 @@
 - Use Astro with TypeScript for pages and components.
 - Use Tailwind CSS (via `@astrojs/tailwind`) for all styling.
 - Use pnpm exclusively for dependency management and running scripts.
-- Keep the Cloudflare Pages adapter.
+- Keep the Cloudflare Workers adapter.
 
 ## Color palette
 
