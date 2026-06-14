@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 | Tyler Benfield">
+  <section
+    class="flex flex-col items-center justify-center py-16 text-center sm:py-24"
+  >
+    <h1
+      class="mb-2 text-8xl font-black tracking-tighter text-tokyo-fg-dim sm:text-9xl"
+    >
+      <span class="gradient-text">404</span>
+    </h1>
+
+    <p class="mb-6 text-2xl font-bold text-tokyo-fg sm:text-3xl">
+      Page not found
+    </p>
+
+    <div
+      class="glass gradient-border mb-8 max-w-md rounded-xl px-5 py-4 text-left font-mono text-sm text-tokyo-fg-muted"
+    >
+      <p>
+        <span class="text-tokyo-purple">#</span>
+        <span class="text-tokyo-cyan">SELECT</span>
+        <span class="text-tokyo-yellow">*</span>
+      </p>
+      <p>
+        <span class="text-tokyo-purple">#</span>
+        <span class="text-tokyo-cyan">FROM</span>
+        <span class="text-tokyo-blue">pages</span>
+      </p>
+      <p>
+        <span class="text-tokyo-purple">#</span>
+        <span class="text-tokyo-cyan">WHERE</span>
+        <span class="text-tokyo-blue">path</span> = <span
+          class="text-tokyo-green">'{Astro.url.pathname}'</span
+        >;
+      </p>
+      <p class="mt-2 text-tokyo-fg-dim">path</p>
+      <p class="text-tokyo-fg-dim">------</p>
+      <p class="text-tokyo-orange">(0 rows)</p>
+    </div>
+
+    <p class="mb-10 max-w-md text-lg leading-relaxed text-tokyo-fg-muted">
+      Looks like this route wandered into the void. Let’s get you back to
+      something that exists.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3">
+      <a
+        href="/"
+        class="inline-flex items-center rounded-full bg-tokyo-cyan px-6 py-3 font-semibold text-tokyo-bg no-underline shadow-[0_0_30px_-8px_var(--tokyo-cyan)] transition-all hover:-translate-y-0.5 hover:bg-tokyo-light-cyan hover:shadow-[0_0_40px_-6px_var(--tokyo-cyan)]"
+      >
+        Return home
+      </a>
+      <a
+        href="/events"
+        class="inline-flex items-center rounded-full border border-tokyo-fg-dim/30 bg-tokyo-bg-soft/50 px-6 py-3 font-semibold text-tokyo-fg no-underline backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-tokyo-cyan/50 hover:text-tokyo-cyan"
+      >
+        Browse events
+      </a>
+    </div>
+  </section>
+</Layout>
