@@ -21,7 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "astro": "6.4.6",
     "nord": "^0.2.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260613.1",
