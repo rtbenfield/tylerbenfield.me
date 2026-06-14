@@ -13,22 +13,22 @@ importers:
         version: 0.9.9(prettier@3.8.4)(typescript@5.9.3)
       '@astrojs/cloudflare':
         specifier: ^12.6.13
-        version: 12.6.13(@types/node@22.7.5)(astro@5.7.4(@types/node@22.7.5)(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0))(yaml@2.9.0)
+        version: 12.6.13(astro@5.7.4(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0))(yaml@2.9.0)
       '@fontsource/inter':
         specifier: ^5.2.8
         version: 5.2.8
       '@fortawesome/fontawesome-svg-core':
-        specifier: ^6.7.2
-        version: 6.7.2
+        specifier: ^7.2.0
+        version: 7.2.0
       '@fortawesome/free-brands-svg-icons':
-        specifier: ^6.7.2
-        version: 6.7.2
+        specifier: ^7.2.0
+        version: 7.2.0
       '@fortawesome/free-solid-svg-icons':
-        specifier: ^6.7.2
-        version: 6.7.2
+        specifier: ^7.2.0
+        version: 7.2.0
       astro:
         specifier: 5.7.4
-        version: 5.7.4(@types/node@22.7.5)(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0)
+        version: 5.7.4(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0)
       nord:
         specifier: ^0.2.1
         version: 0.2.1
@@ -702,20 +702,20 @@ packages:
   '@fontsource/inter@5.2.8':
     resolution: {integrity: sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==}
 
-  '@fortawesome/fontawesome-common-types@6.7.2':
-    resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
+  '@fortawesome/fontawesome-common-types@7.2.0':
+    resolution: {integrity: sha512-IpR0bER9FY25p+e7BmFH25MZKEwFHTfRAfhOyJubgiDnoJNsSvJ7nigLraHtp4VOG/cy8D7uiV0dLkHOne5Fhw==}
     engines: {node: '>=6'}
 
-  '@fortawesome/fontawesome-svg-core@6.7.2':
-    resolution: {integrity: sha512-yxtOBWDrdi5DD5o1pmVdq3WMCvnobT0LU6R8RyyVXPvFRd2o79/0NCuQoCjNTeZz9EzA9xS3JxNWfv54RIHFEA==}
+  '@fortawesome/fontawesome-svg-core@7.2.0':
+    resolution: {integrity: sha512-6639htZMjEkwskf3J+e6/iar+4cTNM9qhoWuRfj9F3eJD6r7iCzV1SWnQr2Mdv0QT0suuqU8BoJCZUyCtP9R4Q==}
     engines: {node: '>=6'}
 
-  '@fortawesome/free-brands-svg-icons@6.7.2':
-    resolution: {integrity: sha512-zu0evbcRTgjKfrr77/2XX+bU+kuGfjm0LbajJHVIgBWNIDzrhpRxiCPNT8DW5AdmSsq7Mcf9D1bH0aSeSUSM+Q==}
+  '@fortawesome/free-brands-svg-icons@7.2.0':
+    resolution: {integrity: sha512-VNG8xqOip1JuJcC3zsVsKRQ60oXG9+oYNDCosjoU/H9pgYmLTEwWw8pE0jhPz/JWdHeUuK6+NQ3qsM4gIbdbYQ==}
     engines: {node: '>=6'}
 
-  '@fortawesome/free-solid-svg-icons@6.7.2':
-    resolution: {integrity: sha512-GsBrnOzU8uj0LECDfD5zomZJIjrPhIlWU82AHwa2s40FKH+kcxQaBvBo3Z4TxyZHIyX8XTDxsyA33/Vx9eFuQA==}
+  '@fortawesome/free-solid-svg-icons@7.2.0':
+    resolution: {integrity: sha512-YTVITFGN0/24PxzXrwqCgnyd7njDuzp5ZvaCx5nq/jg55kUYd94Nj8UTchBdBofi/L0nwRfjGOg0E41d2u9T1w==}
     engines: {node: '>=6'}
 
   '@img/colour@1.1.0':
@@ -1205,9 +1205,6 @@ packages:
 
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
-
-  '@types/node@22.7.5':
-    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -2113,9 +2110,6 @@ packages:
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
 
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-
   undici@7.14.0:
     resolution: {integrity: sha512-Vqs8HTzjpQXZeXdpsfChQTlafcMQaaIwnGwLam1wudSSjlJeQ3bw1j+TLPePgrCnCpUXx7Ba5Pdpf5OBih62NQ==}
     engines: {node: '>=20.18.1'}
@@ -2543,14 +2537,14 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@12.6.13(@types/node@22.7.5)(astro@5.7.4(@types/node@22.7.5)(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0))(yaml@2.9.0)':
+  '@astrojs/cloudflare@12.6.13(astro@5.7.4(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0))(yaml@2.9.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.7.6
       '@astrojs/underscore-redirects': 1.0.0
       '@cloudflare/workers-types': 4.20260613.1
-      astro: 5.7.4(@types/node@22.7.5)(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0)
+      astro: 5.7.4(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0)
       tinyglobby: 0.2.17
-      vite: 6.4.3(@types/node@22.7.5)(yaml@2.9.0)
+      vite: 6.4.3(yaml@2.9.0)
       wrangler: 4.59.2(@cloudflare/workers-types@4.20260613.1)
     transitivePeerDependencies:
       - '@types/node'
@@ -2983,19 +2977,19 @@ snapshots:
 
   '@fontsource/inter@5.2.8': {}
 
-  '@fortawesome/fontawesome-common-types@6.7.2': {}
+  '@fortawesome/fontawesome-common-types@7.2.0': {}
 
-  '@fortawesome/fontawesome-svg-core@6.7.2':
+  '@fortawesome/fontawesome-svg-core@7.2.0':
     dependencies:
-      '@fortawesome/fontawesome-common-types': 6.7.2
+      '@fortawesome/fontawesome-common-types': 7.2.0
 
-  '@fortawesome/free-brands-svg-icons@6.7.2':
+  '@fortawesome/free-brands-svg-icons@7.2.0':
     dependencies:
-      '@fortawesome/fontawesome-common-types': 6.7.2
+      '@fortawesome/fontawesome-common-types': 7.2.0
 
-  '@fortawesome/free-solid-svg-icons@6.7.2':
+  '@fortawesome/free-solid-svg-icons@7.2.0':
     dependencies:
-      '@fortawesome/fontawesome-common-types': 6.7.2
+      '@fortawesome/fontawesome-common-types': 7.2.0
 
   '@img/colour@1.1.0': {}
 
@@ -3335,11 +3329,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.7.5':
-    dependencies:
-      undici-types: 6.19.8
-    optional: true
-
   '@types/unist@3.0.3': {}
 
   '@ungap/structured-clone@1.3.1': {}
@@ -3432,7 +3421,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.7.4(@types/node@22.7.5)(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0):
+  astro@5.7.4(rollup@4.62.0)(typescript@5.9.3)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 2.13.1
       '@astrojs/internal-helpers': 0.6.1
@@ -3485,8 +3474,8 @@ snapshots:
       unist-util-visit: 5.1.0
       unstorage: 1.17.5
       vfile: 6.0.3
-      vite: 6.4.3(@types/node@22.7.5)(yaml@2.9.0)
-      vitefu: 1.1.3(vite@6.4.3(@types/node@22.7.5)(yaml@2.9.0))
+      vite: 6.4.3(yaml@2.9.0)
+      vitefu: 1.1.3(vite@6.4.3(yaml@2.9.0))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -4705,9 +4694,6 @@ snapshots:
 
   uncrypto@0.1.3: {}
 
-  undici-types@6.19.8:
-    optional: true
-
   undici@7.14.0: {}
 
   undici@7.24.8: {}
@@ -4809,7 +4795,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@6.4.3(@types/node@22.7.5)(yaml@2.9.0):
+  vite@6.4.3(yaml@2.9.0):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.4)
@@ -4818,13 +4804,12 @@ snapshots:
       rollup: 4.62.0
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 22.7.5
       fsevents: 2.3.3
       yaml: 2.9.0
 
-  vitefu@1.1.3(vite@6.4.3(@types/node@22.7.5)(yaml@2.9.0)):
+  vitefu@1.1.3(vite@6.4.3(yaml@2.9.0)):
     optionalDependencies:
-      vite: 6.4.3(@types/node@22.7.5)(yaml@2.9.0)
+      vite: 6.4.3(yaml@2.9.0)
 
   volar-service-css@0.0.70(@volar/language-service@2.4.28):
     dependencies:
