@@ -14,4 +14,8 @@
     { "pattern": "tylerbenfield.me", "custom_domain": true },
     { "pattern": "tylerbenfield.dev", "custom_domain": true },
   ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+  },
 }
