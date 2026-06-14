@@ -1,0 +1,18 @@
+:root {
+  --tokyo-bg: #1a1b26;
+  --tokyo-bg-soft: #24283b;
+  --tokyo-bg-highlight: #414868;
+  --tokyo-fg: #c0caf5;
+  --tokyo-fg-muted: #a9b1d6;
+  --tokyo-fg-dim: #565f89;
+  --tokyo-red: #f7768e;
+  --tokyo-orange: #ff9e64;
+  --tokyo-yellow: #e0af68;
+  --tokyo-green: #9ece6a;
+  --tokyo-teal: #73daca;
+  --tokyo-cyan: #2ac3de;
+  --tokyo-light-cyan: #b4f9f8;
+  --tokyo-blue: #7aa2f7;
+  --tokyo-light-blue: #7dcfff;
+  --tokyo-purple: #bb9af7;
+}

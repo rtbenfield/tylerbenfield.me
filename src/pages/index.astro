@@ -3,53 +3,27 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Tyler Benfield">
-  <main>
-    <section class="headline">
-      <img class="avatar" src="/me.webp" />
-      <div>
-        <h1>Hi, I'm Tyler.</h1>
-        <p class="tagline">
-          I'm a software engineer with a knack for databases.
-        </p>
-      </div>
-    </section>
-    <section class="bio">
-      <p>
-        Tyler is a software engineer with a focus on making databases and
-        data-driven applications more approachable through education and
-        tooling. With over 10 years of experience developing software in
-        consulting, startups, and large organizations, he's gathered a wealth of
-        knowledge that he enjoys sharing with others. In his free time, he
-        enjoys playing beach volleyball, hiking, and repairing arcade cabinets.
+  <section class="grid items-center gap-6 sm:grid-cols-[1fr_3fr]">
+    <img
+      class="aspect-square w-full rounded-3xl object-cover"
+      src="/me.webp"
+      alt="Tyler Benfield"
+    />
+    <div>
+      <h1 class="mb-2 text-2xl font-bold sm:text-3xl">Hi, I'm Tyler.</h1>
+      <p class="text-xl text-tokyo-fg-muted sm:text-2xl">
+        I'm a software engineer with a knack for databases.
       </p>
-    </section>
-  </main>
+    </div>
+  </section>
+  <section class="mt-6">
+    <p class="text-lg leading-relaxed">
+      Tyler is a software engineer with a focus on making databases and
+      data-driven applications more approachable through education and tooling.
+      With over 10 years of experience developing software in consulting,
+      startups, and large organizations, he's gathered a wealth of knowledge
+      that he enjoys sharing with others. In his free time, he enjoys playing
+      beach volleyball, hiking, and repairing arcade cabinets.
+    </p>
+  </section>
 </Layout>
-
-<style>
-  .avatar {
-    border-radius: var(--radius-xl);
-    height: auto;
-    width: 100%;
-  }
-
-  .headline {
-    display: grid;
-    grid-template-columns: 25% 75%;
-    gap: var(--spacing-sm);
-    align-items: center;
-  }
-
-  .headline h1 {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .tagline {
-    font-size: 2.5rem;
-  }
-
-  .bio {
-    margin-top: var(--spacing-sm);
-  }
-</style>

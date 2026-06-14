@@ -1,0 +1,59 @@
+---
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+
+interface Props {
+  title: string;
+  titleHref: string;
+  eventName: string;
+  eventHref: string;
+  date: string;
+  description: string[];
+  link?: {
+    text: string;
+    href: string;
+  };
+}
+
+const { title, titleHref, eventName, eventHref, date, description, link } =
+  Astro.props;
+---
+
+<section class="grid grid-cols-[min-content_1fr] gap-x-4 gap-y-1">
+  <FontAwesomeIcon class="text-3xl text-tokyo-blue" icon={faComment} />
+  <h3 class="text-lg font-semibold leading-tight">
+    <a
+      href={titleHref}
+      target="_blank"
+      class="text-tokyo-fg no-underline hover:text-tokyo-blue"
+    >
+      {title}
+    </a>
+  </h3>
+  <div class="col-start-2">
+    <a
+      href={eventHref}
+      target="_blank"
+      class="text-tokyo-fg-muted no-underline hover:text-tokyo-blue"
+    >
+      {eventName}
+    </a>
+  </div>
+  <span class="col-start-2 text-sm text-tokyo-fg-dim">{date}</span>
+  <div class="col-start-2 mt-1 space-y-2">
+    {description.map((paragraph) => <p>{paragraph}</p>)}
+    {
+      link && (
+        <div class="pt-2">
+          <a
+            href={link.href}
+            target="_blank"
+            class="inline-block rounded-lg bg-tokyo-blue px-4 py-2 font-medium text-tokyo-bg no-underline hover:bg-tokyo-light-blue"
+          >
+            {link.text}
+          </a>
+        </div>
+      )
+    }
+  </div>
+</section>

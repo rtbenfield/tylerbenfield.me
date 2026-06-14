@@ -10,7 +10,9 @@
     "preview": "astro build && wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "astro build && wrangler pages deploy ./dist",
-    "build-cf-types": "wrangler types"
+    "build-cf-types": "wrangler types",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
@@ -19,12 +21,14 @@
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@tailwindcss/vite": "^4.3.1",
     "astro": "6.4.6",
-    "nord": "^0.2.1",
+    "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260613.1",
+    "oxlint": "^1.69.0",
     "wrangler": "^4.100.0"
   }
 }

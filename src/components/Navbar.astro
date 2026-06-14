@@ -2,50 +2,24 @@
 
 ---
 
-<header>
-  <h1>Tyler Benfield</h1>
+<header
+  class="mx-auto flex w-full max-w-4xl items-center justify-between px-4 py-4 text-tokyo-fg sm:px-6 lg:px-8"
+>
+  <a href="/" class="text-xl font-bold text-tokyo-fg no-underline">Tyler Benfield</a>
   <nav>
-    <ul>
+    <ul class="flex gap-4">
       <li>
-        <a href="/">About Me</a>
+        <a href="/" class="text-tokyo-fg-muted hover:text-tokyo-blue no-underline transition-colors"
+          >About Me</a
+        >
       </li>
       <li>
-        <a href="/events">Events</a>
+        <a
+          href="/events"
+          class="text-tokyo-fg-muted hover:text-tokyo-blue no-underline transition-colors"
+          >Events</a
+        >
       </li>
     </ul>
   </nav>
 </header>
-
-<style>
-  header {
-    color: var(--nord5);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-md) var(--spacing-lg);
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-sm);
-    list-style: none;
-    padding: 0;
-  }
-
-  a {
-    color: var(--nord5);
-    text-decoration: none;
-  }
-
-  a:hover,
-  a:active {
-    text-decoration: underline;
-    text-underline-offset: 0.5em;
-  }
-</style>

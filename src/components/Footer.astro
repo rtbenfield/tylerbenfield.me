@@ -10,14 +10,17 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
 ---
 
-<footer>
+<footer
+  class="mx-auto flex w-full max-w-4xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-tokyo-fg-muted sm:flex-row sm:px-6 lg:px-8"
+>
   <span>© Tyler Benfield 2025</span>
-  <ul>
+  <ul class="flex gap-4 text-xl">
     <li>
       <a
         href="https://bsky.app/profile/rtbenfield.dev"
         target="_blank"
         title="Find me on Bluesky"
+        class="hover:text-tokyo-blue"
       >
         <FontAwesomeIcon icon={faBluesky} />
       </a>
@@ -27,6 +30,7 @@ import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
         href="https://twitter.com/rtbenfield"
         target="_blank"
         title="Find me on X (Twitter)"
+        class="hover:text-tokyo-blue"
       >
         <FontAwesomeIcon icon={faXTwitter} />
       </a>
@@ -36,6 +40,7 @@ import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
         href="https://github.com/rtbenfield"
         target="_blank"
         title="Find me on GitHub"
+        class="hover:text-tokyo-blue"
       >
         <FontAwesomeIcon icon={faGithub} />
       </a>
@@ -45,6 +50,7 @@ import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
         href="https://www.linkedin.com/in/tylerbenfield/"
         target="_blank"
         title="Find me on LinkedIn"
+        class="hover:text-tokyo-blue"
       >
         <FontAwesomeIcon icon={faLinkedin} />
       </a>
@@ -54,37 +60,20 @@ import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
         href="https://stackoverflow.com/users/9867662/tyler"
         target="_blank"
         title="Find me on StackOverflow"
+        class="hover:text-tokyo-blue"
       >
         <FontAwesomeIcon icon={faStackOverflow} />
       </a>
     </li>
     <li>
-      <a href="mailto:tyler@tylerbenfield.me" target="_blank" title="Email me">
+      <a
+        href="mailto:tyler@tylerbenfield.me"
+        target="_blank"
+        title="Email me"
+        class="hover:text-tokyo-blue"
+      >
         <FontAwesomeIcon icon={faEnvelope} />
       </a>
     </li>
   </ul>
 </footer>
-
-<style>
-  footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-sm);
-  }
-
-  footer ul {
-    display: flex;
-    flex-direction: row-reverse;
-    font-size: 2rem;
-    gap: var(--spacing-sm);
-    margin: 0;
-    padding: 0;
-  }
-
-  footer ul li {
-    list-style: none;
-  }
-</style>
