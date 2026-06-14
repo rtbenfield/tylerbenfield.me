@@ -13,18 +13,18 @@
     "build-cf-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/cloudflare": "^12.5.0",
-    "@fontsource/inter": "^5.2.5",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/cloudflare": "^12.6.13",
+    "@fontsource/inter": "^5.2.8",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "astro": "5.7.4",
     "nord": "^0.2.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250420.0",
-    "wrangler": "^4.12.0"
+    "@cloudflare/workers-types": "^4.20260613.1",
+    "wrangler": "^4.100.0"
   }
 }
