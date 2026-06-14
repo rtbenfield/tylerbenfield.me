@@ -2,3 +2,6 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+overrides:
+  esbuild: ">=0.28.1" # pinned low by wrangler (0.27.3 exact), astro (^0.27.3), vite (^0.27.0)
+  yaml: ">=2.8.3" # pinned low by yaml-language-server (2.7.1 exact)
