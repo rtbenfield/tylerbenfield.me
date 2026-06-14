@@ -1,0 +1,70 @@
+---
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+import { formatEventDate, formatEventMonthYear } from "../lib/format-event-date";
+
+interface Props {
+  event: CollectionEntry<"events">;
+  expanded: boolean;
+}
+
+const { event, expanded } = Astro.props;
+const { Content } = await render(event);
+const monthYear = formatEventMonthYear(event.data);
+const fullDate = formatEventDate(event.data);
+---
+
+<article
+  class:list={[
+    "group relative pl-6 sm:pl-8",
+    "before:absolute before:left-2 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-tokyo-cyan sm:before:left-3",
+    "after:absolute after:left-[0.75rem] after:top-4 after:h-[calc(100%+1rem)] after:w-px after:bg-tokyo-cyan/30 sm:after:left-[1rem]",
+    "last:after:hidden",
+  ]}
+>
+  <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4 sm:gap-y-1">
+    <time
+      datetime={event.data.startDate}
+      class="font-mono text-xs font-semibold uppercase tracking-wider text-tokyo-fg-muted sm:text-sm"
+    >
+      {monthYear}
+    </time>
+    <a
+      href={event.data.eventHref}
+      target="_blank"
+      class="text-sm font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-blue"
+    >
+      {event.data.eventName}
+    </a>
+    {
+      expanded && (
+        <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-tokyo-cyan/10 px-2.5 py-0.5 text-xs font-semibold text-tokyo-cyan">
+          <FontAwesomeIcon icon={faComment} class="text-[0.7em]" />
+          Upcoming
+        </span>
+      )
+    }
+  </div>
+
+  <h3 class="mt-2 text-lg font-bold leading-snug sm:text-xl">
+    <a
+      href={`/events/${event.id}`}
+      class="text-tokyo-fg no-underline transition-colors group-hover:text-tokyo-cyan"
+    >
+      {event.data.title}
+    </a>
+  </h3>
+
+  {
+    expanded && (
+      <div class="mt-3 space-y-3 text-tokyo-fg-muted">
+        <p class="text-sm text-tokyo-fg-muted">{fullDate}</p>
+        <div class="space-y-3 leading-relaxed">
+          <Content />
+        </div>
+      </div>
+    )
+  }
+</article>

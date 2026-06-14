@@ -1,0 +1,91 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { formatEventDate } from "../../lib/format-event-date";
+
+const { slug } = Astro.params;
+const event = await getEntry("events", slug!);
+if (!event) {
+  return new Response(null, { status: 404 });
+}
+const { Content } = await render(event);
+const fullDate = formatEventDate(event.data);
+---
+
+<Layout title={`${event.data.title} | Tyler Benfield`}>
+  <a
+    href="/events"
+    class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-cyan"
+  >
+    <span aria-hidden="true">←</span> Back to events
+  </a>
+
+  <article class="mt-8">
+    <div
+      class="mb-4 flex flex-wrap items-center gap-3 text-sm text-tokyo-fg-muted"
+    >
+      <a
+        href={event.data.eventHref}
+        target="_blank"
+        class="font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-blue"
+      >
+        {event.data.eventName}
+      </a>
+      <span class="text-tokyo-fg-dim">•</span>
+      <span class="text-tokyo-fg-muted">{fullDate}</span>
+    </div>
+
+    <h1
+      class="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+    >
+      {
+        event.data.youtubeId ? (
+          <a
+            href={`https://www.youtube.com/watch?v=${event.data.youtubeId}`}
+            target="_blank"
+            class="gradient-text no-underline"
+          >
+            {event.data.title}
+          </a>
+        ) : (
+          <span class="gradient-text">{event.data.title}</span>
+        )
+      }
+    </h1>
+
+    <div class="mt-8 space-y-4 text-lg leading-relaxed text-tokyo-fg-muted">
+      <Content />
+    </div>
+
+    {
+      event.data.youtubeId && (
+        <div class="mt-10">
+          <div class="aspect-video w-full overflow-hidden rounded-2xl gradient-border glass">
+            <iframe
+              class="h-full w-full"
+              src={`https://www.youtube.com/embed/${event.data.youtubeId}`}
+              title={event.data.title}
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      event.data.link && (
+        <div class="mt-10">
+          <a
+            href={event.data.link.href}
+            target="_blank"
+            class="inline-flex items-center rounded-full bg-tokyo-blue px-5 py-2.5 font-semibold text-tokyo-bg no-underline shadow-[0_0_25px_-8px_var(--tokyo-blue)] transition-all hover:-translate-y-0.5 hover:bg-tokyo-light-blue hover:shadow-[0_0_35px_-6px_var(--tokyo-blue)]"
+          >
+            {event.data.link.text}
+          </a>
+        </div>
+      )
+    }
+  </article>
+</Layout>

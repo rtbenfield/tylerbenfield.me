@@ -1,7 +1,13 @@
 ---
-import EventCard from "../components/EventCard.astro";
-import { pastEvents, upcomingEvents } from "../data/events";
+import { getCollection } from "astro:content";
+import EventTimelineEntry from "../components/EventTimelineEntry.astro";
 import Layout from "../layouts/Layout.astro";
+
+const entries = await getCollection("events");
+const today = new Date().toISOString().slice(0, 10);
+const sorted = [...entries].sort((a, b) =>
+  b.data.startDate.localeCompare(a.data.startDate),
+);
 ---
 
 <Layout title="Events | Tyler Benfield">
@@ -11,40 +17,20 @@ import Layout from "../layouts/Layout.astro";
     >
       Speaking
     </p>
-    <h1
-      class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
-    >
+    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
       <span class="gradient-text">Events</span>
     </h1>
     <p class="mx-auto mt-4 max-w-2xl text-lg text-tokyo-fg-muted">
-      Talks, workshops, and conferences where I've shared what I've learned about
-      databases, JavaScript, and building fast apps.
+      Talks, workshops, and conferences where I've shared what I've learned
+      about software engineering, databases, and building fast apps.
     </p>
   </header>
 
-  <section class="flex flex-col gap-8">
-    <div class="flex items-center gap-4">
-      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
-      <h2 class="text-sm font-bold uppercase tracking-widest text-tokyo-purple">
-        Upcoming Events
-      </h2>
-      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
-    </div>
-    <div class="flex flex-col gap-6">
-      {upcomingEvents.map((event) => <EventCard {...event} />)}
-    </div>
-  </section>
-
-  <section class="mt-16 flex flex-col gap-8 lg:mt-20">
-    <div class="flex items-center gap-4">
-      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
-      <h2 class="text-sm font-bold uppercase tracking-widest text-tokyo-fg-dim">
-        Past Events
-      </h2>
-      <span class="h-px flex-1 bg-tokyo-fg-dim/20"></span>
-    </div>
-    <div class="flex flex-col gap-6">
-      {pastEvents.map((event) => <EventCard {...event} />)}
-    </div>
+  <section class="flex flex-col gap-10">
+    {
+      sorted.map((event) => (
+        <EventTimelineEntry event={event} expanded={event.data.startDate >= today} />
+      ))
+    }
   </section>
 </Layout>
