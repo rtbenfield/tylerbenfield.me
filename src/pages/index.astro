@@ -1,4 +1,6 @@
 ---
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -71,5 +73,38 @@ import Layout from "../layouts/Layout.astro";
         enjoys playing beach volleyball, hiking, and repairing arcade cabinets.
       </p>
     </div>
+  </section>
+
+  <section class="mt-10 lg:mt-14">
+    <a
+      href="/agent-experience"
+      class="glass gradient-border group relative block rounded-3xl p-6 no-underline transition-all hover:-translate-y-1 hover:shadow-[0_0_40px_-8px_var(--tokyo-cyan)] sm:p-10"
+    >
+      <div class="absolute -top-3 left-8 rounded-full bg-tokyo-bg px-3">
+        <span
+          class="text-xs font-bold uppercase tracking-widest text-tokyo-cyan"
+        >
+          Now Available
+        </span>
+      </div>
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <h2 class="mb-2 text-2xl font-bold tracking-tight text-tokyo-fg">
+            Agent Experience
+          </h2>
+          <p class="max-w-xl text-lg leading-relaxed text-tokyo-fg-muted">
+            My rules, skills, and configuration for running AI coding agents
+            with agency. Outcome-focused prompts, review skills, and the
+            workflows I use every day.
+          </p>
+        </div>
+        <span
+          class="inline-flex items-center gap-2 self-start rounded-full bg-tokyo-cyan px-6 py-3 font-semibold text-tokyo-bg transition-colors group-hover:bg-tokyo-light-cyan"
+        >
+          <FontAwesomeIcon icon={faRobot} />
+          Explore the setup
+        </span>
+      </div>
+    </a>
   </section>
 </Layout>

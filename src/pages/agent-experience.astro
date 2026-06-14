@@ -1,0 +1,212 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+import {
+  faRobot,
+  faBolt,
+  faClipboardList,
+  faCode,
+  faArrowUpRightFromSquare,
+  faTerminal,
+  faListCheck,
+  faRotate,
+  faCodePullRequest,
+  faCommentDots,
+} from "@fortawesome/free-solid-svg-icons";
+
+const processSkills = [
+  {
+    command: "/project-spec",
+    icon: faClipboardList,
+    summary: "Research and gather a specification from an outcome-focused prompt.",
+  },
+  {
+    command: "/project-plan",
+    icon: faListCheck,
+    summary: "Generate a phased implementation plan from the specification.",
+  },
+  {
+    command: "/project-execute",
+    icon: faBolt,
+    summary: "Execute the plan, verify work, and track progress incrementally.",
+  },
+];
+
+const supportingSkills = [
+  {
+    command: "/code-review",
+    icon: faCode,
+    summary: "Review changes against correctness, clarity, complexity, and style.",
+  },
+  {
+    command: "/dependency-updates",
+    icon: faRotate,
+    summary: "Update dependencies safely, batching patch/minor and isolating majors.",
+  },
+  {
+    command: "/pr-description",
+    icon: faCodePullRequest,
+    summary: "Generate a context-rich PR description from the current branch diff.",
+  },
+  {
+    command: "/pr-response",
+    icon: faCommentDots,
+    summary: "Process review comments, implement valid feedback, and reply thoughtfully.",
+  },
+];
+---
+
+<Layout title="Agent Experience | Tyler Benfield">
+  <header class="mb-16 text-center">
+    <p
+      class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-tokyo-cyan"
+    >
+      AI Coding Agents
+    </p>
+    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+      <span class="gradient-text">Agent Experience</span>
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-tokyo-fg-muted">
+      Giving agents the constraints they need to act with agency.
+    </p>
+  </header>
+
+  <section class="mb-16">
+    <div class="glass gradient-border rounded-3xl p-6 sm:p-10 lg:p-12">
+      <div class="mb-6 flex items-center gap-3">
+        <FontAwesomeIcon
+          icon={faRobot}
+          class="text-2xl text-tokyo-cyan"
+        />
+        <h2 class="text-2xl font-bold tracking-tight">Agents with agency</h2>
+      </div>
+      <div class="space-y-4 text-lg leading-relaxed text-tokyo-fg-muted">
+        <p>
+          Agents have deep knowledge of syntax, patterns, and best practices —
+          and a remarkable ability to ignore all of it. Left to their own
+          devices, they produce code that works in isolation but falls apart at
+          the seams.
+        </p>
+        <p>
+          I have high expectations of my teammates: not that they know every
+          syntax detail, but that they have <strong class="text-tokyo-fg">agency</strong>.
+          They research, evaluate, and decide how to proceed. They ask for help
+          when needed, but they do not need confirmation to take action. I
+          expect the same from my agents.
+        </p>
+        <p>
+          Rules, documentation, and guardrails do not restrict agency — they
+          create it. A human without a style guide writes inconsistent code. An
+          agent without rules writes inconsistent code faster. The goal is to
+          give agents enough constraints to act with confidence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <div class="mb-6 flex items-center gap-3">
+      <FontAwesomeIcon
+        icon={faBolt}
+        class="text-2xl text-tokyo-purple"
+      />
+      <h2 class="text-2xl font-bold tracking-tight">Outcome-focused prompts</h2>
+    </div>
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div class="glass gradient-border rounded-2xl p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-widest text-tokyo-red">
+          Implementation-focused
+        </p>
+        <p class="text-tokyo-fg-muted">
+          Add a dark mode toggle to the settings page. Use the Switch component
+          from ui/ and follow the pattern Dashboard uses for toggle controls.
+          Create a useTheme hook modeled on useNetworkStatus...
+        </p>
+      </div>
+      <div class="glass gradient-border rounded-2xl p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-widest text-tokyo-green">
+          Outcome-focused
+        </p>
+        <p class="text-tokyo-fg-muted">
+          Add a dark mode toggle to settings. Should persist across sessions and
+          apply globally.
+        </p>
+      </div>
+    </div>
+    <p class="mt-6 text-lg leading-relaxed text-tokyo-fg-muted">
+      With agency, an agent can find gaps, edge cases, and opportunities that an
+      implementation-focused prompt would be too rigid to allow. The result
+      should be just as good, or better.
+    </p>
+  </section>
+
+  <section class="mb-16">
+    <div class="mb-6 flex items-center gap-3">
+      <FontAwesomeIcon
+        icon={faTerminal}
+        class="text-2xl text-tokyo-blue"
+      />
+      <h2 class="text-2xl font-bold tracking-tight">Skills</h2>
+    </div>
+
+    <div class="mb-8 rounded-2xl bg-tokyo-bg-soft/50 p-6 font-mono text-base sm:text-lg">
+      <code class="text-tokyo-green">npx skills add rtbenfield/agent-experience</code>
+    </div>
+
+    <p class="mb-6 text-lg leading-relaxed text-tokyo-fg-muted">
+      The <a href="https://skills.sh/" target="_blank">skills CLI</a> will
+      walk you through adding these skills to your preferred agents in either
+      the global or project scope.
+    </p>
+
+    <h3 class="mb-4 text-lg font-bold text-tokyo-fg">Process</h3>
+    <ul class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        processSkills.map(({ command, icon, summary }) => (
+          <li class="glass gradient-border rounded-2xl p-5">
+            <div class="mb-3 flex items-center gap-3">
+              <FontAwesomeIcon icon={icon} class="text-xl text-tokyo-cyan" />
+              <code class="font-mono text-sm text-tokyo-fg">{command}</code>
+            </div>
+            <p class="text-sm leading-relaxed text-tokyo-fg-muted">{summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3 class="mb-4 text-lg font-bold text-tokyo-fg">Supporting skills</h3>
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        supportingSkills.map(({ command, icon, summary }) => (
+          <li class="glass gradient-border rounded-2xl p-5">
+            <div class="mb-3 flex items-center gap-3">
+              <FontAwesomeIcon icon={icon} class="text-xl text-tokyo-purple" />
+              <code class="font-mono text-sm text-tokyo-fg">{command}</code>
+            </div>
+            <p class="text-sm leading-relaxed text-tokyo-fg-muted">{summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="text-center">
+    <div class="glass gradient-border rounded-3xl p-8 sm:p-12">
+      <h2 class="mb-4 text-2xl font-bold tracking-tight">
+        Want the full rules and configuration?
+      </h2>
+      <p class="mx-auto mb-8 max-w-xl text-lg text-tokyo-fg-muted">
+        The repository includes the complete ruleset, installation scripts, and
+        instructions for wiring everything into your agent workflow.
+      </p>
+      <a
+        href="https://github.com/rtbenfield/agent-experience"
+        target="_blank"
+        class="inline-flex items-center gap-2 rounded-full bg-tokyo-cyan px-8 py-4 font-semibold text-tokyo-bg no-underline shadow-[0_0_30px_-8px_var(--tokyo-cyan)] transition-all hover:-translate-y-0.5 hover:bg-tokyo-light-cyan hover:shadow-[0_0_40px_-6px_var(--tokyo-cyan)]"
+      >
+        View on GitHub
+        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+      </a>
+    </div>
+  </section>
+</Layout>
