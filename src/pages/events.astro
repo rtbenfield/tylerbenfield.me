@@ -8,9 +8,11 @@ const today = new Date().toISOString().slice(0, 10);
 const sorted = [...entries].sort((a, b) =>
   b.data.startDate.localeCompare(a.data.startDate),
 );
+
+const isUpcoming = (startDate: string) => startDate >= today;
 ---
 
-<Layout title="Events | Tyler Benfield">
+<Layout title="Talks & Podcasts | Tyler Benfield">
   <header class="mb-12 text-center lg:mb-16">
     <p
       class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-tokyo-cyan"
@@ -18,19 +20,26 @@ const sorted = [...entries].sort((a, b) =>
       Speaking
     </p>
     <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-      <span class="gradient-text">Events</span>
+      <span class="gradient-text">Talks & Podcasts</span>
     </h1>
     <p class="mx-auto mt-4 max-w-2xl text-lg text-tokyo-fg-muted">
-      Talks, workshops, and conferences where I've shared what I've learned
-      about software engineering, databases, and building fast apps.
+      Talks and podcast appearances where I've shared what I've learned about
+      software engineering, databases, and building fast apps.
     </p>
   </header>
 
-  <section class="flex flex-col gap-10">
-    {
-      sorted.map((event) => (
-        <EventTimelineEntry event={event} expanded={event.data.startDate >= today} />
-      ))
-    }
-  </section>
+  {
+    sorted.length > 0 && (
+      <section>
+        <div class="flex flex-col gap-10">
+          {sorted.map((entry) => (
+            <EventTimelineEntry
+              event={entry}
+              expanded={isUpcoming(entry.data.startDate)}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
 </Layout>

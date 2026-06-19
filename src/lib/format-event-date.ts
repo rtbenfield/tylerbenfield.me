@@ -1,8 +1,6 @@
-interface EventDate {
-  startDate: string;
-  endDate: string;
-  location: string;
-}
+import type { CollectionEntry } from "astro:content";
+
+type EventData = CollectionEntry<"events">["data"];
 
 const monthFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -42,13 +40,15 @@ function formatDateRange(start: Date, end: Date): string {
   return `${shortMonthFormatter.format(start)} ${dayFormatter.format(start)}, ${yearFormatter.format(start)} – ${shortMonthFormatter.format(end)} ${dayFormatter.format(end)}, ${yearFormatter.format(end)}`;
 }
 
-export function formatEventDate(event: EventDate): string {
+export function formatEventDate(event: EventData): string {
   const start = parseISO(event.startDate);
   const end = parseISO(event.endDate);
-  return `${formatDateRange(start, end)} in ${event.location}`;
+  const dateRange = formatDateRange(start, end);
+  const location = "event" in event ? event.event.location : undefined;
+  return location ? `${dateRange} in ${location}` : dateRange;
 }
 
-export function formatEventMonthYear(event: EventDate): string {
+export function formatEventMonthYear(event: EventData): string {
   const date = parseISO(event.startDate);
   return shortMonthFormatter.format(date) + " " + yearFormatter.format(date);
 }

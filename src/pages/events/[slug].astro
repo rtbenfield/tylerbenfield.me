@@ -1,5 +1,8 @@
 ---
+import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faPodcast } from "@fortawesome/free-solid-svg-icons";
 import { getEntry, render } from "astro:content";
+import FontAwesomeIcon from "../../components/FontAwesomeIcon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { formatEventDate } from "../../lib/format-event-date";
 
@@ -10,6 +13,12 @@ if (!event) {
 }
 const { Content } = await render(event);
 const fullDate = formatEventDate(event.data);
+const series = "event" in event.data ? event.data.event : event.data.podcast;
+const spotify = "podcast" in event.data ? event.data.podcast.spotify : undefined;
+const pocketCasts = "podcast" in event.data ? event.data.podcast.pocketCasts : undefined;
+const youtubeUrl = event.data.youtubeId
+  ? `https://www.youtube.com/watch?v=${event.data.youtubeId}`
+  : undefined;
 ---
 
 <Layout title={`${event.data.title} | Tyler Benfield`}>
@@ -17,7 +26,7 @@ const fullDate = formatEventDate(event.data);
     href="/events"
     class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-cyan"
   >
-    <span aria-hidden="true">←</span> Back to events
+    <span aria-hidden="true">←</span> Back to talks & podcasts
   </a>
 
   <article class="mt-8">
@@ -25,15 +34,52 @@ const fullDate = formatEventDate(event.data);
       class="mb-4 flex flex-wrap items-center gap-3 text-sm text-tokyo-fg-muted"
     >
       <a
-        href={event.data.eventHref}
+        href={series.href}
         target="_blank"
         class="font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-blue"
       >
-        {event.data.eventName}
+        {series.name}
       </a>
       <span class="text-tokyo-fg-dim">•</span>
       <span class="text-tokyo-fg-muted">{fullDate}</span>
     </div>
+
+    {
+      (spotify || pocketCasts || youtubeUrl) && (
+        <div class="mb-6 flex flex-wrap items-center gap-4">
+          {youtubeUrl && (
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-red no-underline transition-colors hover:text-tokyo-cyan"
+            >
+              <FontAwesomeIcon icon={faYoutube} class="text-[0.9em]" />
+              YouTube
+            </a>
+          )}
+          {spotify && (
+            <a
+              href={spotify}
+              target="_blank"
+              class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-green no-underline transition-colors hover:text-tokyo-cyan"
+            >
+              <FontAwesomeIcon icon={faSpotify} class="text-[0.9em]" />
+              Spotify
+            </a>
+          )}
+          {pocketCasts && (
+            <a
+              href={pocketCasts}
+              target="_blank"
+              class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-orange no-underline transition-colors hover:text-tokyo-cyan"
+            >
+              <FontAwesomeIcon icon={faPodcast} class="text-[0.9em]" />
+              Pocket Casts
+            </a>
+          )}
+        </div>
+      )
+    }
 
     <h1
       class="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl"

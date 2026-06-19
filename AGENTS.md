@@ -31,7 +31,7 @@
 ## Pages
 
 - `src/pages/index.astro` is the bio page.
-- `src/pages/events.astro` lists upcoming and past speaking events.
+- `src/pages/events.astro` lists talks and podcast appearances (routed at `/events`).
 
 ## Icons
 

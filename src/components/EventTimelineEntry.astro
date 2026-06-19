@@ -1,9 +1,13 @@
 ---
-import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faComment, faPodcast } from "@fortawesome/free-solid-svg-icons";
 import { render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
-import { formatEventDate, formatEventMonthYear } from "../lib/format-event-date";
+import {
+  formatEventDate,
+  formatEventMonthYear,
+} from "../lib/format-event-date";
 
 interface Props {
   event: CollectionEntry<"events">;
@@ -14,6 +18,15 @@ const { event, expanded } = Astro.props;
 const { Content } = await render(event);
 const monthYear = formatEventMonthYear(event.data);
 const fullDate = formatEventDate(event.data);
+const today = new Date().toISOString().slice(0, 10);
+const isEvent = "event" in event.data;
+const series = "event" in event.data ? event.data.event : event.data.podcast;
+const isUpcoming = isEvent && event.data.startDate >= today;
+const spotify = "podcast" in event.data ? event.data.podcast.spotify : undefined;
+const pocketCasts = "podcast" in event.data ? event.data.podcast.pocketCasts : undefined;
+const youtubeUrl = event.data.youtubeId
+  ? `https://www.youtube.com/watch?v=${event.data.youtubeId}`
+  : undefined;
 ---
 
 <article
@@ -24,22 +37,34 @@ const fullDate = formatEventDate(event.data);
     "last:after:hidden",
   ]}
 >
-  <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4 sm:gap-y-1">
+  <div
+    class="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4 sm:gap-y-1"
+  >
     <time
       datetime={event.data.startDate}
       class="font-mono text-xs font-semibold uppercase tracking-wider text-tokyo-fg-muted sm:text-sm"
     >
       {monthYear}
     </time>
+    <span
+      class:list={[
+        "inline-flex w-fit items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize",
+        isEvent
+          ? "bg-tokyo-cyan/10 text-tokyo-cyan"
+          : "bg-tokyo-purple/10 text-tokyo-purple",
+      ]}
+    >
+      {isEvent ? "Talk" : "Podcast"}
+    </span>
     <a
-      href={event.data.eventHref}
+      href={series.href}
       target="_blank"
       class="text-sm font-medium text-tokyo-fg-muted no-underline transition-colors hover:text-tokyo-blue"
     >
-      {event.data.eventName}
+      {series.name}
     </a>
     {
-      expanded && (
+      isUpcoming && (
         <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-tokyo-cyan/10 px-2.5 py-0.5 text-xs font-semibold text-tokyo-cyan">
           <FontAwesomeIcon icon={faComment} class="text-[0.7em]" />
           Upcoming
@@ -47,6 +72,43 @@ const fullDate = formatEventDate(event.data);
       )
     }
   </div>
+
+  {
+    (spotify || pocketCasts || youtubeUrl) && (
+      <div class="mt-2 flex flex-wrap items-center gap-3">
+        {youtubeUrl && (
+          <a
+            href={youtubeUrl}
+            target="_blank"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-red no-underline transition-colors hover:text-tokyo-cyan"
+          >
+            <FontAwesomeIcon icon={faYoutube} class="text-[0.9em]" />
+            YouTube
+          </a>
+        )}
+        {spotify && (
+          <a
+            href={spotify}
+            target="_blank"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-green no-underline transition-colors hover:text-tokyo-cyan"
+          >
+            <FontAwesomeIcon icon={faSpotify} class="text-[0.9em]" />
+            Spotify
+          </a>
+        )}
+        {pocketCasts && (
+          <a
+            href={pocketCasts}
+            target="_blank"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-orange no-underline transition-colors hover:text-tokyo-cyan"
+          >
+            <FontAwesomeIcon icon={faPodcast} class="text-[0.9em]" />
+            Pocket Casts
+          </a>
+        )}
+      </div>
+    )
+  }
 
   <h3 class="mt-2 text-lg font-bold leading-snug sm:text-xl">
     <a
