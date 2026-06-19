@@ -1,6 +1,6 @@
 ---
 import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faComment, faPodcast } from "@fortawesome/free-solid-svg-icons";
+import { faComment, faPlay, faPodcast } from "@fortawesome/free-solid-svg-icons";
 import { render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
@@ -27,6 +27,7 @@ const pocketCasts = "podcast" in event.data ? event.data.podcast.pocketCasts : u
 const youtubeUrl = event.data.youtubeId
   ? `https://www.youtube.com/watch?v=${event.data.youtubeId}`
   : undefined;
+const actionLink = event.data.link;
 ---
 
 <article
@@ -74,8 +75,18 @@ const youtubeUrl = event.data.youtubeId
   </div>
 
   {
-    (spotify || pocketCasts || youtubeUrl) && (
+    (actionLink || youtubeUrl || spotify || pocketCasts) && (
       <div class="mt-2 flex flex-wrap items-center gap-3">
+        {actionLink && (
+          <a
+            href={actionLink.href}
+            target="_blank"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-tokyo-blue no-underline transition-colors hover:text-tokyo-cyan"
+          >
+            <FontAwesomeIcon icon={faPlay} class="text-[0.9em]" />
+            {actionLink.text}
+          </a>
+        )}
         {youtubeUrl && (
           <a
             href={youtubeUrl}
