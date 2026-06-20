@@ -1,0 +1,86 @@
+---
+import {
+  faBluesky,
+  faGithub,
+  faLinkedin,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope,
+  faGlobe,
+  faMicrophone,
+} from "@fortawesome/free-solid-svg-icons";
+import LinkCard from "../components/LinkCard.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Links | Tyler Benfield">
+  <div class="mx-auto flex max-w-md flex-col items-center">
+    <div class="mb-8 flex flex-col items-center text-center">
+      <div class="relative mb-4 h-24 w-24">
+        <div
+          class="absolute -inset-1 bg-linear-to-br from-tokyo-cyan/40 via-tokyo-blue/25 to-tokyo-purple/40 rounded-full"
+        >
+        </div>
+        <div class="relative overflow-hidden rounded-full">
+          <img
+            class="h-full w-full object-cover"
+            src="/me.webp"
+            alt="Tyler Benfield"
+          />
+        </div>
+      </div>
+      <h1 class="text-2xl font-extrabold tracking-tight">
+        <span class="gradient-text">Tyler Benfield</span>
+      </h1>
+      <p class="mt-2 text-sm text-tokyo-fg-muted">
+        Software Engineer &mdash; Making databases more approachable
+      </p>
+    </div>
+
+    <div class="flex w-full flex-col gap-3">
+      <LinkCard
+        href="https://tylerbenfield.dev"
+        icon={faGlobe}
+        label="Website"
+        description="My personal site"
+      />
+      <LinkCard
+        href="/events"
+        icon={faMicrophone}
+        label="Talks & Podcasts"
+        description="Conference talks and podcast appearances"
+      />
+      <LinkCard
+        href="https://bsky.app/profile/rtbenfield.dev"
+        icon={faBluesky}
+        label="Bluesky"
+        description="@rtbenfield.dev"
+      />
+      <LinkCard
+        href="https://twitter.com/rtbenfield"
+        icon={faXTwitter}
+        label="X (Twitter)"
+        description="@rtbenfield"
+      />
+      <LinkCard
+        href="https://github.com/rtbenfield"
+        icon={faGithub}
+        label="GitHub"
+        description="@rtbenfield"
+      />
+      <LinkCard
+        href="https://www.linkedin.com/in/tylerbenfield/"
+        icon={faLinkedin}
+        label="LinkedIn"
+        description="Tyler Benfield"
+      />
+      <LinkCard
+        href="mailto:tyler@tylerbenfield.me"
+        icon={faEnvelope}
+        label="Email"
+        description="tyler@tylerbenfield.me"
+      />
+    </div>
+  </div>
+</Layout>
