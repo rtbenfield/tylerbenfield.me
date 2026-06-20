@@ -10,53 +10,8 @@ import {
   faGlobe,
   faMicrophone,
 } from "@fortawesome/free-solid-svg-icons";
-import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
+import LinkCard from "../components/LinkCard.astro";
 import Layout from "../layouts/Layout.astro";
-
-const links = [
-  {
-    icon: faGlobe,
-    href: "https://tylerbenfield.me",
-    label: "Website",
-    description: "My personal site",
-  },
-  {
-    icon: faMicrophone,
-    href: "/events",
-    label: "Talks & Podcasts",
-    description: "Conference talks and podcast appearances",
-  },
-  {
-    icon: faBluesky,
-    href: "https://bsky.app/profile/rtbenfield.dev",
-    label: "Bluesky",
-    description: "@rtbenfield.dev",
-  },
-  {
-    icon: faXTwitter,
-    href: "https://twitter.com/rtbenfield",
-    label: "X (Twitter)",
-    description: "@rtbenfield",
-  },
-  {
-    icon: faGithub,
-    href: "https://github.com/rtbenfield",
-    label: "GitHub",
-    description: "@rtbenfield",
-  },
-  {
-    icon: faLinkedin,
-    href: "https://www.linkedin.com/in/tylerbenfield/",
-    label: "LinkedIn",
-    description: "Tyler Benfield",
-  },
-  {
-    icon: faEnvelope,
-    href: "mailto:tyler@tylerbenfield.me",
-    label: "Email",
-    description: "tyler@tylerbenfield.me",
-  },
-];
 ---
 
 <Layout title="Links | Tyler Benfield">
@@ -84,28 +39,48 @@ const links = [
     </div>
 
     <div class="flex w-full flex-col gap-3">
-      {
-        links.map(({ icon, href, label, description }) => (
-          <a
-            href={href}
-            target={href.startsWith("/") ? undefined : "_blank"}
-            rel={href.startsWith("/") ? undefined : "noopener noreferrer"}
-            class="glass gradient-border group flex items-center gap-4 rounded-2xl px-5 py-4 no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_-8px_var(--tokyo-cyan)]"
-          >
-            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tokyo-bg-highlight/50 text-lg text-tokyo-cyan transition-colors group-hover:bg-tokyo-cyan/20">
-              <FontAwesomeIcon icon={icon} />
-            </span>
-            <div class="min-w-0 flex-1">
-              <span class="block font-semibold text-tokyo-fg transition-colors group-hover:text-tokyo-cyan">
-                {label}
-              </span>
-              <span class="block truncate text-sm text-tokyo-fg-dim">
-                {description}
-              </span>
-            </div>
-          </a>
-        ))
-      }
+      <LinkCard
+        href="https://tylerbenfield.dev"
+        icon={faGlobe}
+        label="Website"
+        description="My personal site"
+      />
+      <LinkCard
+        href="/events"
+        icon={faMicrophone}
+        label="Talks & Podcasts"
+        description="Conference talks and podcast appearances"
+      />
+      <LinkCard
+        href="https://bsky.app/profile/rtbenfield.dev"
+        icon={faBluesky}
+        label="Bluesky"
+        description="@rtbenfield.dev"
+      />
+      <LinkCard
+        href="https://twitter.com/rtbenfield"
+        icon={faXTwitter}
+        label="X (Twitter)"
+        description="@rtbenfield"
+      />
+      <LinkCard
+        href="https://github.com/rtbenfield"
+        icon={faGithub}
+        label="GitHub"
+        description="@rtbenfield"
+      />
+      <LinkCard
+        href="https://www.linkedin.com/in/tylerbenfield/"
+        icon={faLinkedin}
+        label="LinkedIn"
+        description="Tyler Benfield"
+      />
+      <LinkCard
+        href="mailto:tyler@tylerbenfield.me"
+        icon={faEnvelope}
+        label="Email"
+        description="tyler@tylerbenfield.me"
+      />
     </div>
   </div>
 </Layout>

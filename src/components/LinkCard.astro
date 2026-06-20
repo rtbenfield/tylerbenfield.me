@@ -1,0 +1,37 @@
+---
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import FontAwesomeIcon from "./FontAwesomeIcon.astro";
+
+interface Props {
+  href: string;
+  icon: IconDefinition;
+  label: string;
+  description: string;
+}
+
+const { href, icon, label, description } = Astro.props;
+const isExternal = !href.startsWith("/");
+---
+
+<a
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+  class="glass gradient-border group flex items-center gap-4 rounded-2xl px-5 py-4 no-underline transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_-8px_var(--tokyo-cyan)]"
+>
+  <span
+    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tokyo-bg-highlight/50 text-lg text-tokyo-cyan transition-colors group-hover:bg-tokyo-cyan/20"
+  >
+    <FontAwesomeIcon icon={icon} />
+  </span>
+  <div class="min-w-0 flex-1">
+    <span
+      class="block font-semibold text-tokyo-fg transition-colors group-hover:text-tokyo-cyan"
+    >
+      {label}
+    </span>
+    <span class="block truncate text-sm text-tokyo-fg-dim">
+      {description}
+    </span>
+  </div>
+</a>
