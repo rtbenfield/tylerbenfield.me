@@ -1,16 +1,22 @@
 ---
 import { faSpotify, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faPodcast } from "@fortawesome/free-solid-svg-icons";
-import { getEntry, render } from "astro:content";
+import { getCollection, render } from "astro:content";
 import FontAwesomeIcon from "../../components/FontAwesomeIcon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { formatEventDate } from "../../lib/format-event-date";
 
-const { slug } = Astro.params;
-const event = await getEntry("events", slug!);
-if (!event) {
-  return new Response(null, { status: 404 });
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const events = await getCollection("events");
+  return events.map((event) => ({
+    params: { slug: event.id },
+    props: { event },
+  }));
 }
+
+const { event } = Astro.props;
 const { Content } = await render(event);
 const fullDate = formatEventDate(event.data);
 const series = "event" in event.data ? event.data.event : event.data.podcast;
