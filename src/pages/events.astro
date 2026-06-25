@@ -1,6 +1,8 @@
 ---
+import { faEnvelope, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { getCollection } from "astro:content";
 import EventTimelineEntry from "../components/EventTimelineEntry.astro";
+import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
 import Layout from "../layouts/Layout.astro";
 
 const entries = await getCollection("events");
@@ -10,6 +12,13 @@ const sorted = [...entries].sort((a, b) =>
 );
 
 const isUpcoming = (startDate: string) => startDate >= today;
+
+const topics = [
+  "Distributed systems",
+  "Platform engineering",
+  "Databases",
+  "Agentic engineering",
+];
 ---
 
 <Layout title="Talks & Podcasts | Tyler Benfield">
@@ -42,4 +51,35 @@ const isUpcoming = (startDate: string) => startDate >= today;
       </section>
     )
   }
+
+  <section class="mt-20 lg:mt-28">
+    <div class="glass gradient-border rounded-3xl p-6 sm:p-10 lg:p-12">
+      <div class="mb-6 flex items-center gap-3">
+        <FontAwesomeIcon icon={faMicrophone} class="text-2xl text-tokyo-purple" />
+        <h2 class="text-2xl font-bold tracking-tight">Invite me to speak</h2>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-tokyo-fg-muted">
+        I'm always open to speaking at conferences, meetups, and podcasts. My
+        talks draw from hands-on experience building and scaling real systems —
+        practical lessons rather than theoretical overviews. I most often speak
+        on:
+      </p>
+      <ul class="mb-8 flex flex-wrap gap-3">
+        {
+          topics.map((topic) => (
+            <li class="rounded-full border border-tokyo-purple/30 bg-tokyo-purple/10 px-4 py-1.5 text-sm font-semibold text-tokyo-purple">
+              {topic}
+            </li>
+          ))
+        }
+      </ul>
+      <a
+        href="mailto:tyler@tylerbenfield.me?subject=Speaking%20Inquiry"
+        class="inline-flex items-center gap-2 rounded-full bg-tokyo-purple px-8 py-4 font-semibold text-tokyo-bg no-underline shadow-[0_0_30px_-8px_var(--tokyo-purple)] transition-all hover:-translate-y-0.5 hover:bg-tokyo-light-cyan hover:shadow-[0_0_40px_-6px_var(--tokyo-purple)]"
+      >
+        <FontAwesomeIcon icon={faEnvelope} />
+        Get in touch
+      </a>
+    </div>
+  </section>
 </Layout>
