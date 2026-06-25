@@ -37,32 +37,16 @@ const topics = [
     </p>
   </header>
 
-  {
-    sorted.length > 0 && (
-      <section>
-        <div class="flex flex-col gap-10">
-          {sorted.map((entry) => (
-            <EventTimelineEntry
-              event={entry}
-              expanded={isUpcoming(entry.data.startDate)}
-            />
-          ))}
-        </div>
-      </section>
-    )
-  }
-
-  <section class="mt-20 lg:mt-28">
+  <section class="mb-12 lg:mb-16">
     <div class="glass gradient-border rounded-3xl p-6 sm:p-10 lg:p-12">
       <div class="mb-6 flex items-center gap-3">
         <FontAwesomeIcon icon={faMicrophone} class="text-2xl text-tokyo-purple" />
         <h2 class="text-2xl font-bold tracking-tight">Invite me to speak</h2>
       </div>
       <p class="mb-6 text-lg leading-relaxed text-tokyo-fg-muted">
-        I'm always open to speaking at conferences, meetups, and podcasts. My
-        talks draw from hands-on experience building and scaling real systems —
-        practical lessons rather than theoretical overviews. I most often speak
-        on:
+        Hosting a conference, meetup, or podcast? I'd love to join you. I speak
+        from hands-on experience building real systems, with a focus on making
+        complex topics practical and accessible. Topics I cover include:
       </p>
       <ul class="mb-8 flex flex-wrap gap-3">
         {
@@ -82,4 +66,19 @@ const topics = [
       </a>
     </div>
   </section>
+
+  {
+    sorted.length > 0 && (
+      <section>
+        <div class="flex flex-col gap-10">
+          {sorted.map((entry) => (
+            <EventTimelineEntry
+              event={entry}
+              expanded={isUpcoming(entry.data.startDate)}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
 </Layout>
