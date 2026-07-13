@@ -1,7 +1,7 @@
 // oxlint-disable-next-line typescript/triple-slash-reference
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
-type Runtime = import("@astrojs/cloudflare").DirectoryRuntime<Env>;
+type Runtime = import("@astrojs/node").DirectoryRuntime<Env>;
 declare namespace App {
   interface Locals extends Runtime {}
 }

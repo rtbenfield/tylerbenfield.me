@@ -2,6 +2,7 @@
   "name": "@rtbenfield/website",
   "version": "0.0.1",
   "type": "module",
+  "packageManager": "pnpm@11.6.0",
   "scripts": {
     "astro": "astro",
     "dev": "astro dev",
@@ -11,11 +12,12 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
-    "lint:fix": "oxlint --fix"
+    "lint:fix": "oxlint --fix",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/cloudflare": "^13.7.0",
+    "@astrojs/node": "^11.0.2",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource/inter": "^5.2.8",
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
@@ -28,9 +30,9 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260619.1",
+    "@prisma/compute-sdk": "^0.34.0",
     "oxfmt": "^0.55.0",
     "oxlint": "^1.70.0",
     "wrangler": "^4.103.0"
-  },
-  "packageManager": "pnpm@11.6.0"
+  }
 }
