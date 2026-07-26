@@ -50,8 +50,8 @@ importers:
         specifier: ^4.20260702.1
         version: 4.20260702.1
       '@prisma/compute-sdk':
-        specifier: ^0.34.0
-        version: 0.34.0(@prisma/management-api-sdk@1.47.0)(rollup@4.62.2)
+        specifier: ^0.38.0
+        version: 0.38.0(@prisma/management-api-sdk@1.47.0)(rollup@4.62.2)
       oxfmt:
         specifier: ^0.60.0
         version: 0.60.0
@@ -989,8 +989,8 @@ packages:
   '@poppinss/exception@1.2.3':
     resolution: {integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==}
 
-  '@prisma/compute-sdk@0.34.0':
-    resolution: {integrity: sha512-AmVOQIsct2eNJvm2SRx1Ut90/FzHdEG17SqdcvrhJLW1Zj0lGGBcxfp93evMoeP3KdReoV9gnmtDxfq3mI2z0Q==}
+  '@prisma/compute-sdk@0.38.0':
+    resolution: {integrity: sha512-FioIslsn93n4gFB9UjS8W6gpbV0S2chNwjrjjq3LDKBV7lSkCeO44yFuc+UIUu6EqTonWsQ/1bmqcYPYkX4Cuw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@prisma/management-api-sdk': ^1.44.0
@@ -3551,7 +3551,7 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
-  '@prisma/compute-sdk@0.34.0(@prisma/management-api-sdk@1.47.0)(rollup@4.62.2)':
+  '@prisma/compute-sdk@0.38.0(@prisma/management-api-sdk@1.47.0)(rollup@4.62.2)':
     dependencies:
       '@prisma/management-api-sdk': 1.47.0
       '@vercel/nft': 1.10.2(rollup@4.62.2)
