@@ -7,7 +7,7 @@ export default defineComputeConfig({
     env: {
       vars: {
         HOST: "0.0.0.0",
-      }
-    }
+      },
+    },
   },
 });

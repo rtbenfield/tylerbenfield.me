@@ -15,16 +15,12 @@ export const GET: APIRoute = async ({ params }) => {
     return new Response("Not found", { status: 404 });
   }
 
-  const venue =
-    "event" in event.data ? event.data.event.name : event.data.podcast.name;
-  const venueHref =
-    "event" in event.data ? event.data.event.href : event.data.podcast.href;
+  const venue = "event" in event.data ? event.data.event.name : event.data.podcast.name;
+  const venueHref = "event" in event.data ? event.data.event.href : event.data.podcast.href;
 
   const linkLines: string[] = [];
   if (event.data.youtubeId) {
-    linkLines.push(
-      `- [YouTube](https://www.youtube.com/watch?v=${event.data.youtubeId})`,
-    );
+    linkLines.push(`- [YouTube](https://www.youtube.com/watch?v=${event.data.youtubeId})`);
   }
   if ("podcast" in event.data) {
     if (event.data.podcast.spotify) {
