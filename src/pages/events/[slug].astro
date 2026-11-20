@@ -127,6 +127,22 @@ const youtubeUrl = event.data.youtubeId
     }
 
     {
+      pocketCasts && (
+        <div class="mt-10">
+          <div class="w-full overflow-hidden rounded-2xl gradient-border glass">
+            <iframe
+              class="h-[200px] w-full"
+              src={pocketCasts.replace("https://pca.st/", "https://pca.st/embed/")}
+              title={`${event.data.title} on Pocket Casts`}
+              loading="lazy"
+              allow="clipboard-write; encrypted-media"
+            />
+          </div>
+        </div>
+      )
+    }
+
+    {
       event.data.link && (
         <div class="mt-10">
           <a
