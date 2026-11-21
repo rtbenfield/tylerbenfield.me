@@ -1,6 +1,8 @@
 import { module } from "@prisma/composer";
-import website from "./service.ts";
+import { publicUrl } from "@prisma/composer-prisma-cloud";
+import websiteService from "./service.ts";
 
-export default module("tylerbenfield-dev", ({ provision }) => {
-  provision(website);
+export default module("tylerbenfield", ({ provision }) => {
+  const website = provision(websiteService);
+  provision(publicUrl({ id: "site", url: "tylerbenfield.dev", target: website.http }));
 });
