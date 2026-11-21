@@ -2,13 +2,10 @@
   "name": "@rtbenfield/website",
   "version": "0.0.1",
   "type": "module",
-  "packageManager": "pnpm@12.21.0",
   "scripts": {
     "astro": "astro",
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "deploy": "wrangler deploy",
-    "build-cf-types": "wrangler types",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
@@ -32,7 +29,16 @@
     "@cloudflare/workers-types": "^5.20261120.1",
     "@prisma/compute-sdk": "^0.44.0",
     "oxfmt": "^0.79.0",
-    "oxlint": "^1.94.0",
-    "wrangler": "^4.165.0"
+    "oxlint": "^1.94.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "bun",
+      "version": "1.4.4"
+    },
+    "runtime": {
+      "name": "bun",
+      "version": ">=1.4.4"
+    }
   }
 }
