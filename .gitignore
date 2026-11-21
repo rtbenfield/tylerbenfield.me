@@ -4,6 +4,10 @@ dist/
 # generated types
 .astro/
 
+# local Prisma Composer state
+.prisma-composer/
+.alchemy/
+
 # dependencies
 node_modules/
 
