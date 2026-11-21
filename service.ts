@@ -8,5 +8,6 @@ export default compute({
     module: import.meta.url,
     dir: "dist",
     entry: "server/entry.mjs",
+    dependencies: "external",
   }),
 });
