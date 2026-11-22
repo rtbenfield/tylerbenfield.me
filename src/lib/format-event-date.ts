@@ -25,7 +25,8 @@ function parseISO(date: string): Date {
 
 function formatDateRange(start: Date, end: Date): string {
   const sameYear = yearFormatter.format(start) === yearFormatter.format(end);
-  const sameMonth = sameYear && monthFormatter.format(start) === monthFormatter.format(end);
+  const sameMonth =
+    sameYear && monthFormatter.format(start) === monthFormatter.format(end);
   const sameDay = start.getTime() === end.getTime();
 
   if (sameDay) {

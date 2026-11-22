@@ -5,7 +5,9 @@ export const GET: APIRoute = async () => {
   const events = await getCollection("events");
 
   const sortedEvents = [...events].sort(
-    (a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime(),
+    (a, b) =>
+      new Date(b.data.startDate).getTime() -
+      new Date(a.data.startDate).getTime(),
   );
 
   const lines: string[] = [
@@ -26,8 +28,11 @@ export const GET: APIRoute = async () => {
 
   for (const event of sortedEvents) {
     const url = `https://tylerbenfield.dev/events/${event.id}`;
-    const venue = "event" in event.data ? event.data.event.name : event.data.podcast.name;
-    lines.push(`- [${event.data.title}](${url}) — ${venue} (${event.data.startDate})`);
+    const venue =
+      "event" in event.data ? event.data.event.name : event.data.podcast.name;
+    lines.push(
+      `- [${event.data.title}](${url}) — ${venue} (${event.data.startDate})`,
+    );
   }
 
   lines.push(

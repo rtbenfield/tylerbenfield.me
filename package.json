@@ -6,8 +6,8 @@
     "astro": "astro",
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check",
+    "fmt": "bun fmt",
+    "fmt:check": "bun fmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "tsc": "tsc"
@@ -30,7 +30,6 @@
     "@prisma/composer": "0.39.0",
     "@prisma/composer-prisma-cloud": "0.39.0",
     "@prisma/compute-sdk": "^0.44.0",
-    "oxfmt": "^0.79.0",
     "oxlint": "^1.94.0",
     "prisma": "8.0.0-rc.34"
   },
