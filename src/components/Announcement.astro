@@ -1,20 +1,24 @@
 ---
-
+// Hide the banner once the talk is over (end of Dec 4 in Vilnius).
+const expiresAt = new Date("2026-12-04T22:00:00Z");
+const show = new Date() < expiresAt;
 ---
 
-<div
-  class="relative overflow-hidden bg-linear-to-r from-tokyo-purple via-tokyo-blue to-tokyo-cyan px-4 py-2.5 text-center text-sm font-semibold text-tokyo-bg"
->
-  <span class="relative z-10">
-    Catch my next talk at <a
-      href="https://blog.carolina.codes/i/198567929/tyler-benfield-charlotte-nc"
-      target="_blank"
-      class="font-bold text-tokyo-bg underline decoration-2 underline-offset-2 hover:text-tokyo-bg/80"
-      >Carolina Codes</a
-    > on August 14-15 in Greenville, SC!
-  </span>
-  <div
-    class="absolute inset-0 -translate-x-full animate-shimmer bg-linear-to-r from-transparent via-white/25 to-transparent"
-  >
-  </div>
-</div>
+{
+  show && (
+    <div class="relative overflow-hidden bg-linear-to-r from-tokyo-purple via-tokyo-blue to-tokyo-cyan px-4 py-2.5 text-center text-sm font-semibold text-tokyo-bg">
+      <span class="relative z-10">
+        Catch my next talk at{" "}
+        <a
+          href="https://buildstuff.events/"
+          target="_blank"
+          class="font-bold text-tokyo-bg underline decoration-2 underline-offset-2 hover:text-tokyo-bg/80"
+        >
+          Build Stuff
+        </a>{" "}
+        on December 4 in Vilnius, Lithuania!
+      </span>
+      <div class="absolute inset-0 -translate-x-full animate-shimmer bg-linear-to-r from-transparent via-white/25 to-transparent" />
+    </div>
+  )
+}

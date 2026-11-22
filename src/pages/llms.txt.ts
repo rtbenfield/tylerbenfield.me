@@ -11,7 +11,7 @@ export const GET: APIRoute = async () => {
   const lines: string[] = [
     "# Tyler Benfield",
     "",
-    "> Software engineer focused on making databases and data-driven applications more approachable through education and tooling. Over 10 years of experience in consulting, startups, and large organizations. Staff Software Engineer at Prisma.",
+    "> Platform Architect at Prisma focused on making databases and data-driven applications more approachable through education and tooling. Over 15 years of experience in consulting, startups, and large organizations.",
     "",
     "## Pages",
     "",
